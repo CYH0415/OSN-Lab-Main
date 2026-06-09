@@ -1,0 +1,742 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Question Graph Preview</title>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #ffffff;
+      --ink: #1f2933;
+      --muted: #657482;
+      --line: #d8dee6;
+      --accent: #146c94;
+      --accent-soft: #d9edf5;
+      --root: #156f5b;
+      --root-soft: #dff3ed;
+      --warn: #9a5b00;
+      --warn-soft: #fff1cf;
+      --shadow: 0 10px 30px rgba(31, 41, 51, 0.09);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+    }
+
+    .app {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 380px;
+      min-height: 100vh;
+    }
+
+    header {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 18px;
+      background: var(--panel);
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      z-index: 5;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: 0;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .toolbar {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    input, select, button {
+      font: inherit;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 6px;
+      height: 34px;
+    }
+
+    input[type="search"] {
+      width: 260px;
+      padding: 0 10px;
+    }
+
+    select { padding: 0 8px; }
+
+    button {
+      padding: 0 10px;
+      cursor: pointer;
+    }
+
+    button.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .zoom-control {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      height: 34px;
+      padding: 0 8px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .zoom-control button {
+      width: 26px;
+      height: 26px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+    }
+
+    .zoom-control input[type="range"] {
+      width: 120px;
+      height: 24px;
+      accent-color: var(--accent);
+    }
+
+    .zoom-value {
+      min-width: 42px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    main {
+      min-width: 0;
+      padding: 16px;
+      overflow: auto;
+    }
+
+    aside {
+      border-left: 1px solid var(--line);
+      background: var(--panel);
+      padding: 16px;
+      overflow: auto;
+      max-height: calc(100vh - 63px);
+      position: sticky;
+      top: 63px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .stat {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      box-shadow: 0 1px 3px rgba(31, 41, 51, 0.04);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .graph {
+      position: relative;
+      min-width: 640px;
+      min-height: 160px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .graph-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform-origin: 0 0;
+    }
+
+    svg.edges {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+
+    .node {
+      position: absolute;
+      width: 320px;
+      min-height: 112px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(31, 41, 51, 0.08);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .node.root {
+      border-color: #8ccbbb;
+      background: var(--root-soft);
+    }
+
+    .node.selected {
+      outline: 3px solid rgba(20, 108, 148, 0.25);
+      border-color: var(--accent);
+    }
+
+    .node.dimmed {
+      opacity: 0.25;
+    }
+
+    .node-text {
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 650;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .badges {
+      display: flex;
+      gap: 5px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 11px;
+      border-radius: 999px;
+      padding: 2px 7px;
+      background: #eef2f6;
+      color: var(--muted);
+    }
+
+    .badge.root {
+      background: var(--root-soft);
+      color: var(--root);
+    }
+
+    .edge {
+      stroke: #93a4b5;
+      stroke-width: 1.6;
+      fill: none;
+    }
+
+    .edge.highlight {
+      stroke: var(--accent);
+      stroke-width: 3;
+    }
+
+    .edge-label {
+      font-size: 11px;
+      fill: #52616f;
+      paint-order: stroke;
+      stroke: #fff;
+      stroke-width: 5px;
+      stroke-linejoin: round;
+    }
+
+    .edge-label.highlight {
+      fill: var(--accent);
+      font-weight: 650;
+    }
+
+    .detail-empty {
+      color: var(--muted);
+      padding: 18px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+    }
+
+    .detail h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+    }
+
+    .detail .qid {
+      color: var(--muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11px;
+      overflow-wrap: anywhere;
+      margin-bottom: 14px;
+    }
+
+    .option {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .option-name {
+      font-weight: 650;
+      margin-bottom: 6px;
+    }
+
+    .child-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .child-list li {
+      margin: 4px 0;
+      cursor: pointer;
+    }
+
+    .warning {
+      border: 1px solid #f0ce80;
+      background: var(--warn-soft);
+      color: var(--warn);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 1050px) {
+      .app { grid-template-columns: 1fr; }
+      aside {
+        position: static;
+        max-height: none;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      header { align-items: flex-start; flex-wrap: wrap; }
+      .toolbar { margin-left: 0; width: 100%; flex-wrap: wrap; }
+      input[type="search"] { width: min(100%, 320px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div>
+        <h1>Question Graph Preview</h1>
+        <div class="meta">/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph.json</div>
+      </div>
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="Search question text or id">
+        <select id="depthFilter" title="Depth filter"></select>
+        <div class="zoom-control" aria-label="Graph zoom">
+          <button id="zoomOut" type="button" title="Zoom out">-</button>
+          <input id="zoomRange" type="range" min="5" max="150" step="5" value="100" title="Zoom">
+          <button id="zoomIn" type="button" title="Zoom in">+</button>
+          <span id="zoomValue" class="zoom-value">100%</span>
+        </div>
+        <button id="fit">Fit</button>
+        <button id="resetZoom">100%</button>
+        <button id="showRoots">Roots</button>
+      </div>
+    </header>
+    <main>
+      <div class="stats" id="stats"></div>
+      <div class="graph" id="graph">
+        <div class="graph-content" id="graphContent">
+          <svg class="edges" id="edges" aria-hidden="true">
+            <defs>
+              <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#93a4b5"></path>
+              </marker>
+              <marker id="arrowHighlight" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L9,3 z" fill="#146c94"></path>
+              </marker>
+            </defs>
+          </svg>
+        </div>
+      </div>
+    </main>
+    <aside>
+      <div id="detail" class="detail-empty">Select a node to inspect its options and children.</div>
+    </aside>
+  </div>
+  <script>
+    const model = {"generatedAt":"2026-06-09T05:39:09.331Z","sourceUrl":"https://play.google.com/console/u/0/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire","category":"Game","conflicts":[],"roots":["does_the_game_contain_inferences_of_references_to_or_dep_a60327ce","does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8","does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf","does_the_game_contain_gambling_simulations_of_casino_gam_251e14df","does_the_game_contain_any_potentially_offensive_language_3a42be1b","does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced","does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc","does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09","does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","does_the_game_share_the_user_s_current_and_precise_physi_9a758681","does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d","does_the_game_contain_any_content_that_can_substantially_0e8549e7","does_the_game_advocate_committing_acts_of_terrorism_e10f0658","does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535"],"nodes":[{"id":"does_the_game_contain_inferences_of_references_to_or_dep_a60327ce","shortId":"does the game contain inferences of references to or d","text":"Does the game contain inferences of, references to, or depictions of violence, blood, or gory images? This includes violence directed at the player's character. Please note that this question does not refer to user-generated content.","type":"radio","order":0,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_a0533f3c"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8","shortId":"does the game contain pictures or sounds likely to be ","text":"Does the game contain pictures or sounds likely to be scary, horrifying, or disturbing? Please note that this question does not refer to user-generated content.","type":"radio","order":1,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_a522854d"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf","shortId":"does the game contain inferences of references to or d","text":"Does the game contain inferences of, references to, or depictions of sexuality, sexual violence, suggestiveness, dating games, revealing attire, or nudity? Please note that this question does not refer to user-generated content.","type":"radio","order":2,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_768feb67"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_gambling_simulations_of_casino_gam_251e14df","shortId":"does the game contain gambling simulations of casino g","text":"Does the game contain gambling, simulations of casino gambling/bingo, or gambling themes? Please note that this question does not refer to user-generated content.","type":"radio","order":3,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_a17b785f"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_any_potentially_offensive_language_3a42be1b","shortId":"does the game contain any potentially offensive langua","text":"Does the game contain any potentially offensive language? Please note that this question does not refer to user-generated content.","type":"radio","order":4,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_500aa428"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced","shortId":"does the game contain any reference to or use of drugs","text":"Does the game contain any reference to or use of drugs, alcohol, or tobacco? Please note that this question does not refer to user-generated content.","type":"radio","order":5,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_ba1c8db3"]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc","shortId":"does the game contain any bodily functions such as bel","text":"Does the game contain any bodily functions such as belching, flatulence, or vomiting when used for humorous purposes? Please note that this question does not refer to user-generated content.","type":"radio","order":6,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1"]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09","shortId":"does the game include the purchase or sale of digital ","text":"Does the game include the purchase or sale of digital goods, cash rewards, gift cards, play-to-earn features, convertible cryptocurrency rewards, or the issuance of transferable digital assets (e.g., NFTs)?","type":"radio","order":7,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":1,"incomingCount":0,"options":[{"label":"Yes","children":["please_select_all_that_the_game_includes_4e162967"]},{"label":"No","children":[]}]},{"id":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","shortId":"does the game natively allow users to interact or exch","text":"Does the game natively allow users to interact or exchange content with other users through voice communication, text, or sharing images or audio?","type":"radio","order":8,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":4,"incomingCount":0,"options":[{"label":"Yes","children":["does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61","does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc","does_the_game_include_chat_moderation_f5949739","can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62"]},{"label":"No","children":[]}]},{"id":"does_the_game_share_the_user_s_current_and_precise_physi_9a758681","shortId":"does the game share the user s current and precise phy","text":"Does the game share the user's current and precise physical location with other users?","type":"radio","order":9,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":0,"incomingCount":0,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d","shortId":"does the game contain any swastikas other nazi symbols","text":"Does the game contain any swastikas, other Nazi symbols or propaganda deemed unconstitutional in Germany?","type":"radio","order":10,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":0,"incomingCount":0,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_any_content_that_can_substantially_0e8549e7","shortId":"does the game contain any content that can substantial","text":"Does the game contain any content that can substantially erode the national identity of the Republic of Korea by describing anti-national acts or distorting historical facts?","type":"radio","order":11,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":0,"incomingCount":0,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_advocate_committing_acts_of_terrorism_e10f0658","shortId":"does the game advocate committing acts of terrorism","text":"Does the game advocate committing acts of terrorism?","type":"radio","order":12,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":0,"incomingCount":0,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535","shortId":"does the game contain realistic descriptions of crimes","text":"Does the game contain realistic descriptions of crimes (e.g., robbery, kidnapping) or techniques that can be used in criminal offenses?","type":"radio","order":13,"depth":0,"isRoot":true,"optionCount":2,"outgoingCount":2,"incomingCount":0,"options":[{"label":"Yes","children":["are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a","are_there_detailed_descriptions_of_techniques_that_could_207c80c9"]},{"label":"No","children":[]}]},{"id":"please_select_all_that_the_game_includes_a0533f3c","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":14,"depth":1,"isRoot":false,"optionCount":4,"outgoingCount":18,"incomingCount":1,"options":[{"label":"Violence or implied violence against humans","children":["in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","does_the_game_have_a_pixelated_or_childlike_style_df8228d5","how_would_you_describe_the_reactions_to_violence_f4f3f14a","how_is_this_violence_presented_in_the_game_d6f09ae3","what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44","can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b","are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f"]},{"label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)","children":["in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","does_the_game_have_a_pixelated_or_childlike_style_7003dd1d","how_would_you_describe_the_reactions_to_violence_f4f3f14a","how_is_this_violence_presented_in_the_game_0a118a0a","what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a","is_any_of_this_violence_against_real_world_animals_6fc80a86","are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f"]},{"label":"Disturbing or gory images without a violent act shown.","children":["how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158"]},{"label":"Blood that isn't directly related to a violent act (e.g., blood on clothing, blood in the background, blood resulting from performing surgery)","children":["what_best_describes_this_type_of_blood_in_the_game_7ee8e188"]}]},{"id":"in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","shortId":"in what kind of setting context storyline does the vio","text":"In what kind of setting (context, storyline) does the violence occur?","type":"radio","order":15,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":2,"options":[{"label":"Fantastical","children":[]},{"label":"Realistic","children":[]}]},{"id":"does_the_game_have_a_pixelated_or_childlike_style_df8228d5","shortId":"does the game have a pixelated or childlike style","text":"Does the game have a pixelated or childlike style?","type":"radio","order":16,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes, it has a childlike style (e.g., likely to appeal to younger children)","children":[]},{"label":"Yes, it has a pixelated style","children":[]},{"label":"No","children":[]}]},{"id":"how_would_you_describe_the_reactions_to_violence_f4f3f14a","shortId":"how would you describe the reactions to violence","text":"How would you describe the reactions to violence?","type":"radio","order":17,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":2,"options":[{"label":"Unrealistic","children":[]},{"label":"Realistic","children":[]}]},{"id":"how_is_this_violence_presented_in_the_game_d6f09ae3","shortId":"how is this violence presented in the game","text":"How is this violence presented in the game?","type":"checkbox","order":18,"depth":2,"isRoot":false,"optionCount":6,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Referred to","children":[]},{"label":"Implied but not seen","children":[]},{"label":"Rarely depicted from a distant perspective","children":[]},{"label":"Often depicted from a distant perspective","children":[]},{"label":"Rarely depicted from a close-up perspective","children":[]},{"label":"Often depicted from a close-up perspective","children":[]}]},{"id":"what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","shortId":"what is the level of blood and or gore associated with","text":"What is the level of blood and/or gore associated with this violence?","type":"radio","order":19,"depth":2,"isRoot":false,"optionCount":4,"outgoingCount":0,"incomingCount":2,"options":[{"label":"None","children":[]},{"label":"Mild/Limited","children":[]},{"label":"Moderate","children":[]},{"label":"High","children":[]}]},{"id":"does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44","shortId":"does the game take place in a realistic or historical ","text":"Does the game take place in a realistic or historical war setting?","type":"radio","order":20,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b","shortId":"can innocent or defenseless characters be seriously in","text":"Can innocent or defenseless characters be seriously injured or killed?","type":"radio","order":21,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":0,"incomingCount":1,"options":[{"label":"No","children":[]},{"label":"Yes, with penalties","children":[]},{"label":"Yes, without penalties","children":[]}]},{"id":"are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f","shortId":"are there any fierce sounds sinister or intimidating c","text":"Are there any fierce sounds, sinister or intimidating characters, or dark overtones associated with this violence?","type":"radio","order":22,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":2,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_have_a_pixelated_or_childlike_style_7003dd1d","shortId":"does the game have a pixelated or childlike style","text":"Does the game have a pixelated or childlike style?","type":"radio","order":23,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"how_is_this_violence_presented_in_the_game_0a118a0a","shortId":"how is this violence presented in the game","text":"How is this violence presented in the game?","type":"checkbox","order":24,"depth":2,"isRoot":false,"optionCount":5,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Referred to","children":[]},{"label":"Rarely depicted from a distant perspective","children":[]},{"label":"Often depicted from a distant perspective","children":[]},{"label":"Rarely depicted from a close-up perspective","children":[]},{"label":"Often depicted from a close-up perspective","children":[]}]},{"id":"do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a","shortId":"do any of these creatures behave or respond like human","text":"Do any of these creatures behave or respond like humans?","type":"radio","order":25,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"is_any_of_this_violence_against_real_world_animals_6fc80a86","shortId":"is any of this violence against real world animals","text":"Is any of this violence against real-world animals?","type":"radio","order":26,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158","shortId":"how explicitly depicted are these disturbing or gory i","text":"How explicitly depicted are these disturbing or gory images?","type":"radio","order":27,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Limited Detail","children":[]},{"label":"Moderate Detail","children":[]},{"label":"Graphic Detail","children":[]}]},{"id":"what_best_describes_this_type_of_blood_in_the_game_7ee8e188","shortId":"what best describes this type of blood in the game","text":"What best describes this type of blood in the game:","type":"radio","order":28,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Small and infrequent","children":[]},{"label":"Large or frequent","children":[]}]},{"id":"please_select_all_that_the_game_includes_a522854d","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":29,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":2,"incomingCount":1,"options":[{"label":"Scary elements","children":["how_frequent_are_the_scary_elements_71813163"]},{"label":"Horrifying elements","children":["how_frequent_are_the_horrifying_elements_793da69a"]}]},{"id":"how_frequent_are_the_scary_elements_71813163","shortId":"how frequent are the scary elements","text":"How frequent are the scary elements?","type":"radio","order":30,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rare","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequent_are_the_horrifying_elements_793da69a","shortId":"how frequent are the horrifying elements","text":"How frequent are the horrifying elements?","type":"radio","order":31,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":1,"incomingCount":1,"options":[{"label":"Rare","children":[]},{"label":"Often","children":["is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6"]}]},{"id":"is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6","shortId":"is there an intense and unrelenting sense of imminent ","text":"Is there an intense and unrelenting sense of imminent threat?","type":"radio","order":32,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"please_select_all_that_the_game_includes_768feb67","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":33,"depth":1,"isRoot":false,"optionCount":5,"outgoingCount":8,"incomingCount":1,"options":[{"label":"Sexual Activity - Includes both moving and still images of sexual activity","children":["how_often_do_sexual_acts_occur_7a0c9886","what_is_the_duration_of_these_scenes_ebc5ddb7","how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8","do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50"]},{"label":"Suggestive/Sexual Themes or References","children":["how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1"]},{"label":"Dating Games - Interactive dating, marriage, or other romantic relationships between game characters","children":["are_these_dating_games_prominently_featured_or_a_strong__aaafc141"]},{"label":"Nudity or Revealing Outfits","children":["please_select_all_that_the_game_includes_c2929670"]},{"label":"Depictions of or References to Sexual Violence","children":["how_is_the_sexual_violence_in_the_game_presented_1aa9d746"]}]},{"id":"how_often_do_sexual_acts_occur_7a0c9886","shortId":"how often do sexual acts occur","text":"How often do sexual acts occur?","type":"radio","order":34,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"what_is_the_duration_of_these_scenes_ebc5ddb7","shortId":"what is the duration of these scenes","text":"What is the duration of these scenes?","type":"radio","order":35,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Brief","children":[]},{"label":"Prolonged","children":[]}]},{"id":"how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8","shortId":"how would you describe the depiction of these scenes p","text":"How would you describe the depiction of these scenes? Please check all that apply.","type":"checkbox","order":36,"depth":2,"isRoot":false,"optionCount":4,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Obscured/Innuendo - Sex act is either entirely off-camera or completely blocked from view","children":[]},{"label":"Shown with No Nudity - Characters are depicted in a sexual act but no nudity is shown","children":[]},{"label":"Shown with Partial Nudity - Breasts, Buttocks","children":[]},{"label":"Shown with Full Frontal Nudity","children":[]}]},{"id":"do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50","shortId":"do any of these sex acts feature characters that appea","text":"Do any of these sex acts feature characters that appear to be younger than 18?","type":"radio","order":37,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1","shortId":"how would you describe the suggestive sexual themes co","text":"How would you describe the suggestive/sexual themes contained in the game? Please check all that apply.","type":"checkbox","order":38,"depth":2,"isRoot":false,"optionCount":5,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Suggestive references and innuendo in text, dialogue, or heard","children":[]},{"label":"Overtly sexual situations or visually depicted innuendo","children":[]},{"label":"References to sexual activity without descriptive detail","children":[]},{"label":"References to sexual activity with descriptive detail","children":[]},{"label":"Sexual situations involving those who appear to be under 18","children":[]}]},{"id":"are_these_dating_games_prominently_featured_or_a_strong__aaafc141","shortId":"are these dating games prominently featured or a stron","text":"Are these dating games prominently featured or a strong focus of the product?","type":"radio","order":39,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"please_select_all_that_the_game_includes_c2929670","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":40,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":5,"incomingCount":1,"options":[{"label":"Revealing Outfits","children":["how_frequently_are_revealing_outfits_depicted_dbabdf26","are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0","do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5"]},{"label":"Nudity","children":["please_select_all_that_the_game_includes_44d3634e","is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959"]}]},{"id":"how_frequently_are_revealing_outfits_depicted_dbabdf26","shortId":"how frequently are revealing outfits depicted","text":"How frequently are revealing outfits depicted?","type":"radio","order":41,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0","shortId":"are these revealing outfits ever depicted in an erotic","text":"Are these revealing outfits ever depicted in an erotic or provocative setting or context?","type":"radio","order":42,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5","shortId":"do these outfits ever appear to be out of place such a","text":"Do these outfits ever appear to be out-of-place, such as a bikini worn on the battlefield or solely wearing undergarments in public?","type":"radio","order":43,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"please_select_all_that_the_game_includes_44d3634e","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":44,"depth":3,"isRoot":false,"optionCount":5,"outgoingCount":5,"incomingCount":1,"options":[{"label":"Human Buttocks","children":["how_frequently_do_the_human_buttocks_appear_6198e796"]},{"label":"Nipple-less Breasts or Breasts with Minimal Coverage, e.g., pasties, long hair","children":["how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0"]},{"label":"Female Fantasy Creatures' Breasts, e.g., harpies","children":["how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f"]},{"label":"Female Human Breasts with Nipples","children":["how_frequently_do_the_female_human_breasts_with_nipples__163e9d54"]},{"label":"Genitalia","children":["how_frequently_does_the_genitalia_appear_6e9bbba6"]}]},{"id":"is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959","shortId":"is any of this content in an erotic provocative settin","text":"Is any of this content in an erotic, provocative setting or context?","type":"radio","order":45,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"how_frequently_do_the_human_buttocks_appear_6198e796","shortId":"how frequently do the human buttocks appear","text":"How frequently do the human buttocks appear?","type":"radio","order":46,"depth":4,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0","shortId":"how frequently do the nipple less breasts appear","text":"How frequently do the nipple-less breasts appear?","type":"radio","order":47,"depth":4,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f","shortId":"how frequently do the fantasy creatures breasts appear","text":"How frequently do the fantasy creatures' breasts appear?","type":"radio","order":48,"depth":4,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_do_the_female_human_breasts_with_nipples__163e9d54","shortId":"how frequently do the female human breasts with nipple","text":"How frequently do the female human breasts with nipples appear?","type":"radio","order":49,"depth":4,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_does_the_genitalia_appear_6e9bbba6","shortId":"how frequently does the genitalia appear","text":"How frequently does the genitalia appear?","type":"radio","order":50,"depth":4,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_is_the_sexual_violence_in_the_game_presented_1aa9d746","shortId":"how is the sexual violence in the game presented","text":"How is the sexual violence in the game presented?","type":"radio","order":51,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Visually depicted","children":[]},{"label":"Referred to only","children":[]}]},{"id":"please_select_all_that_the_game_includes_a17b785f","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":52,"depth":1,"isRoot":false,"optionCount":4,"outgoingCount":3,"incomingCount":1,"options":[{"label":"Gambling themes","children":["are_these_gambling_themes_prominently_featured_or_a_stro_d54762be"]},{"label":"Playable bingo games","children":["can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a"]},{"label":"Playable casino games, lotteries, or racetrack betting","children":["can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2"]},{"label":"Any other games that use in-game currency/tokens to play and can reward the same currency through gameplay.","children":[]}]},{"id":"are_these_gambling_themes_prominently_featured_or_a_stro_d54762be","shortId":"are these gambling themes prominently featured or a st","text":"Are these gambling themes prominently featured or a strong focus of the product?","type":"radio","order":53,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a","shortId":"can playing these bingo games reward cash payouts or r","text":"Can playing these bingo games reward cash payouts or rewards of significant monetary value?","type":"radio","order":54,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":1,"incomingCount":1,"options":[{"label":"Yes","children":["does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa"]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa","shortId":"does the game include the ability or requirement to wa","text":"Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, or any other purchases potentially related to winning cash payouts or rewards of significant monetary value from these bingo games?","type":"radio","order":55,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2","shortId":"can playing these casino games lotteries or racetrack ","text":"Can playing these casino games, lotteries, or racetrack betting games reward cash payouts or rewards of significant monetary value?","type":"radio","order":56,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":1,"incomingCount":1,"options":[{"label":"Yes","children":["does_the_game_include_the_ability_or_requirement_to_wage_2d25b462"]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_or_requirement_to_wage_2d25b462","shortId":"does the game include the ability or requirement to wa","text":"Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, or any other purchases potentially related to winning cash payouts or rewards of significant monetary value from these casino games, lotteries, or racetrack betting games?","type":"radio","order":57,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"please_select_all_that_the_game_includes_500aa428","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":58,"depth":1,"isRoot":false,"optionCount":4,"outgoingCount":4,"incomingCount":1,"options":[{"label":"Minor profanities (e.g., \"go to hell\")","children":["how_frequently_do_minor_profanities_occur_9d2bf28d"]},{"label":"Moderate swearing or other language or gestures that could be considered moderately or significantly offensive","children":["how_frequently_does_moderate_swearing_occur_7d1d932d"]},{"label":"Discriminatory language (against race, religion, sex, etc...)","children":["how_frequently_does_discriminatory_language_occur_5fd2d7f7"]},{"label":"Sexual expletives","children":["how_frequently_do_sexual_expletives_occur_d0c59225"]}]},{"id":"how_frequently_do_minor_profanities_occur_9d2bf28d","shortId":"how frequently do minor profanities occur","text":"How frequently do minor profanities occur?","type":"radio","order":59,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_does_moderate_swearing_occur_7d1d932d","shortId":"how frequently does moderate swearing occur","text":"How frequently does moderate swearing occur?","type":"radio","order":60,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_does_discriminatory_language_occur_5fd2d7f7","shortId":"how frequently does discriminatory language occur","text":"How frequently does discriminatory language occur?","type":"radio","order":61,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"how_frequently_do_sexual_expletives_occur_d0c59225","shortId":"how frequently do sexual expletives occur","text":"How frequently do sexual expletives occur?","type":"radio","order":62,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"please_select_all_that_the_game_includes_ba1c8db3","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":63,"depth":1,"isRoot":false,"optionCount":5,"outgoingCount":9,"incomingCount":1,"options":[{"label":"Illegal or Recreational Drugs","children":["illegal_or_recreational_drugs_ba0c1239"]},{"label":"Fantasy Drugs","children":["fantasy_drugs_0cdae46d","how_frequently_do_fantasy_drugs_occur_f510ee29"]},{"label":"Medical Drugs","children":["medical_drugs_32c6cc3e","how_frequently_do_medical_drugs_occur_04c7e80e"]},{"label":"Alcohol","children":["alcohol_533c1b5c","how_frequently_does_this_alcohol_content_occur_861b9e63"]},{"label":"Tobacco","children":["tobacco_5dc1a9a7","how_frequently_does_this_tobacco_content_occur_0cdd660c"]}]},{"id":"illegal_or_recreational_drugs_ba0c1239","shortId":"illegal or recreational drugs","text":"Illegal or Recreational Drugs","type":"checkbox","order":64,"depth":2,"isRoot":false,"optionCount":4,"outgoingCount":2,"incomingCount":1,"options":[{"label":"Reference","children":[]},{"label":"Use","children":["is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975","is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654"]},{"label":"Encourages/Glamorizes","children":[]},{"label":"Detailed Instruction for Use","children":[]}]},{"id":"is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975","shortId":"is the use of illegal or recreational drugs interactiv","text":"Is the use of illegal or recreational drugs interactive?","type":"radio","order":65,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654","shortId":"is the use of illegal or recreational drugs related to","text":"Is the use of illegal or recreational drugs related to incentives or rewards?","type":"radio","order":66,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"fantasy_drugs_0cdae46d","shortId":"fantasy drugs","text":"Fantasy Drugs","type":"checkbox","order":67,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Reference","children":[]},{"label":"Use","children":[]},{"label":"Encourages/Glamorizes","children":[]}]},{"id":"how_frequently_do_fantasy_drugs_occur_f510ee29","shortId":"how frequently do fantasy drugs occur","text":"How frequently do fantasy drugs occur?","type":"radio","order":68,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"medical_drugs_32c6cc3e","shortId":"medical drugs","text":"Medical Drugs","type":"checkbox","order":69,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Reference","children":[]},{"label":"Use","children":[]},{"label":"Encourages/Glamorizes","children":[]}]},{"id":"how_frequently_do_medical_drugs_occur_04c7e80e","shortId":"how frequently do medical drugs occur","text":"How frequently do medical drugs occur?","type":"radio","order":70,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"alcohol_533c1b5c","shortId":"alcohol","text":"Alcohol","type":"checkbox","order":71,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":1,"incomingCount":1,"options":[{"label":"Reference","children":[]},{"label":"Use","children":["can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8"]},{"label":"Encourages/Glamorizes","children":[]}]},{"id":"how_frequently_does_this_alcohol_content_occur_861b9e63","shortId":"how frequently does this alcohol content occur","text":"How frequently does this alcohol content occur?","type":"radio","order":72,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8","shortId":"can the player ever use alcohol in a first person pers","text":"Can the player ever use alcohol in a first-person perspective?","type":"radio","order":73,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"tobacco_5dc1a9a7","shortId":"tobacco","text":"Tobacco","type":"checkbox","order":74,"depth":2,"isRoot":false,"optionCount":3,"outgoingCount":1,"incomingCount":1,"options":[{"label":"Reference","children":[]},{"label":"Use","children":["can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633"]},{"label":"Encourages/Glamorizes","children":[]}]},{"id":"how_frequently_does_this_tobacco_content_occur_0cdd660c","shortId":"how frequently does this tobacco content occur","text":"How frequently does this tobacco content occur?","type":"radio","order":75,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Rarely","children":[]},{"label":"Often","children":[]}]},{"id":"can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633","shortId":"can the player ever use tobacco in a first person pers","text":"Can the player ever use tobacco in a first-person perspective?","type":"radio","order":76,"depth":3,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1","shortId":"what bodily functions are used for humorous purposes i","text":"What bodily functions are used for humorous purposes in the game? Please check all that apply.","type":"checkbox","order":77,"depth":1,"isRoot":false,"optionCount":4,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Mucus, belching, flatulence sounds","children":[]},{"label":"Flatulence (with depiction of \"flatulence cloud\"), whimsical depictions of feces (\"poo coils\"), vomiting","children":[]},{"label":"Urination, urine, realistically depicted feces","children":[]},{"label":"Act of human defecation visually depicted","children":[]}]},{"id":"please_select_all_that_the_game_includes_4e162967","shortId":"please select all that the game includes","text":"Please select all that the game includes:","type":"checkbox","order":78,"depth":1,"isRoot":false,"optionCount":3,"outgoingCount":6,"incomingCount":1,"options":[{"label":"Purchases of digital goods","children":["can_these_purchases_include_random_items_where_the_purch_cfc20feb","does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1"]},{"label":"Cash Convertible Rewards - Cash rewards, real-world items of significant monetary value, convertible cryptocurrency rewards or other play-to-earn mechanics","children":["does_the_game_include_the_ability_or_requirement_to_wage_c8e71373"]},{"label":"Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)","children":["is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2","does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9","does_the_game_include_the_ability_or_requirement_to_make_87aee7ff"]}]},{"id":"can_these_purchases_include_random_items_where_the_purch_cfc20feb","shortId":"can these purchases include random items where the pur","text":"Can these purchases include random items where the purchaser doesn't know what specific items or features they will receive (e.g., loot boxes), the purchase of items that will be used to create or unlock an unknown item or feature (e.g., a key to unlock a loot box, material used to craft a random item), items that can improve the rate of earning random items (e.g., random drop boosts), or any other chance-based purchases?","type":"radio","order":79,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1","shortId":"does the game have a system for players to trade items","text":"Does the game have a system for players to trade items with each other using real money or in-game currency purchased with real money? (e.g. auction house, item exchange)","type":"radio","order":80,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_or_requirement_to_wage_c8e71373","shortId":"does the game include the ability or requirement to wa","text":"Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, boosts, or any other purchases potentially related to earning or winning cash rewards or rewards of significant monetary value?","type":"radio","order":81,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2","shortId":"is the issuance of these digital assets a significant ","text":"Is the issuance of these digital assets a significant or promoted aspect of the product?","type":"radio","order":82,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9","shortId":"does the game contain an integrated marketplace for th","text":"Does the game contain an integrated marketplace for these assets or promote/feature a particular marketplace for these assets?","type":"radio","order":83,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_or_requirement_to_make_87aee7ff","shortId":"does the game include the ability or requirement to ma","text":"Does the game include the ability or requirement to make any purchases related to the issuance or earning of these digital assets?","type":"radio","order":84,"depth":2,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61","shortId":"does the game include the ability to block users or us","text":"Does the game include the ability to block users or user-generated content?","type":"radio","order":85,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc","shortId":"does the game include the ability to report users or u","text":"Does the game include the ability to report users or user-generated content?","type":"radio","order":86,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"does_the_game_include_chat_moderation_f5949739","shortId":"does the game include chat moderation","text":"Does the game include chat moderation?","type":"radio","order":87,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62","shortId":"can interactions in the game be limited to invited fri","text":"Can interactions in the game be limited to invited friends only?","type":"radio","order":88,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a","shortId":"are these crimes or criminal techniques likely to be i","text":"Are these crimes or criminal techniques likely to be imitated by children or youths?","type":"radio","order":89,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]},{"id":"are_there_detailed_descriptions_of_techniques_that_could_207c80c9","shortId":"are there detailed descriptions of techniques that cou","text":"Are there detailed descriptions of techniques that could be used in criminal offenses?","type":"radio","order":90,"depth":1,"isRoot":false,"optionCount":2,"outgoingCount":0,"incomingCount":1,"options":[{"label":"Yes","children":[]},{"label":"No","children":[]}]}],"edges":[{"id":"does_the_game_contain_inferences_of_references_to_or_dep_a60327ce__Yes__please_select_all_that_the_game_includes_a0533f3c","source":"does_the_game_contain_inferences_of_references_to_or_dep_a60327ce","target":"please_select_all_that_the_game_includes_a0533f3c","label":"Yes"},{"id":"does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8__Yes__please_select_all_that_the_game_includes_a522854d","source":"does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8","target":"please_select_all_that_the_game_includes_a522854d","label":"Yes"},{"id":"does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf__Yes__please_select_all_that_the_game_includes_768feb67","source":"does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf","target":"please_select_all_that_the_game_includes_768feb67","label":"Yes"},{"id":"does_the_game_contain_gambling_simulations_of_casino_gam_251e14df__Yes__please_select_all_that_the_game_includes_a17b785f","source":"does_the_game_contain_gambling_simulations_of_casino_gam_251e14df","target":"please_select_all_that_the_game_includes_a17b785f","label":"Yes"},{"id":"does_the_game_contain_any_potentially_offensive_language_3a42be1b__Yes__please_select_all_that_the_game_includes_500aa428","source":"does_the_game_contain_any_potentially_offensive_language_3a42be1b","target":"please_select_all_that_the_game_includes_500aa428","label":"Yes"},{"id":"does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced__Yes__please_select_all_that_the_game_includes_ba1c8db3","source":"does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced","target":"please_select_all_that_the_game_includes_ba1c8db3","label":"Yes"},{"id":"does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc__Yes__what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1","source":"does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc","target":"what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1","label":"Yes"},{"id":"does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09__Yes__please_select_all_that_the_game_includes_4e162967","source":"does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09","target":"please_select_all_that_the_game_includes_4e162967","label":"Yes"},{"id":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922__Yes__does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61","source":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","target":"does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61","label":"Yes"},{"id":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922__Yes__does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc","source":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","target":"does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc","label":"Yes"},{"id":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922__Yes__does_the_game_include_chat_moderation_f5949739","source":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","target":"does_the_game_include_chat_moderation_f5949739","label":"Yes"},{"id":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922__Yes__can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62","source":"does_the_game_natively_allow_users_to_interact_or_exchan_a4531922","target":"can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62","label":"Yes"},{"id":"does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535__Yes__are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a","source":"does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535","target":"are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a","label":"Yes"},{"id":"does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535__Yes__are_there_detailed_descriptions_of_techniques_that_could_207c80c9","source":"does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535","target":"are_there_detailed_descriptions_of_techniques_that_could_207c80c9","label":"Yes"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","source":"please_select_all_that_the_game_includes_a0533f3c","target":"in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__does_the_game_have_a_pixelated_or_childlike_style_df8228d5","source":"please_select_all_that_the_game_includes_a0533f3c","target":"does_the_game_have_a_pixelated_or_childlike_style_df8228d5","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__how_would_you_describe_the_reactions_to_violence_f4f3f14a","source":"please_select_all_that_the_game_includes_a0533f3c","target":"how_would_you_describe_the_reactions_to_violence_f4f3f14a","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__how_is_this_violence_presented_in_the_game_d6f09ae3","source":"please_select_all_that_the_game_includes_a0533f3c","target":"how_is_this_violence_presented_in_the_game_d6f09ae3","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","source":"please_select_all_that_the_game_includes_a0533f3c","target":"what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44","source":"please_select_all_that_the_game_includes_a0533f3c","target":"does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b","source":"please_select_all_that_the_game_includes_a0533f3c","target":"can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence or implied violence against humans__are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f","source":"please_select_all_that_the_game_includes_a0533f3c","target":"are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f","label":"Violence or implied violence against humans"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","source":"please_select_all_that_the_game_includes_a0533f3c","target":"in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__does_the_game_have_a_pixelated_or_childlike_style_7003dd1d","source":"please_select_all_that_the_game_includes_a0533f3c","target":"does_the_game_have_a_pixelated_or_childlike_style_7003dd1d","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__how_would_you_describe_the_reactions_to_violence_f4f3f14a","source":"please_select_all_that_the_game_includes_a0533f3c","target":"how_would_you_describe_the_reactions_to_violence_f4f3f14a","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__how_is_this_violence_presented_in_the_game_0a118a0a","source":"please_select_all_that_the_game_includes_a0533f3c","target":"how_is_this_violence_presented_in_the_game_0a118a0a","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","source":"please_select_all_that_the_game_includes_a0533f3c","target":"what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a","source":"please_select_all_that_the_game_includes_a0533f3c","target":"do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__is_any_of_this_violence_against_real_world_animals_6fc80a86","source":"please_select_all_that_the_game_includes_a0533f3c","target":"is_any_of_this_violence_against_real_world_animals_6fc80a86","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)__are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f","source":"please_select_all_that_the_game_includes_a0533f3c","target":"are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f","label":"Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)"},{"id":"please_select_all_that_the_game_includes_a0533f3c__Disturbing or gory images without a violent act shown.__how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158","source":"please_select_all_that_the_game_includes_a0533f3c","target":"how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158","label":"Disturbing or gory images without a violent act shown."},{"id":"please_select_all_that_the_game_includes_a0533f3c__Blood that isn't directly related to a violent act (e.g., blood on clothing, blood in the background, blood resulting from performing surgery)__what_best_describes_this_type_of_blood_in_the_game_7ee8e188","source":"please_select_all_that_the_game_includes_a0533f3c","target":"what_best_describes_this_type_of_blood_in_the_game_7ee8e188","label":"Blood that isn't directly related to a violent act (e.g., blood on clothing, blood in the background, blood resulting from performing surgery)"},{"id":"please_select_all_that_the_game_includes_a522854d__Scary elements__how_frequent_are_the_scary_elements_71813163","source":"please_select_all_that_the_game_includes_a522854d","target":"how_frequent_are_the_scary_elements_71813163","label":"Scary elements"},{"id":"please_select_all_that_the_game_includes_a522854d__Horrifying elements__how_frequent_are_the_horrifying_elements_793da69a","source":"please_select_all_that_the_game_includes_a522854d","target":"how_frequent_are_the_horrifying_elements_793da69a","label":"Horrifying elements"},{"id":"how_frequent_are_the_horrifying_elements_793da69a__Often__is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6","source":"how_frequent_are_the_horrifying_elements_793da69a","target":"is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6","label":"Often"},{"id":"please_select_all_that_the_game_includes_768feb67__Sexual Activity - Includes both moving and still images of sexual activity__how_often_do_sexual_acts_occur_7a0c9886","source":"please_select_all_that_the_game_includes_768feb67","target":"how_often_do_sexual_acts_occur_7a0c9886","label":"Sexual Activity - Includes both moving and still images of sexual activity"},{"id":"please_select_all_that_the_game_includes_768feb67__Sexual Activity - Includes both moving and still images of sexual activity__what_is_the_duration_of_these_scenes_ebc5ddb7","source":"please_select_all_that_the_game_includes_768feb67","target":"what_is_the_duration_of_these_scenes_ebc5ddb7","label":"Sexual Activity - Includes both moving and still images of sexual activity"},{"id":"please_select_all_that_the_game_includes_768feb67__Sexual Activity - Includes both moving and still images of sexual activity__how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8","source":"please_select_all_that_the_game_includes_768feb67","target":"how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8","label":"Sexual Activity - Includes both moving and still images of sexual activity"},{"id":"please_select_all_that_the_game_includes_768feb67__Sexual Activity - Includes both moving and still images of sexual activity__do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50","source":"please_select_all_that_the_game_includes_768feb67","target":"do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50","label":"Sexual Activity - Includes both moving and still images of sexual activity"},{"id":"please_select_all_that_the_game_includes_768feb67__Suggestive/Sexual Themes or References__how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1","source":"please_select_all_that_the_game_includes_768feb67","target":"how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1","label":"Suggestive/Sexual Themes or References"},{"id":"please_select_all_that_the_game_includes_768feb67__Dating Games - Interactive dating, marriage, or other romantic relationships between game characters__are_these_dating_games_prominently_featured_or_a_strong__aaafc141","source":"please_select_all_that_the_game_includes_768feb67","target":"are_these_dating_games_prominently_featured_or_a_strong__aaafc141","label":"Dating Games - Interactive dating, marriage, or other romantic relationships between game characters"},{"id":"please_select_all_that_the_game_includes_768feb67__Nudity or Revealing Outfits__please_select_all_that_the_game_includes_c2929670","source":"please_select_all_that_the_game_includes_768feb67","target":"please_select_all_that_the_game_includes_c2929670","label":"Nudity or Revealing Outfits"},{"id":"please_select_all_that_the_game_includes_768feb67__Depictions of or References to Sexual Violence__how_is_the_sexual_violence_in_the_game_presented_1aa9d746","source":"please_select_all_that_the_game_includes_768feb67","target":"how_is_the_sexual_violence_in_the_game_presented_1aa9d746","label":"Depictions of or References to Sexual Violence"},{"id":"please_select_all_that_the_game_includes_c2929670__Revealing Outfits__how_frequently_are_revealing_outfits_depicted_dbabdf26","source":"please_select_all_that_the_game_includes_c2929670","target":"how_frequently_are_revealing_outfits_depicted_dbabdf26","label":"Revealing Outfits"},{"id":"please_select_all_that_the_game_includes_c2929670__Revealing Outfits__are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0","source":"please_select_all_that_the_game_includes_c2929670","target":"are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0","label":"Revealing Outfits"},{"id":"please_select_all_that_the_game_includes_c2929670__Revealing Outfits__do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5","source":"please_select_all_that_the_game_includes_c2929670","target":"do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5","label":"Revealing Outfits"},{"id":"please_select_all_that_the_game_includes_c2929670__Nudity__please_select_all_that_the_game_includes_44d3634e","source":"please_select_all_that_the_game_includes_c2929670","target":"please_select_all_that_the_game_includes_44d3634e","label":"Nudity"},{"id":"please_select_all_that_the_game_includes_c2929670__Nudity__is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959","source":"please_select_all_that_the_game_includes_c2929670","target":"is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959","label":"Nudity"},{"id":"please_select_all_that_the_game_includes_44d3634e__Human Buttocks__how_frequently_do_the_human_buttocks_appear_6198e796","source":"please_select_all_that_the_game_includes_44d3634e","target":"how_frequently_do_the_human_buttocks_appear_6198e796","label":"Human Buttocks"},{"id":"please_select_all_that_the_game_includes_44d3634e__Nipple-less Breasts or Breasts with Minimal Coverage, e.g., pasties, long hair__how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0","source":"please_select_all_that_the_game_includes_44d3634e","target":"how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0","label":"Nipple-less Breasts or Breasts with Minimal Coverage, e.g., pasties, long hair"},{"id":"please_select_all_that_the_game_includes_44d3634e__Female Fantasy Creatures' Breasts, e.g., harpies__how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f","source":"please_select_all_that_the_game_includes_44d3634e","target":"how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f","label":"Female Fantasy Creatures' Breasts, e.g., harpies"},{"id":"please_select_all_that_the_game_includes_44d3634e__Female Human Breasts with Nipples__how_frequently_do_the_female_human_breasts_with_nipples__163e9d54","source":"please_select_all_that_the_game_includes_44d3634e","target":"how_frequently_do_the_female_human_breasts_with_nipples__163e9d54","label":"Female Human Breasts with Nipples"},{"id":"please_select_all_that_the_game_includes_44d3634e__Genitalia__how_frequently_does_the_genitalia_appear_6e9bbba6","source":"please_select_all_that_the_game_includes_44d3634e","target":"how_frequently_does_the_genitalia_appear_6e9bbba6","label":"Genitalia"},{"id":"please_select_all_that_the_game_includes_a17b785f__Gambling themes__are_these_gambling_themes_prominently_featured_or_a_stro_d54762be","source":"please_select_all_that_the_game_includes_a17b785f","target":"are_these_gambling_themes_prominently_featured_or_a_stro_d54762be","label":"Gambling themes"},{"id":"please_select_all_that_the_game_includes_a17b785f__Playable bingo games__can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a","source":"please_select_all_that_the_game_includes_a17b785f","target":"can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a","label":"Playable bingo games"},{"id":"please_select_all_that_the_game_includes_a17b785f__Playable casino games, lotteries, or racetrack betting__can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2","source":"please_select_all_that_the_game_includes_a17b785f","target":"can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2","label":"Playable casino games, lotteries, or racetrack betting"},{"id":"can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a__Yes__does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa","source":"can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a","target":"does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa","label":"Yes"},{"id":"can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2__Yes__does_the_game_include_the_ability_or_requirement_to_wage_2d25b462","source":"can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2","target":"does_the_game_include_the_ability_or_requirement_to_wage_2d25b462","label":"Yes"},{"id":"please_select_all_that_the_game_includes_500aa428__Minor profanities (e.g., \"go to hell\")__how_frequently_do_minor_profanities_occur_9d2bf28d","source":"please_select_all_that_the_game_includes_500aa428","target":"how_frequently_do_minor_profanities_occur_9d2bf28d","label":"Minor profanities (e.g., \"go to hell\")"},{"id":"please_select_all_that_the_game_includes_500aa428__Moderate swearing or other language or gestures that could be considered moderately or significantly offensive__how_frequently_does_moderate_swearing_occur_7d1d932d","source":"please_select_all_that_the_game_includes_500aa428","target":"how_frequently_does_moderate_swearing_occur_7d1d932d","label":"Moderate swearing or other language or gestures that could be considered moderately or significantly offensive"},{"id":"please_select_all_that_the_game_includes_500aa428__Discriminatory language (against race, religion, sex, etc...)__how_frequently_does_discriminatory_language_occur_5fd2d7f7","source":"please_select_all_that_the_game_includes_500aa428","target":"how_frequently_does_discriminatory_language_occur_5fd2d7f7","label":"Discriminatory language (against race, religion, sex, etc...)"},{"id":"please_select_all_that_the_game_includes_500aa428__Sexual expletives__how_frequently_do_sexual_expletives_occur_d0c59225","source":"please_select_all_that_the_game_includes_500aa428","target":"how_frequently_do_sexual_expletives_occur_d0c59225","label":"Sexual expletives"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Illegal or Recreational Drugs__illegal_or_recreational_drugs_ba0c1239","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"illegal_or_recreational_drugs_ba0c1239","label":"Illegal or Recreational Drugs"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Fantasy Drugs__fantasy_drugs_0cdae46d","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"fantasy_drugs_0cdae46d","label":"Fantasy Drugs"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Fantasy Drugs__how_frequently_do_fantasy_drugs_occur_f510ee29","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"how_frequently_do_fantasy_drugs_occur_f510ee29","label":"Fantasy Drugs"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Medical Drugs__medical_drugs_32c6cc3e","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"medical_drugs_32c6cc3e","label":"Medical Drugs"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Medical Drugs__how_frequently_do_medical_drugs_occur_04c7e80e","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"how_frequently_do_medical_drugs_occur_04c7e80e","label":"Medical Drugs"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Alcohol__alcohol_533c1b5c","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"alcohol_533c1b5c","label":"Alcohol"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Alcohol__how_frequently_does_this_alcohol_content_occur_861b9e63","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"how_frequently_does_this_alcohol_content_occur_861b9e63","label":"Alcohol"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Tobacco__tobacco_5dc1a9a7","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"tobacco_5dc1a9a7","label":"Tobacco"},{"id":"please_select_all_that_the_game_includes_ba1c8db3__Tobacco__how_frequently_does_this_tobacco_content_occur_0cdd660c","source":"please_select_all_that_the_game_includes_ba1c8db3","target":"how_frequently_does_this_tobacco_content_occur_0cdd660c","label":"Tobacco"},{"id":"illegal_or_recreational_drugs_ba0c1239__Use__is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975","source":"illegal_or_recreational_drugs_ba0c1239","target":"is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975","label":"Use"},{"id":"illegal_or_recreational_drugs_ba0c1239__Use__is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654","source":"illegal_or_recreational_drugs_ba0c1239","target":"is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654","label":"Use"},{"id":"alcohol_533c1b5c__Use__can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8","source":"alcohol_533c1b5c","target":"can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8","label":"Use"},{"id":"tobacco_5dc1a9a7__Use__can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633","source":"tobacco_5dc1a9a7","target":"can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633","label":"Use"},{"id":"please_select_all_that_the_game_includes_4e162967__Purchases of digital goods__can_these_purchases_include_random_items_where_the_purch_cfc20feb","source":"please_select_all_that_the_game_includes_4e162967","target":"can_these_purchases_include_random_items_where_the_purch_cfc20feb","label":"Purchases of digital goods"},{"id":"please_select_all_that_the_game_includes_4e162967__Purchases of digital goods__does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1","source":"please_select_all_that_the_game_includes_4e162967","target":"does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1","label":"Purchases of digital goods"},{"id":"please_select_all_that_the_game_includes_4e162967__Cash Convertible Rewards - Cash rewards, real-world items of significant monetary value, convertible cryptocurrency rewards or other play-to-earn mechanics__does_the_game_include_the_ability_or_requirement_to_wage_c8e71373","source":"please_select_all_that_the_game_includes_4e162967","target":"does_the_game_include_the_ability_or_requirement_to_wage_c8e71373","label":"Cash Convertible Rewards - Cash rewards, real-world items of significant monetary value, convertible cryptocurrency rewards or other play-to-earn mechanics"},{"id":"please_select_all_that_the_game_includes_4e162967__Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)__is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2","source":"please_select_all_that_the_game_includes_4e162967","target":"is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2","label":"Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)"},{"id":"please_select_all_that_the_game_includes_4e162967__Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)__does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9","source":"please_select_all_that_the_game_includes_4e162967","target":"does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9","label":"Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)"},{"id":"please_select_all_that_the_game_includes_4e162967__Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)__does_the_game_include_the_ability_or_requirement_to_make_87aee7ff","source":"please_select_all_that_the_game_includes_4e162967","target":"does_the_game_include_the_ability_or_requirement_to_make_87aee7ff","label":"Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)"}]};
+    const state = {
+      selected: null,
+      search: '',
+      depth: 'all',
+      rootOnly: false,
+      zoom: 1,
+      baseWidth: 980,
+      baseHeight: 680,
+    };
+    const nodeById = new Map(model.nodes.map(node => [node.id, node]));
+    const incoming = new Map();
+    const outgoing = new Map();
+    for (const edge of model.edges) {
+      if (!incoming.has(edge.target)) incoming.set(edge.target, []);
+      if (!outgoing.has(edge.source)) outgoing.set(edge.source, []);
+      incoming.get(edge.target).push(edge);
+      outgoing.get(edge.source).push(edge);
+    }
+
+    const graphEl = document.getElementById('graph');
+    const graphContentEl = document.getElementById('graphContent');
+    const svgEl = document.getElementById('edges');
+    const detailEl = document.getElementById('detail');
+    const searchEl = document.getElementById('search');
+    const depthEl = document.getElementById('depthFilter');
+    const fitEl = document.getElementById('fit');
+    const resetZoomEl = document.getElementById('resetZoom');
+    const zoomOutEl = document.getElementById('zoomOut');
+    const zoomInEl = document.getElementById('zoomIn');
+    const zoomRangeEl = document.getElementById('zoomRange');
+    const zoomValueEl = document.getElementById('zoomValue');
+    const rootsEl = document.getElementById('showRoots');
+
+    init();
+
+    function init() {
+      renderStats();
+      layout();
+      renderDepthFilter();
+      renderDetail(null);
+      searchEl.addEventListener('input', () => {
+        state.search = searchEl.value.trim().toLowerCase();
+        renderVisibility();
+      });
+      depthEl.addEventListener('change', () => {
+        state.depth = depthEl.value;
+        renderVisibility();
+      });
+      rootsEl.addEventListener('click', () => {
+        state.rootOnly = !state.rootOnly;
+        rootsEl.classList.toggle('active', state.rootOnly);
+        renderVisibility();
+      });
+      fitEl.addEventListener('click', () => {
+        fitGraph();
+      });
+      resetZoomEl.addEventListener('click', () => {
+        setZoom(1);
+      });
+      zoomOutEl.addEventListener('click', () => {
+        setZoom(state.zoom - 0.05);
+      });
+      zoomInEl.addEventListener('click', () => {
+        setZoom(state.zoom + 0.05);
+      });
+      zoomRangeEl.addEventListener('input', () => {
+        setZoom(Number(zoomRangeEl.value) / 100);
+      });
+      window.addEventListener('resize', () => {
+        drawEdges();
+        applyZoom();
+      });
+    }
+
+    function renderStats() {
+      const stats = [
+        ['Questions', model.nodes.length],
+        ['Edges', model.edges.length],
+        ['Roots', model.roots.length],
+        ['Conflicts', model.conflicts.length],
+      ];
+      document.getElementById('stats').innerHTML = stats.map(([label, value]) =>
+        '<div class="stat"><strong>' + value + '</strong>' + label + '</div>'
+      ).join('');
+      if (model.conflicts.length) {
+        document.getElementById('stats').insertAdjacentHTML('beforeend',
+          '<div class="warning">Conflicts detected: some option children changed by context.</div>'
+        );
+      }
+    }
+
+    function renderDepthFilter() {
+      const depths = [...new Set(model.nodes.map(node => node.depth))].sort((a, b) => a - b);
+      depthEl.innerHTML = '<option value="all">All depths</option>' +
+        depths.map(depth => '<option value="' + depth + '">Depth ' + depth + '</option>').join('');
+    }
+
+    function layout() {
+      const nodeWidth = 320;
+      const nodeHeight = 112;
+      const colWidth = 380;
+      const rowHeight = 190;
+      const margin = 28;
+
+      const placed = new Set();
+      let column = 0;
+      let maxDepth = 0;
+
+      function orderedChildren(node) {
+        const seen = new Set();
+        const children = [];
+        for (const option of node.options) {
+          for (const child of option.children) {
+            if (nodeById.has(child) && !seen.has(child)) {
+              seen.add(child);
+              children.push(child);
+            }
+          }
+        }
+        return children;
+      }
+
+      function placeTree(id, preferredDepth) {
+        const node = nodeById.get(id);
+        if (!node || placed.has(id)) return;
+        const parentDepths = (incoming.get(id) || [])
+          .map(edge => nodeById.get(edge.source)?.depth)
+          .filter(depth => Number.isFinite(depth));
+        const depth = Math.max(
+          Number.isFinite(preferredDepth) ? preferredDepth : 0,
+          parentDepths.length ? Math.max(...parentDepths) + 1 : 0,
+          Number.isFinite(node.depth) ? node.depth : 0,
+        );
+        node.depth = depth;
+        node.x = margin + column * colWidth;
+        node.y = margin + depth * rowHeight;
+        placed.add(id);
+        column += 1;
+        maxDepth = Math.max(maxDepth, depth);
+
+        for (const child of orderedChildren(node)) {
+          placeTree(child, depth + 1);
+        }
+      }
+
+      const orderedRoots = model.roots
+        .map(id => nodeById.get(id))
+        .filter(Boolean)
+        .sort((a, b) => a.order - b.order)
+        .map(node => node.id);
+      for (const root of orderedRoots) placeTree(root, 0);
+
+      for (const node of [...model.nodes].sort((a, b) => a.order - b.order)) {
+        placeTree(node.id, node.depth);
+      }
+
+      state.baseWidth = Math.max(980, margin * 2 + column * colWidth + nodeWidth);
+      state.baseHeight = Math.max(680, margin * 2 + maxDepth * rowHeight + nodeHeight);
+      graphContentEl.style.width = state.baseWidth + 'px';
+      graphContentEl.style.height = state.baseHeight + 'px';
+      svgEl.setAttribute('viewBox', '0 0 ' + state.baseWidth + ' ' + state.baseHeight);
+      applyZoom();
+
+      for (const node of model.nodes) {
+        const el = document.createElement('button');
+        el.type = 'button';
+        el.className = 'node' + (node.isRoot ? ' root' : '');
+        el.id = 'node-' + cssEscape(node.id);
+        el.style.left = node.x + 'px';
+        el.style.top = node.y + 'px';
+        el.dataset.id = node.id;
+        el.title = node.text;
+        el.innerHTML =
+          '<div class="node-text">' + escapeHtml(node.text) + '</div>' +
+          '<div class="badges">' +
+          (node.isRoot ? '<span class="badge root">root</span>' : '') +
+          '<span class="badge">d' + node.depth + '</span>' +
+          '<span class="badge">' + node.type + '</span>' +
+          '<span class="badge">' + node.outgoingCount + ' out</span>' +
+          '</div>';
+        el.addEventListener('click', () => selectNode(node.id));
+        graphContentEl.appendChild(el);
+      }
+
+      drawEdges();
+      renderVisibility();
+    }
+
+    function clampZoom(value) {
+      return Math.max(0.05, Math.min(1.5, value));
+    }
+
+    function setZoom(value) {
+      const previousZoom = state.zoom;
+      const nextZoom = clampZoom(value);
+      if (Math.abs(previousZoom - nextZoom) < 0.001) return;
+
+      const scrollEl = graphEl.closest('main');
+      const scrollRatioX = scrollEl.scrollLeft / Math.max(1, state.baseWidth * previousZoom);
+      const scrollRatioY = scrollEl.scrollTop / Math.max(1, state.baseHeight * previousZoom);
+      state.zoom = nextZoom;
+      applyZoom();
+      scrollEl.scrollLeft = scrollRatioX * state.baseWidth * nextZoom;
+      scrollEl.scrollTop = scrollRatioY * state.baseHeight * nextZoom;
+    }
+
+    function applyZoom() {
+      const scaledWidth = Math.max(640, Math.ceil(state.baseWidth * state.zoom));
+      const scaledHeight = Math.max(160, Math.ceil(state.baseHeight * state.zoom));
+      graphEl.style.width = scaledWidth + 'px';
+      graphEl.style.height = scaledHeight + 'px';
+      graphContentEl.style.transform = 'scale(' + state.zoom + ')';
+      zoomRangeEl.value = String(Math.round(state.zoom * 100));
+      zoomValueEl.textContent = Math.round(state.zoom * 100) + '%';
+    }
+
+    function fitGraph() {
+      const mainEl = graphEl.closest('main');
+      const availableWidth = Math.max(320, mainEl.clientWidth - 32);
+      const viewportHeight = Math.max(320, window.innerHeight - graphEl.getBoundingClientRect().top - 24);
+      const availableHeight = Math.min(Math.max(320, viewportHeight), state.baseHeight);
+      const fit = Math.min(1, availableWidth / state.baseWidth, availableHeight / state.baseHeight);
+      setZoom(fit);
+      mainEl.scrollTo({ left: 0, top: 0, behavior: 'smooth' });
+    }
+
+    function drawEdges() {
+      svgEl.setAttribute('width', state.baseWidth);
+      svgEl.setAttribute('height', state.baseHeight);
+      const nodeWidth = 320;
+      const nodeHeight = 112;
+      const lines = model.edges.map(edge => {
+        const source = nodeById.get(edge.source);
+        const target = nodeById.get(edge.target);
+        if (!source || !target) return '';
+        const x1 = source.x + nodeWidth / 2;
+        const y1 = source.y + nodeHeight;
+        const x2 = target.x + nodeWidth / 2;
+        const y2 = target.y;
+        const midY = y2 > y1 ? y1 + Math.max(28, (y2 - y1) * 0.55) : y1 + 44;
+        const path = 'M' + x1 + ',' + y1 + ' V' + midY + ' H' + x2 + ' V' + y2;
+        const label = edge.label.length > 44 ? edge.label.slice(0, 41) + '...' : edge.label;
+        const lx = x2;
+        const ly = y2 - 10;
+        return '<path class="edge" data-edge-id="' + escapeHtml(edge.id) + '" data-source="' + escapeHtml(edge.source) + '" data-target="' + escapeHtml(edge.target) + '" d="' + path + '" marker-end="url(#arrow)"></path>' +
+          '<text class="edge-label" data-edge-id="' + escapeHtml(edge.id) + '" data-source="' + escapeHtml(edge.source) + '" data-target="' + escapeHtml(edge.target) + '" x="' + lx + '" y="' + ly + '" text-anchor="middle">' +
+          '<title>' + escapeHtml(edge.label) + '</title>' + escapeHtml(label) + '</text>';
+      }).join('');
+      svgEl.querySelectorAll('path.edge,text.edge-label').forEach(el => el.remove());
+      svgEl.insertAdjacentHTML('beforeend', lines);
+      renderVisibility();
+    }
+
+    function selectNode(id) {
+      if (state.selected === id) {
+        state.selected = null;
+        for (const el of document.querySelectorAll('.node')) {
+          el.classList.remove('selected');
+        }
+        renderDetail(null);
+        renderVisibility();
+        return;
+      }
+      state.selected = id;
+      for (const el of document.querySelectorAll('.node')) {
+        el.classList.toggle('selected', el.dataset.id === id);
+      }
+      renderDetail(id);
+      renderVisibility();
+    }
+
+    function renderDetail(id) {
+      if (!id) {
+        detailEl.className = 'detail-empty';
+        detailEl.textContent = 'Select a node to inspect its options and children.';
+        return;
+      }
+      const node = nodeById.get(id);
+      detailEl.className = 'detail';
+      detailEl.innerHTML =
+        '<h2>Question</h2>' +
+        '<div class="qid">' + escapeHtml(node.id) + '</div>' +
+        '<p>' + escapeHtml(node.text) + '</p>' +
+        '<div class="badges">' +
+        (node.isRoot ? '<span class="badge root">root</span>' : '') +
+        '<span class="badge">depth ' + node.depth + '</span>' +
+        '<span class="badge">' + node.type + '</span>' +
+        '<span class="badge">' + node.incomingCount + ' in</span>' +
+        '<span class="badge">' + node.outgoingCount + ' out</span>' +
+        '</div>' +
+        '<h2 style="margin-top:18px">Options</h2>' +
+        node.options.map(option => {
+          const children = option.children.length
+            ? '<ul class="child-list">' + option.children.map(child => {
+                const childNode = nodeById.get(child);
+                return '<li data-child="' + escapeHtml(child) + '">' + escapeHtml(childNode ? childNode.shortId : child) + '</li>';
+              }).join('') + '</ul>'
+            : '<div class="meta">No child questions</div>';
+          return '<div class="option"><div class="option-name">' + escapeHtml(option.label) + '</div>' + children + '</div>';
+        }).join('');
+      detailEl.querySelectorAll('[data-child]').forEach(el => {
+        el.addEventListener('click', () => selectNode(el.dataset.child));
+      });
+    }
+
+    function renderVisibility() {
+      const selectedEdges = new Set();
+      const related = new Set();
+      if (state.selected) {
+        related.add(state.selected);
+        for (const edge of outgoing.get(state.selected) || []) {
+          selectedEdges.add(edge.id);
+          related.add(edge.target);
+        }
+        for (const edge of incoming.get(state.selected) || []) {
+          selectedEdges.add(edge.id);
+          related.add(edge.source);
+        }
+      }
+
+      for (const node of model.nodes) {
+        const el = document.querySelector('[data-id="' + cssEscape(node.id) + '"]');
+        const matchesSearch = !state.search ||
+          node.id.toLowerCase().includes(state.search) ||
+          node.text.toLowerCase().includes(state.search);
+        const matchesDepth = state.depth === 'all' || String(node.depth) === state.depth;
+        const matchesRoot = !state.rootOnly || node.isRoot;
+        const visible = matchesSearch && matchesDepth && matchesRoot;
+        el.style.display = visible ? 'block' : 'none';
+        const dimmed = state.selected && !related.has(node.id);
+        el.classList.toggle('dimmed', Boolean(dimmed));
+      }
+
+      for (const edgeEl of svgEl.querySelectorAll('path.edge,text.edge-label')) {
+        const sourceVisible = document.querySelector('[data-id="' + cssEscape(edgeEl.dataset.source) + '"]')?.style.display !== 'none';
+        const targetVisible = document.querySelector('[data-id="' + cssEscape(edgeEl.dataset.target) + '"]')?.style.display !== 'none';
+        edgeEl.style.display = sourceVisible && targetVisible ? 'block' : 'none';
+        const highlighted = selectedEdges.has(edgeEl.dataset.edgeId);
+        edgeEl.classList.toggle('highlight', highlighted);
+        if (edgeEl.matches('path.edge')) {
+          edgeEl.setAttribute('marker-end', highlighted ? 'url(#arrowHighlight)' : 'url(#arrow)');
+        }
+      }
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '').replace(/[&<>"]/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[ch]));
+    }
+
+    function cssEscape(value) {
+      if (window.CSS && CSS.escape) return CSS.escape(value);
+      return String(value).replace(/[^a-zA-Z0-9_-]/g, '\\$&');
+    }
+  </script>
+</body>
+</html>

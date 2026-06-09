@@ -1,0 +1,8 @@
+node_modules/
+.playwright-profile/
+.chrome-debug-profile/
+data_smoke/
+.DS_Store
+*.log
+
+~$Project Description.pptx

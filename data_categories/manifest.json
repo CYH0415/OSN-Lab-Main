@@ -1,0 +1,42 @@
+{
+  "generatedAt": "2026-06-09T05:38:43.701Z",
+  "rootOutDir": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories",
+  "categories": [
+    {
+      "category": "Game",
+      "slug": "game",
+      "outDir": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game",
+      "files": {
+        "questionnaireTreeJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/questionnaire_tree.json",
+        "questionnaireTreeMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/questionnaire_tree.md",
+        "questionGraphJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph.json",
+        "questionGraphMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph.md",
+        "questionGraphHtml": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph.html"
+      }
+    },
+    {
+      "category": "Social or Communication",
+      "slug": "social_or_communication",
+      "outDir": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication",
+      "files": {
+        "questionnaireTreeJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/questionnaire_tree.json",
+        "questionnaireTreeMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/questionnaire_tree.md",
+        "questionGraphJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph.json",
+        "questionGraphMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph.md",
+        "questionGraphHtml": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph.html"
+      }
+    },
+    {
+      "category": "All Other App Types",
+      "slug": "all_other_app_types",
+      "outDir": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types",
+      "files": {
+        "questionnaireTreeJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/questionnaire_tree.json",
+        "questionnaireTreeMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/questionnaire_tree.md",
+        "questionGraphJson": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/question_graph.json",
+        "questionGraphMarkdown": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/question_graph.md",
+        "questionGraphHtml": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/question_graph.html"
+      }
+    }
+  ]
+}

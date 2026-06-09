@@ -1,0 +1,15 @@
+{
+  "name": "google-play-rating-questionnaire-reverse-modeling",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "inspect:questionnaire": "node scripts/inspect_questionnaire.mjs",
+    "inspect:categories": "node scripts/inspect_all_categories.mjs",
+    "render:graph": "node scripts/render_question_graph.mjs",
+    "render:category-index": "node scripts/render_category_index.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.53.0"
+  }
+}
