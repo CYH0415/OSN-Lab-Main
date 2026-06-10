@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-09T11:27:50.871Z",
+  "categoryRoot": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories",
+  "outDir": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples",
+  "config": {
+    "categoryRoot": "data_categories",
+    "outDir": "rating_samples",
+    "pairwisePerCategory": 600
+  },
+  "categories": [
+    {
+      "category": "Game",
+      "slug": "game",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples/game_samples.jsonl",
+      "sampleCount": 824,
+      "strategyCounts": {
+        "baseline": 1,
+        "single_factor": 223,
+        "pairwise": 600
+      }
+    },
+    {
+      "category": "Social or Communication",
+      "slug": "social_or_communication",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples/social_or_communication_samples.jsonl",
+      "sampleCount": 265,
+      "strategyCounts": {
+        "baseline": 1,
+        "single_factor": 24,
+        "pairwise": 240
+      }
+    },
+    {
+      "category": "All Other App Types",
+      "slug": "all_other_app_types",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/question_graph.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples/all_other_app_types_samples.jsonl",
+      "sampleCount": 870,
+      "strategyCounts": {
+        "baseline": 1,
+        "single_factor": 269,
+        "pairwise": 600
+      }
+    }
+  ],
+  "allSamplesPath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples/structural_samples.jsonl",
+  "totalSamples": 1959
+}

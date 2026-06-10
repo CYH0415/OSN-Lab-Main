@@ -1,0 +1,519 @@
+{
+  "generatedAt": "2026-06-09T05:39:24.734Z",
+  "configuredUrl": "https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "sourceUrl": "https://play.google.com/console/u/0/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "category": "Social or Communication",
+  "roots": [
+    "which_of_the_following_would_best_describe_the_app_6d1d2d7d",
+    "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+    "does_the_app_allow_users_to_purchase_digital_goods_43ad2835",
+    "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+    "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+    "does_the_app_include_chat_moderation_cc9ff2ca",
+    "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d"
+  ],
+  "questions": {
+    "which_of_the_following_would_best_describe_the_app_6d1d2d7d": {
+      "key": "which_of_the_following_would_best_describe_the_app_6d1d2d7d",
+      "text": "Which of the following would best describe the app?",
+      "type": "radio",
+      "order": 0,
+      "options": {
+        "Communication - used to communicate with people already known to the user in one-on-one or small group conversations. Skype, SMS, and Gmail are examples of these types of products.": {
+          "label": "Communication - used to communicate with people already known to the user in one-on-one or small group conversations. Skype, SMS, and Gmail are examples of these types of products.",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Social - used to communicate, post, and share content with large groups of people or for meeting new people. Facebook, Twitter, Instagram, Tinder are examples of these types of products.": {
+          "label": "Social - used to communicate, post, and share content with large groups of people or for meeting new people. Facebook, Twitter, Instagram, Tinder are examples of these types of products.",
+          "children": [
+            "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d",
+            "does_the_app_permit_the_public_sharing_of_nudity_54ca8431",
+            "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 0,
+            "samplingPriority": 2,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a": {
+      "key": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "text": "Does the app share the user's current and precise physical location with other users?",
+      "type": "radio",
+      "order": 1,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "location_sharing"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_app_allow_users_to_purchase_digital_goods_43ad2835": {
+      "key": "does_the_app_allow_users_to_purchase_digital_goods_43ad2835",
+      "text": "Does the app allow users to purchase digital goods?",
+      "type": "radio",
+      "order": 2,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "can_these_purchases_include_random_items_where_the_purch_cfc20feb"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_app_include_the_ability_to_block_users_or_user__e8935808": {
+      "key": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "text": "Does the app include the ability to block users or user-generated content?",
+      "type": "radio",
+      "order": 3,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "does_the_app_include_the_ability_to_report_users_or_user_04c5c153": {
+      "key": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "text": "Does the app include the ability to report users or user-generated content?",
+      "type": "radio",
+      "order": 4,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "does_the_app_include_chat_moderation_cc9ff2ca": {
+      "key": "does_the_app_include_chat_moderation_cc9ff2ca",
+      "text": "Does the app include chat moderation?",
+      "type": "radio",
+      "order": 5,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d": {
+      "key": "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d",
+      "text": "Can interactions in the app be limited to invited friends only?",
+      "type": "radio",
+      "order": 6,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d": {
+      "key": "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d",
+      "text": "Is a significant portion of the app used to connect people for the purposes of dating or sexual relationships or endeavors?",
+      "type": "radio",
+      "order": 7,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_app_permit_the_public_sharing_of_nudity_54ca8431": {
+      "key": "does_the_app_permit_the_public_sharing_of_nudity_54ca8431",
+      "text": "Does the app permit the public sharing of nudity?",
+      "type": "radio",
+      "order": 8,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "is_this_the_primary_focus_of_the_app_abad8299"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4": {
+      "key": "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4",
+      "text": "Does the app permit the public sharing of real-world, graphic violence outside of a newsworthy context?",
+      "type": "radio",
+      "order": 9,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "is_this_the_primary_focus_of_the_app_abad8299": {
+      "key": "is_this_the_primary_focus_of_the_app_abad8299",
+      "text": "Is this the primary focus of the app?",
+      "type": "radio",
+      "order": 10,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "can_these_purchases_include_random_items_where_the_purch_cfc20feb": {
+      "key": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "text": "Can these purchases include random items where the purchaser doesn't know what specific items or features they will receive (e.g., loot boxes), the purchase of items that will be used to create or unlock an unknown item or feature (e.g., a key to unlock a loot box, material used to craft a random item), items that can improve the rate of earning random items (e.g., random drop boosts), or any other chance-based purchases?",
+      "type": "radio",
+      "order": 11,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    }
+  },
+  "conflicts": [],
+  "riskAnnotation": {
+    "version": 1,
+    "annotatedAt": "2026-06-10T06:59:40.010Z",
+    "method": "deterministic semantic pre-annotation",
+    "schema": {
+      "gateScore": "0-5: option opens rating-relevant follow-up questions",
+      "severityScore": "0-5: option's own expected content-rating severity",
+      "samplingPriority": "0-5: combined priority for directed sampling",
+      "tags": "risk dimensions used for coverage and combinations",
+      "confidence": "0-1 heuristic confidence",
+      "reviewNeeded": "true when the option should be prioritized for model or human review"
+    }
+  }
+}

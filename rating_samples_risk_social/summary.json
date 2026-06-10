@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-06-10T06:59:40.023Z",
+  "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph_risk_annotated.json",
+  "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_risk_social/risk_samples.jsonl",
+  "config": {
+    "graphPath": "data_categories/social_or_communication/question_graph_risk_annotated.json",
+    "outDir": "rating_samples_risk_social",
+    "maxRiskPaths": 120,
+    "maxPairwise": 80,
+    "minPriority": 3
+  },
+  "sampleCount": 7,
+  "strategyCounts": {
+    "baseline": 1,
+    "risk_path": 6
+  },
+  "severityCounts": {
+    "0": 1,
+    "2": 2,
+    "3": 4
+  },
+  "tagCounts": {
+    "sexual_content": 1,
+    "violence": 1,
+    "mitigation_missing": 2,
+    "safety_mitigation": 2,
+    "ugc": 2,
+    "ugc_safety": 2
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-10T10:25:35.441Z",
+  "sampleFiles": [
+    "rating_samples_balanced/all_other_app_types_balanced_samples.jsonl",
+    "rating_samples_balanced/all_other_app_types_balanced_samples_16_plus.jsonl",
+    "rating_samples_balanced/all_other_app_types_gambling_samples.jsonl",
+    "rating_samples_balanced/all_other_app_types_supplemental_final_retry_samples.jsonl",
+    "rating_samples_balanced/all_other_app_types_supplemental_retry_samples.jsonl",
+    "rating_samples_balanced/all_other_app_types_supplemental_samples.jsonl",
+    "rating_samples_balanced/balanced_samples.jsonl",
+    "rating_samples_balanced/creature_humanlike_retry_sample.jsonl",
+    "rating_samples_balanced/game_balanced_samples.jsonl",
+    "rating_samples_balanced/game_cash_rewards_retry_samples.jsonl",
+    "rating_samples_balanced/game_supplemental_samples.jsonl",
+    "rating_samples_balanced/historical_failures_retry_samples.jsonl",
+    "rating_samples_balanced/social_or_communication_balanced_samples.jsonl",
+    "rating_samples_balanced/social_or_communication_supplemental_samples.jsonl",
+    "rating_samples_balanced/supplemental_samples.jsonl",
+    "rating_samples_risk_all_other/risk_samples.jsonl",
+    "rating_samples_risk_game/risk_samples.jsonl",
+    "rating_samples_risk_social/risk_samples.jsonl"
+  ],
+  "resultDirs": [
+    "rating_results_balanced",
+    "rating_results_balanced_all_other",
+    "rating_results_balanced_all_other_gambling_fix",
+    "rating_results_balanced_all_other_supplemental",
+    "rating_results_balanced_all_other_supplemental_final_retry",
+    "rating_results_balanced_all_other_supplemental_retry",
+    "rating_results_balanced_all_other_tail",
+    "rating_results_balanced_all_other_v2",
+    "rating_results_balanced_game_cash_rewards_retry",
+    "rating_results_balanced_game_supplemental",
+    "rating_results_balanced_social",
+    "rating_results_balanced_social_supplemental",
+    "rating_results_balanced_summary.json",
+    "rating_results_balanced_v2",
+    "rating_results_creature_humanlike_retry",
+    "rating_results_historical_failures_retry",
+    "rating_results_midband_game",
+    "rating_results_risk_game",
+    "rating_results_risk_game_v2"
+  ],
+  "total": 372,
+  "byCategory": {
+    "Social or Communication": 7,
+    "All Other App Types": 186,
+    "Game": 179
+  }
+}

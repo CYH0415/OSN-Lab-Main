@@ -1,0 +1,56 @@
+{
+  "generatedAt": "2026-06-10T12:19:18.315Z",
+  "valuableUnique": 1004,
+  "excludedDirs": [
+    "rating_results_structural",
+    "rating_results_structural_v2"
+  ],
+  "byCategory": {
+    "All Other App Types": 358,
+    "Game": 621,
+    "Social or Communication": 25
+  },
+  "esrb": {
+    "Mature 17+": 288,
+    "Adults only 18+": 232,
+    "Everyone": 157,
+    "Everyone 10+": 75,
+    "Teen": 252
+  },
+  "europe": {
+    "PEGI 18": 390,
+    "PEGI 3": 209,
+    "PEGI 7": 74,
+    "Parental guidance": 51,
+    "PEGI 16": 139,
+    "PEGI 12": 141
+  },
+  "byResultDir": {
+    "rating_autonomous": 198,
+    "rating_results_balanced": 4,
+    "rating_results_balanced_all_other": 1,
+    "rating_results_balanced_all_other_gambling_fix": 4,
+    "rating_results_balanced_all_other_supplemental": 12,
+    "rating_results_balanced_all_other_supplemental_final_retry": 7,
+    "rating_results_balanced_all_other_supplemental_retry": 4,
+    "rating_results_balanced_all_other_tail": 20,
+    "rating_results_balanced_all_other_v2": 11,
+    "rating_results_balanced_game_cash_rewards_retry": 2,
+    "rating_results_balanced_game_supplemental": 7,
+    "rating_results_balanced_social": 4,
+    "rating_results_balanced_social_supplemental": 3,
+    "rating_results_balanced_v2": 12,
+    "rating_results_creature_humanlike_retry": 1,
+    "rating_results_designed_all_other": 137,
+    "rating_results_designed_curated": 14,
+    "rating_results_designed_game": 126,
+    "rating_results_goal1000_all_other": 38,
+    "rating_results_goal1000_all_other_stable": 35,
+    "rating_results_goal1000_game": 197,
+    "rating_results_goal1000_game_fallback": 62,
+    "rating_results_goal1000_game_stable": 56,
+    "rating_results_historical_failures_retry": 5,
+    "rating_results_midband_game": 39,
+    "rating_results_risk_game": 5
+  }
+}

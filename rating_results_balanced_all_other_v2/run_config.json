@@ -1,0 +1,15 @@
+{
+  "url": "https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "overviewUrl": "https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-overview",
+  "sampleFile": "rating_samples_balanced/all_other_app_types_balanced_samples.jsonl",
+  "outDir": "rating_results_balanced_all_other_v2",
+  "resultFile": "",
+  "cdpUrl": "http://127.0.0.1:9222",
+  "expectedAccount": "mengshu0715@gmail.com",
+  "contactEmail": "mengshu0715@gmail.com",
+  "pauseMs": 160,
+  "limit": 15,
+  "maxNormalizePasses": 80,
+  "skipErrored": true,
+  "resultPath": "rating_results_balanced_all_other_v2/results.jsonl"
+}

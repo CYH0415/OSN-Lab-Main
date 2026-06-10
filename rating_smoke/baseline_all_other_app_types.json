@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-06-09T07:44:36.145Z",
+  "category": "All Other App Types",
+  "submitForRating": true,
+  "applied": [],
+  "visibleAfterFill": [
+    {
+      "key": "does_the_app_contain_any_ratings_relevant_content_e_g_se_1bdb46b7",
+      "text": "Does the app contain any ratings-relevant content (e.g., sex, violence, language) downloaded as part of the app package (code, assets)?",
+      "type": "radio",
+      "order": 0,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_natively_allow_users_to_interact_or_exchang_0814bcf5",
+      "text": "Does the app natively allow users to interact or exchange content with other users through voice communication, text, or sharing images or audio?",
+      "type": "radio",
+      "order": 1,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_feature_or_promote_content_that_isn_t_part__94fe8720",
+      "text": "Does the app feature or promote content that isn't part of the initial app download, but can be accessed from the app? Examples of this type of content are movies in the Netflix app, product listings in the Amazon Shopping app, songs in the Spotify app, generated AI content, or news articles in the New York Times app.",
+      "type": "radio",
+      "order": 2,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_focus_on_promoting_or_selling_items_or_acti_fb2a4b57",
+      "text": "Does the app focus on promoting or selling items or activities that are typically age-restricted such as cigarettes, alcohol, firearms, or gambling?",
+      "type": "radio",
+      "order": 3,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "text": "Does the app share the user's current and precise physical location with other users?",
+      "type": "radio",
+      "order": 4,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_allow_users_to_purchase_digital_goods_43ad2835",
+      "text": "Does the app allow users to purchase digital goods?",
+      "type": "radio",
+      "order": 5,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "does_the_app_include_cash_rewards_gift_cards_play_to_ear_39e41173",
+      "text": "Does the app include cash rewards, gift cards, play-to-earn features, convertible cryptocurrency rewards, or the issuance of transferable digital assets (e.g., NFTs)?",
+      "type": "radio",
+      "order": 6,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "is_the_app_a_web_browser_or_search_engine_15f398d7",
+      "text": "Is the app a web browser or search engine?",
+      "type": "radio",
+      "order": 7,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    },
+    {
+      "key": "is_the_app_primarily_a_news_or_educational_product_44733801",
+      "text": "Is the app primarily a news or educational product?",
+      "type": "radio",
+      "order": 8,
+      "options": [
+        {
+          "label": "Yes",
+          "selected": false
+        },
+        {
+          "label": "No",
+          "selected": true
+        }
+      ]
+    }
+  ],
+  "result": {
+    "url": "https://play.google.com/console/u/0/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+    "title": "Content ratings | The Same Old Waves",
+    "bodyText": "Loading Google Play Console To publish apps, finish setting up your developer account View details notifications Notifications The Same Old Waves keyboard_backspace All apps dashboard Dashboard bar_chart Statistics overview Publishing overview shield Protected with Play rocket_launch Test and release vital_signs Monitor and improve Reach and devices expand_more Ratings and reviews expand_more Android vitals expand_more Policy and programs expand_less Policy status App content Teacher Approved finance_mode Grow users sell Monetize with Play keyboard_backspace App content Content ratings Discard changes check Category check Questionnaire 3 Summary Summary Ratings shown below may differ from the ratings shown to users on Google Play. Google may reject your app or app update for misrepresentation of your app’s content Google may use your questionnaire responses to generate ratings for specific territories as required by local law Rating authorities participating in IARC may change your app's rating after they review it Google and IARC will share your contact information, questionnaire responses, ratings, developer support requests, and app details with rating authorities. Category All Other App Types Your ratings Brazil Rating authority: Classificação Indicativa (ClassInd) Rating All ages Content descriptors - North America Rating authority: Entertainment Software Rating Board (ESRB) Rating Everyone Content descriptors - Europe Rating authority: Pan-European Game Information (PEGI) Rating PEGI 3 Content descriptors - Germany Rating authority: Unterhaltungssoftware Selbstkontrolle (USK) Rating USK: All ages Content descriptors - Rest of world Rating authority: IARC Generic Rating Rated for 3+ Content descriptors - Russia Rating authority: Google Play Rating Rated for 3+ Content descriptors - South Korea Rating authority: Google Play warning Games that aren't suitable for users under 19 may be removed from Google Play in South Korea, unless they're rated by GRAC. Rating Rated for 3+ Content descriptors - If you save, changes will be saved in Publishing overview, ready for you to send for review Back Save Product updates Status dashboard Help © 2026 Google Privacy Developer Distribution Agreement Terms of Service",
+    "tables": [],
+    "ratings": [
+      {
+        "territory": "Brazil",
+        "authority": "Classificação Indicativa (ClassInd)",
+        "rating": "All ages",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "Classificação Indicativa (ClassInd) Rating All ages Content descriptors -"
+      },
+      {
+        "territory": "North America",
+        "authority": "Entertainment Software Rating Board (ESRB)",
+        "rating": "Everyone",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "Entertainment Software Rating Board (ESRB) Rating Everyone Content descriptors -"
+      },
+      {
+        "territory": "Europe",
+        "authority": "Pan-European Game Information (PEGI)",
+        "rating": "PEGI 3",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "Pan-European Game Information (PEGI) Rating PEGI 3 Content descriptors -"
+      },
+      {
+        "territory": "Germany",
+        "authority": "Unterhaltungssoftware Selbstkontrolle (USK)",
+        "rating": "USK: All ages",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "Unterhaltungssoftware Selbstkontrolle (USK) Rating USK: All ages Content descriptors -"
+      },
+      {
+        "territory": "Rest of world",
+        "authority": "IARC Generic",
+        "rating": "Rated for 3+",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "IARC Generic Rating Rated for 3+ Content descriptors -"
+      },
+      {
+        "territory": "Russia",
+        "authority": "Google Play",
+        "rating": "Rated for 3+",
+        "contentDescriptors": "-",
+        "warning": "",
+        "raw": "Google Play Rating Rated for 3+ Content descriptors -"
+      },
+      {
+        "territory": "South Korea",
+        "authority": "Google Play",
+        "rating": "Rated for 3+",
+        "contentDescriptors": "-",
+        "warning": "Games that aren't suitable for users under 19 may be removed from Google Play in South Korea, unless they're rated by GRAC.",
+        "raw": "Google Play warning Games that aren't suitable for users under 19 may be removed from Google Play in South Korea, unless they're rated by GRAC. Rating Rated for 3+ Content descriptors -"
+      }
+    ]
+  }
+}

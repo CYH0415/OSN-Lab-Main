@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-06-10T07:48:43.560Z",
+  "categoryRoot": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories",
+  "outDir": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_balanced",
+  "categories": [
+    {
+      "category": "Game",
+      "categorySlug": "game",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph_risk_annotated.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_balanced/game_balanced_samples.jsonl",
+      "sampleCount": 42,
+      "strategyCounts": {
+        "baseline": 1,
+        "balanced_ladder": 32,
+        "balanced_supplemental": 9
+      },
+      "topicCounts": {
+        "baseline": 1,
+        "violence": 5,
+        "violence_creature": 2,
+        "fear": 5,
+        "sexual_content": 5,
+        "nudity": 2,
+        "gambling": 4,
+        "language": 5,
+        "substances": 4,
+        "location_sharing": 1,
+        "monetization": 4,
+        "crude_humor": 4
+      }
+    },
+    {
+      "category": "Social or Communication",
+      "categorySlug": "social_or_communication",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/social_or_communication/question_graph_risk_annotated.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_balanced/social_or_communication_balanced_samples.jsonl",
+      "sampleCount": 7,
+      "strategyCounts": {
+        "baseline": 1,
+        "balanced_ladder": 3,
+        "balanced_supplemental": 3
+      },
+      "topicCounts": {
+        "baseline": 1,
+        "ugc_dating": 1,
+        "ugc_nudity": 1,
+        "ugc_violence": 1,
+        "location_sharing": 1,
+        "monetization": 2
+      }
+    },
+    {
+      "category": "All Other App Types",
+      "categorySlug": "all_other_app_types",
+      "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/all_other_app_types/question_graph_risk_annotated.json",
+      "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_balanced/all_other_app_types_balanced_samples.jsonl",
+      "sampleCount": 63,
+      "strategyCounts": {
+        "baseline": 1,
+        "balanced_ladder": 39,
+        "balanced_supplemental": 23
+      },
+      "topicCounts": {
+        "baseline": 1,
+        "violence": 5,
+        "violence_creature": 2,
+        "fear": 5,
+        "sexual_content": 5,
+        "nudity": 2,
+        "gambling": 4,
+        "language": 5,
+        "substances": 4,
+        "ugc": 2,
+        "ugc_nudity": 1,
+        "ugc_violence": 1,
+        "catalog_violence": 3,
+        "catalog_sexual": 3,
+        "catalog_language": 3,
+        "catalog_substances": 2,
+        "location_sharing": 1,
+        "monetization": 6,
+        "age_restricted_commerce": 2,
+        "utility": 2,
+        "crude_humor": 4
+      }
+    }
+  ],
+  "allSamplesPath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_balanced/balanced_samples.jsonl",
+  "totalSamples": 112
+}

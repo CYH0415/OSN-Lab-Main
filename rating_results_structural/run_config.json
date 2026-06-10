@@ -1,0 +1,12 @@
+{
+  "url": "https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "sampleFile": "rating_samples/structural_samples.jsonl",
+  "outDir": "rating_results_structural",
+  "resultFile": "",
+  "cdpUrl": "http://127.0.0.1:9222",
+  "expectedAccount": "mengshu0715@gmail.com",
+  "pauseMs": 160,
+  "limit": 5,
+  "maxNormalizePasses": 80,
+  "resultPath": "rating_results_structural/results.jsonl"
+}

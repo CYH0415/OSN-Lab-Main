@@ -1,0 +1,46 @@
+{
+  "generatedAt": "2026-06-10T06:29:23.858Z",
+  "graphPath": "/Users/cyh/Workspace/OSN-Lab-Main/data_categories/game/question_graph_risk_annotated.json",
+  "samplePath": "/Users/cyh/Workspace/OSN-Lab-Main/rating_samples_risk_game/risk_samples.jsonl",
+  "config": {
+    "graphPath": "data_categories/game/question_graph_risk_annotated.json",
+    "outDir": "rating_samples_risk_game",
+    "maxRiskPaths": 120,
+    "maxPairwise": 80,
+    "minPriority": 3
+  },
+  "sampleCount": 184,
+  "strategyCounts": {
+    "baseline": 1,
+    "risk_path": 94,
+    "tag_max_path": 9,
+    "risk_pairwise": 80
+  },
+  "severityCounts": {
+    "0": 1,
+    "2": 1,
+    "3": 30,
+    "4": 33,
+    "5": 119
+  },
+  "tagCounts": {
+    "fear": 14,
+    "gore": 23,
+    "violence": 63,
+    "nudity": 99,
+    "sexual_content": 27,
+    "substances": 49,
+    "sexual_violence": 3,
+    "gambling": 6,
+    "monetization": 6,
+    "mitigation_missing": 3,
+    "safety_mitigation": 3,
+    "ugc": 3,
+    "ugc_safety": 3,
+    "crime": 7,
+    "language": 6,
+    "hate_symbols": 3,
+    "terrorism": 3,
+    "crude_humor": 4
+  }
+}

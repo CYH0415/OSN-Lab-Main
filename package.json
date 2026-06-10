@@ -7,7 +7,16 @@
     "inspect:questionnaire": "node scripts/inspect_questionnaire.mjs",
     "inspect:categories": "node scripts/inspect_all_categories.mjs",
     "render:graph": "node scripts/render_question_graph.mjs",
-    "render:category-index": "node scripts/render_category_index.mjs"
+    "render:category-index": "node scripts/render_category_index.mjs",
+    "generate:samples": "node scripts/generate_structural_samples.mjs",
+    "run:samples": "node scripts/run_rating_samples.mjs",
+    "smoke:rating": "node scripts/smoke_rating_automation.mjs",
+    "annotate:risk": "node scripts/annotate_question_risk.mjs",
+    "generate:risk-samples": "node scripts/generate_risk_samples.mjs",
+    "generate:midband-samples": "node scripts/generate_midband_samples.mjs",
+    "generate:balanced-samples": "node scripts/generate_balanced_rating_samples.mjs",
+    "sample:autonomous": "node scripts/autonomous_rating_sampler.mjs",
+    "sample:autonomous:generate": "GENERATE_ONLY=1 node scripts/autonomous_rating_sampler.mjs"
   },
   "dependencies": {
     "playwright": "^1.53.0"

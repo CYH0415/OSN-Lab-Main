@@ -1,0 +1,4394 @@
+{
+  "generatedAt": "2026-06-09T05:39:09.331Z",
+  "configuredUrl": "https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "sourceUrl": "https://play.google.com/console/u/0/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire",
+  "category": "Game",
+  "roots": [
+    "does_the_game_contain_inferences_of_references_to_or_dep_a60327ce",
+    "does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8",
+    "does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf",
+    "does_the_game_contain_gambling_simulations_of_casino_gam_251e14df",
+    "does_the_game_contain_any_potentially_offensive_language_3a42be1b",
+    "does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced",
+    "does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc",
+    "does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09",
+    "does_the_game_natively_allow_users_to_interact_or_exchan_a4531922",
+    "does_the_game_share_the_user_s_current_and_precise_physi_9a758681",
+    "does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d",
+    "does_the_game_contain_any_content_that_can_substantially_0e8549e7",
+    "does_the_game_advocate_committing_acts_of_terrorism_e10f0658",
+    "does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535"
+  ],
+  "questions": {
+    "does_the_game_contain_inferences_of_references_to_or_dep_a60327ce": {
+      "key": "does_the_game_contain_inferences_of_references_to_or_dep_a60327ce",
+      "text": "Does the game contain inferences of, references to, or depictions of violence, blood, or gory images? This includes violence directed at the player's character. Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 0,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_a0533f3c"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8": {
+      "key": "does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8",
+      "text": "Does the game contain pictures or sounds likely to be scary, horrifying, or disturbing? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 1,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_a522854d"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf": {
+      "key": "does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf",
+      "text": "Does the game contain inferences of, references to, or depictions of sexuality, sexual violence, suggestiveness, dating games, revealing attire, or nudity? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 2,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_768feb67"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity",
+              "sexual_content",
+              "sexual_violence",
+              "violence"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_gambling_simulations_of_casino_gam_251e14df": {
+      "key": "does_the_game_contain_gambling_simulations_of_casino_gam_251e14df",
+      "text": "Does the game contain gambling, simulations of casino gambling/bingo, or gambling themes? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 3,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_a17b785f"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_any_potentially_offensive_language_3a42be1b": {
+      "key": "does_the_game_contain_any_potentially_offensive_language_3a42be1b",
+      "text": "Does the game contain any potentially offensive language? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 4,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_500aa428"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced": {
+      "key": "does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced",
+      "text": "Does the game contain any reference to or use of drugs, alcohol, or tobacco? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 5,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_ba1c8db3"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc": {
+      "key": "does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc",
+      "text": "Does the game contain any bodily functions such as belching, flatulence, or vomiting when used for humorous purposes? Please note that this question does not refer to user-generated content.",
+      "type": "radio",
+      "order": 6,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1"
+          ],
+          "risk": {
+            "gateScore": 2,
+            "severityScore": 1,
+            "samplingPriority": 2,
+            "tags": [
+              "crude_humor"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09": {
+      "key": "does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09",
+      "text": "Does the game include the purchase or sale of digital goods, cash rewards, gift cards, play-to-earn features, convertible cryptocurrency rewards, or the issuance of transferable digital assets (e.g., NFTs)?",
+      "type": "radio",
+      "order": 7,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "please_select_all_that_the_game_includes_4e162967"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_natively_allow_users_to_interact_or_exchan_a4531922": {
+      "key": "does_the_game_natively_allow_users_to_interact_or_exchan_a4531922",
+      "text": "Does the game natively allow users to interact or exchange content with other users through voice communication, text, or sharing images or audio?",
+      "type": "radio",
+      "order": 8,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61",
+            "does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc",
+            "does_the_game_include_chat_moderation_f5949739",
+            "can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "ugc"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_share_the_user_s_current_and_precise_physi_9a758681": {
+      "key": "does_the_game_share_the_user_s_current_and_precise_physi_9a758681",
+      "text": "Does the game share the user's current and precise physical location with other users?",
+      "type": "radio",
+      "order": 9,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "location_sharing"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d": {
+      "key": "does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d",
+      "text": "Does the game contain any swastikas, other Nazi symbols or propaganda deemed unconstitutional in Germany?",
+      "type": "radio",
+      "order": 10,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "hate_symbols"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_any_content_that_can_substantially_0e8549e7": {
+      "key": "does_the_game_contain_any_content_that_can_substantially_0e8549e7",
+      "text": "Does the game contain any content that can substantially erode the national identity of the Republic of Korea by describing anti-national acts or distorting historical facts?",
+      "type": "radio",
+      "order": 11,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "regional_sensitive_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_advocate_committing_acts_of_terrorism_e10f0658": {
+      "key": "does_the_game_advocate_committing_acts_of_terrorism_e10f0658",
+      "text": "Does the game advocate committing acts of terrorism?",
+      "type": "radio",
+      "order": 12,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "terrorism"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535": {
+      "key": "does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535",
+      "text": "Does the game contain realistic descriptions of crimes (e.g., robbery, kidnapping) or techniques that can be used in criminal offenses?",
+      "type": "radio",
+      "order": 13,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a",
+            "are_there_detailed_descriptions_of_techniques_that_could_207c80c9"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "crime"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_a0533f3c": {
+      "key": "please_select_all_that_the_game_includes_a0533f3c",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 14,
+      "options": {
+        "Violence or implied violence against humans": {
+          "label": "Violence or implied violence against humans",
+          "children": [
+            "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+            "does_the_game_have_a_pixelated_or_childlike_style_df8228d5",
+            "how_would_you_describe_the_reactions_to_violence_f4f3f14a",
+            "how_is_this_violence_presented_in_the_game_d6f09ae3",
+            "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+            "does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44",
+            "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+            "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 3,
+            "samplingPriority": 5,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)": {
+          "label": "Violence against anything other than humans (e.g., animals, fantasy creatures, robots, vehicles)",
+          "children": [
+            "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+            "does_the_game_have_a_pixelated_or_childlike_style_7003dd1d",
+            "how_would_you_describe_the_reactions_to_violence_f4f3f14a",
+            "how_is_this_violence_presented_in_the_game_0a118a0a",
+            "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+            "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+            "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+            "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "Disturbing or gory images without a violent act shown.": {
+          "label": "Disturbing or gory images without a violent act shown.",
+          "children": [
+            "how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "fear",
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Blood that isn't directly related to a violent act (e.g., blood on clothing, blood in the background, blood resulting from performing surgery)": {
+          "label": "Blood that isn't directly related to a violent act (e.g., blood on clothing, blood in the background, blood resulting from performing surgery)",
+          "children": [
+            "what_best_describes_this_type_of_blood_in_the_game_7ee8e188"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d": {
+      "key": "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+      "text": "In what kind of setting (context, storyline) does the violence occur?",
+      "type": "radio",
+      "order": 15,
+      "options": {
+        "Fantastical": {
+          "label": "Fantastical",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Realistic": {
+          "label": "Realistic",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "does_the_game_have_a_pixelated_or_childlike_style_df8228d5": {
+      "key": "does_the_game_have_a_pixelated_or_childlike_style_df8228d5",
+      "text": "Does the game have a pixelated or childlike style?",
+      "type": "radio",
+      "order": 16,
+      "options": {
+        "Yes, it has a childlike style (e.g., likely to appeal to younger children)": {
+          "label": "Yes, it has a childlike style (e.g., likely to appeal to younger children)",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Yes, it has a pixelated style": {
+          "label": "Yes, it has a pixelated style",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_would_you_describe_the_reactions_to_violence_f4f3f14a": {
+      "key": "how_would_you_describe_the_reactions_to_violence_f4f3f14a",
+      "text": "How would you describe the reactions to violence?",
+      "type": "radio",
+      "order": 17,
+      "options": {
+        "Unrealistic": {
+          "label": "Unrealistic",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Realistic": {
+          "label": "Realistic",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_is_this_violence_presented_in_the_game_d6f09ae3": {
+      "key": "how_is_this_violence_presented_in_the_game_d6f09ae3",
+      "text": "How is this violence presented in the game?",
+      "type": "checkbox",
+      "order": 18,
+      "options": {
+        "Referred to": {
+          "label": "Referred to",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Implied but not seen": {
+          "label": "Implied but not seen",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Rarely depicted from a distant perspective": {
+          "label": "Rarely depicted from a distant perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often depicted from a distant perspective": {
+          "label": "Often depicted from a distant perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Rarely depicted from a close-up perspective": {
+          "label": "Rarely depicted from a close-up perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often depicted from a close-up perspective": {
+          "label": "Often depicted from a close-up perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc": {
+      "key": "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+      "text": "What is the level of blood and/or gore associated with this violence?",
+      "type": "radio",
+      "order": 19,
+      "options": {
+        "None": {
+          "label": "None",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Mild/Limited": {
+          "label": "Mild/Limited",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Moderate": {
+          "label": "Moderate",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "High": {
+          "label": "High",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44": {
+      "key": "does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44",
+      "text": "Does the game take place in a realistic or historical war setting?",
+      "type": "radio",
+      "order": 20,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b": {
+      "key": "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+      "text": "Can innocent or defenseless characters be seriously injured or killed?",
+      "type": "radio",
+      "order": 21,
+      "options": {
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Yes, with penalties": {
+          "label": "Yes, with penalties",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Yes, without penalties": {
+          "label": "Yes, without penalties",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f": {
+      "key": "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f",
+      "text": "Are there any fierce sounds, sinister or intimidating characters, or dark overtones associated with this violence?",
+      "type": "radio",
+      "order": 22,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "fear",
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_have_a_pixelated_or_childlike_style_7003dd1d": {
+      "key": "does_the_game_have_a_pixelated_or_childlike_style_7003dd1d",
+      "text": "Does the game have a pixelated or childlike style?",
+      "type": "radio",
+      "order": 23,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_is_this_violence_presented_in_the_game_0a118a0a": {
+      "key": "how_is_this_violence_presented_in_the_game_0a118a0a",
+      "text": "How is this violence presented in the game?",
+      "type": "checkbox",
+      "order": 24,
+      "options": {
+        "Referred to": {
+          "label": "Referred to",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Rarely depicted from a distant perspective": {
+          "label": "Rarely depicted from a distant perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often depicted from a distant perspective": {
+          "label": "Often depicted from a distant perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Rarely depicted from a close-up perspective": {
+          "label": "Rarely depicted from a close-up perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often depicted from a close-up perspective": {
+          "label": "Often depicted from a close-up perspective",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a": {
+      "key": "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+      "text": "Do any of these creatures behave or respond like humans?",
+      "type": "radio",
+      "order": 25,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "is_any_of_this_violence_against_real_world_animals_6fc80a86": {
+      "key": "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+      "text": "Is any of this violence against real-world animals?",
+      "type": "radio",
+      "order": 26,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158": {
+      "key": "how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158",
+      "text": "How explicitly depicted are these disturbing or gory images?",
+      "type": "radio",
+      "order": 27,
+      "options": {
+        "Limited Detail": {
+          "label": "Limited Detail",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "fear",
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Moderate Detail": {
+          "label": "Moderate Detail",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "fear",
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Graphic Detail": {
+          "label": "Graphic Detail",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "fear",
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "what_best_describes_this_type_of_blood_in_the_game_7ee8e188": {
+      "key": "what_best_describes_this_type_of_blood_in_the_game_7ee8e188",
+      "text": "What best describes this type of blood in the game:",
+      "type": "radio",
+      "order": 28,
+      "options": {
+        "Small and infrequent": {
+          "label": "Small and infrequent",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Large or frequent": {
+          "label": "Large or frequent",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "gore",
+              "violence"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_a522854d": {
+      "key": "please_select_all_that_the_game_includes_a522854d",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 29,
+      "options": {
+        "Scary elements": {
+          "label": "Scary elements",
+          "children": [
+            "how_frequent_are_the_scary_elements_71813163"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "Horrifying elements": {
+          "label": "Horrifying elements",
+          "children": [
+            "how_frequent_are_the_horrifying_elements_793da69a"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        }
+      }
+    },
+    "how_frequent_are_the_scary_elements_71813163": {
+      "key": "how_frequent_are_the_scary_elements_71813163",
+      "text": "How frequent are the scary elements?",
+      "type": "radio",
+      "order": 30,
+      "options": {
+        "Rare": {
+          "label": "Rare",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "how_frequent_are_the_horrifying_elements_793da69a": {
+      "key": "how_frequent_are_the_horrifying_elements_793da69a",
+      "text": "How frequent are the horrifying elements?",
+      "type": "radio",
+      "order": 31,
+      "options": {
+        "Rare": {
+          "label": "Rare",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [
+            "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6"
+          ],
+          "risk": {
+            "gateScore": 2,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6": {
+      "key": "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6",
+      "text": "Is there an intense and unrelenting sense of imminent threat?",
+      "type": "radio",
+      "order": 32,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "fear"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_768feb67": {
+      "key": "please_select_all_that_the_game_includes_768feb67",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 33,
+      "options": {
+        "Sexual Activity - Includes both moving and still images of sexual activity": {
+          "label": "Sexual Activity - Includes both moving and still images of sexual activity",
+          "children": [
+            "how_often_do_sexual_acts_occur_7a0c9886",
+            "what_is_the_duration_of_these_scenes_ebc5ddb7",
+            "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+            "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 5,
+            "samplingPriority": 5,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Suggestive/Sexual Themes or References": {
+          "label": "Suggestive/Sexual Themes or References",
+          "children": [
+            "how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Dating Games - Interactive dating, marriage, or other romantic relationships between game characters": {
+          "label": "Dating Games - Interactive dating, marriage, or other romantic relationships between game characters",
+          "children": [
+            "are_these_dating_games_prominently_featured_or_a_strong__aaafc141"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Nudity or Revealing Outfits": {
+          "label": "Nudity or Revealing Outfits",
+          "children": [
+            "please_select_all_that_the_game_includes_c2929670"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Depictions of or References to Sexual Violence": {
+          "label": "Depictions of or References to Sexual Violence",
+          "children": [
+            "how_is_the_sexual_violence_in_the_game_presented_1aa9d746"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 5,
+            "samplingPriority": 5,
+            "tags": [
+              "sexual_content",
+              "sexual_violence",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_often_do_sexual_acts_occur_7a0c9886": {
+      "key": "how_often_do_sexual_acts_occur_7a0c9886",
+      "text": "How often do sexual acts occur?",
+      "type": "radio",
+      "order": 34,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "what_is_the_duration_of_these_scenes_ebc5ddb7": {
+      "key": "what_is_the_duration_of_these_scenes_ebc5ddb7",
+      "text": "What is the duration of these scenes?",
+      "type": "radio",
+      "order": 35,
+      "options": {
+        "Brief": {
+          "label": "Brief",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Prolonged": {
+          "label": "Prolonged",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [],
+            "confidence": 0.87,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8": {
+      "key": "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+      "text": "How would you describe the depiction of these scenes? Please check all that apply.",
+      "type": "checkbox",
+      "order": 36,
+      "options": {
+        "Obscured/Innuendo - Sex act is either entirely off-camera or completely blocked from view": {
+          "label": "Obscured/Innuendo - Sex act is either entirely off-camera or completely blocked from view",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Shown with No Nudity - Characters are depicted in a sexual act but no nudity is shown": {
+          "label": "Shown with No Nudity - Characters are depicted in a sexual act but no nudity is shown",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Shown with Partial Nudity - Breasts, Buttocks": {
+          "label": "Shown with Partial Nudity - Breasts, Buttocks",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Shown with Full Frontal Nudity": {
+          "label": "Shown with Full Frontal Nudity",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50": {
+      "key": "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50",
+      "text": "Do any of these sex acts feature characters that appear to be younger than 18?",
+      "type": "radio",
+      "order": 37,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1": {
+      "key": "how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1",
+      "text": "How would you describe the suggestive/sexual themes contained in the game? Please check all that apply.",
+      "type": "checkbox",
+      "order": 38,
+      "options": {
+        "Suggestive references and innuendo in text, dialogue, or heard": {
+          "label": "Suggestive references and innuendo in text, dialogue, or heard",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Overtly sexual situations or visually depicted innuendo": {
+          "label": "Overtly sexual situations or visually depicted innuendo",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "References to sexual activity without descriptive detail": {
+          "label": "References to sexual activity without descriptive detail",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "References to sexual activity with descriptive detail": {
+          "label": "References to sexual activity with descriptive detail",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Sexual situations involving those who appear to be under 18": {
+          "label": "Sexual situations involving those who appear to be under 18",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity",
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "are_these_dating_games_prominently_featured_or_a_strong__aaafc141": {
+      "key": "are_these_dating_games_prominently_featured_or_a_strong__aaafc141",
+      "text": "Are these dating games prominently featured or a strong focus of the product?",
+      "type": "radio",
+      "order": 39,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "sexual_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_c2929670": {
+      "key": "please_select_all_that_the_game_includes_c2929670",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 40,
+      "options": {
+        "Revealing Outfits": {
+          "label": "Revealing Outfits",
+          "children": [
+            "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+            "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0",
+            "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Nudity": {
+          "label": "Nudity",
+          "children": [
+            "please_select_all_that_the_game_includes_44d3634e",
+            "is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_are_revealing_outfits_depicted_dbabdf26": {
+      "key": "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+      "text": "How frequently are revealing outfits depicted?",
+      "type": "radio",
+      "order": 41,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0": {
+      "key": "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0",
+      "text": "Are these revealing outfits ever depicted in an erotic or provocative setting or context?",
+      "type": "radio",
+      "order": 42,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5": {
+      "key": "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5",
+      "text": "Do these outfits ever appear to be out-of-place, such as a bikini worn on the battlefield or solely wearing undergarments in public?",
+      "type": "radio",
+      "order": 43,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_44d3634e": {
+      "key": "please_select_all_that_the_game_includes_44d3634e",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 44,
+      "options": {
+        "Human Buttocks": {
+          "label": "Human Buttocks",
+          "children": [
+            "how_frequently_do_the_human_buttocks_appear_6198e796"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Nipple-less Breasts or Breasts with Minimal Coverage, e.g., pasties, long hair": {
+          "label": "Nipple-less Breasts or Breasts with Minimal Coverage, e.g., pasties, long hair",
+          "children": [
+            "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Female Fantasy Creatures' Breasts, e.g., harpies": {
+          "label": "Female Fantasy Creatures' Breasts, e.g., harpies",
+          "children": [
+            "how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "Female Human Breasts with Nipples": {
+          "label": "Female Human Breasts with Nipples",
+          "children": [
+            "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Genitalia": {
+          "label": "Genitalia",
+          "children": [
+            "how_frequently_does_the_genitalia_appear_6e9bbba6"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 5,
+            "samplingPriority": 5,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959": {
+      "key": "is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959",
+      "text": "Is any of this content in an erotic, provocative setting or context?",
+      "type": "radio",
+      "order": 45,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "how_frequently_do_the_human_buttocks_appear_6198e796": {
+      "key": "how_frequently_do_the_human_buttocks_appear_6198e796",
+      "text": "How frequently do the human buttocks appear?",
+      "type": "radio",
+      "order": 46,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0": {
+      "key": "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0",
+      "text": "How frequently do the nipple-less breasts appear?",
+      "type": "radio",
+      "order": 47,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f": {
+      "key": "how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f",
+      "text": "How frequently do the fantasy creatures' breasts appear?",
+      "type": "radio",
+      "order": 48,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54": {
+      "key": "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54",
+      "text": "How frequently do the female human breasts with nipples appear?",
+      "type": "radio",
+      "order": 49,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_does_the_genitalia_appear_6e9bbba6": {
+      "key": "how_frequently_does_the_genitalia_appear_6e9bbba6",
+      "text": "How frequently does the genitalia appear?",
+      "type": "radio",
+      "order": 50,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "nudity"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_is_the_sexual_violence_in_the_game_presented_1aa9d746": {
+      "key": "how_is_the_sexual_violence_in_the_game_presented_1aa9d746",
+      "text": "How is the sexual violence in the game presented?",
+      "type": "radio",
+      "order": 51,
+      "options": {
+        "Visually depicted": {
+          "label": "Visually depicted",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "sexual_content",
+              "sexual_violence",
+              "violence"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Referred to only": {
+          "label": "Referred to only",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_a17b785f": {
+      "key": "please_select_all_that_the_game_includes_a17b785f",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 52,
+      "options": {
+        "Gambling themes": {
+          "label": "Gambling themes",
+          "children": [
+            "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Playable bingo games": {
+          "label": "Playable bingo games",
+          "children": [
+            "can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Playable casino games, lotteries, or racetrack betting": {
+          "label": "Playable casino games, lotteries, or racetrack betting",
+          "children": [
+            "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2"
+          ],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Any other games that use in-game currency/tokens to play and can reward the same currency through gameplay.": {
+          "label": "Any other games that use in-game currency/tokens to play and can reward the same currency through gameplay.",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be": {
+      "key": "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be",
+      "text": "Are these gambling themes prominently featured or a strong focus of the product?",
+      "type": "radio",
+      "order": 53,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a": {
+      "key": "can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a",
+      "text": "Can playing these bingo games reward cash payouts or rewards of significant monetary value?",
+      "type": "radio",
+      "order": 54,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa": {
+      "key": "does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa",
+      "text": "Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, or any other purchases potentially related to winning cash payouts or rewards of significant monetary value from these bingo games?",
+      "type": "radio",
+      "order": 55,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "gambling",
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2": {
+      "key": "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2",
+      "text": "Can playing these casino games, lotteries, or racetrack betting games reward cash payouts or rewards of significant monetary value?",
+      "type": "radio",
+      "order": 56,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [
+            "does_the_game_include_the_ability_or_requirement_to_wage_2d25b462"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 2,
+            "samplingPriority": 4,
+            "tags": [
+              "gambling"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_or_requirement_to_wage_2d25b462": {
+      "key": "does_the_game_include_the_ability_or_requirement_to_wage_2d25b462",
+      "text": "Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, or any other purchases potentially related to winning cash payouts or rewards of significant monetary value from these casino games, lotteries, or racetrack betting games?",
+      "type": "radio",
+      "order": 57,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "gambling",
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_500aa428": {
+      "key": "please_select_all_that_the_game_includes_500aa428",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 58,
+      "options": {
+        "Minor profanities (e.g., \"go to hell\")": {
+          "label": "Minor profanities (e.g., \"go to hell\")",
+          "children": [
+            "how_frequently_do_minor_profanities_occur_9d2bf28d"
+          ],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        },
+        "Moderate swearing or other language or gestures that could be considered moderately or significantly offensive": {
+          "label": "Moderate swearing or other language or gestures that could be considered moderately or significantly offensive",
+          "children": [
+            "how_frequently_does_moderate_swearing_occur_7d1d932d"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Discriminatory language (against race, religion, sex, etc...)": {
+          "label": "Discriminatory language (against race, religion, sex, etc...)",
+          "children": [
+            "how_frequently_does_discriminatory_language_occur_5fd2d7f7"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Sexual expletives": {
+          "label": "Sexual expletives",
+          "children": [
+            "how_frequently_do_sexual_expletives_occur_d0c59225"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "language",
+              "sexual_content"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_minor_profanities_occur_9d2bf28d": {
+      "key": "how_frequently_do_minor_profanities_occur_9d2bf28d",
+      "text": "How frequently do minor profanities occur?",
+      "type": "radio",
+      "order": 59,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "how_frequently_does_moderate_swearing_occur_7d1d932d": {
+      "key": "how_frequently_does_moderate_swearing_occur_7d1d932d",
+      "text": "How frequently does moderate swearing occur?",
+      "type": "radio",
+      "order": 60,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "how_frequently_does_discriminatory_language_occur_5fd2d7f7": {
+      "key": "how_frequently_does_discriminatory_language_occur_5fd2d7f7",
+      "text": "How frequently does discriminatory language occur?",
+      "type": "radio",
+      "order": 61,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "language"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "how_frequently_do_sexual_expletives_occur_d0c59225": {
+      "key": "how_frequently_do_sexual_expletives_occur_d0c59225",
+      "text": "How frequently do sexual expletives occur?",
+      "type": "radio",
+      "order": 62,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "language",
+              "sexual_content"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "language",
+              "sexual_content"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_ba1c8db3": {
+      "key": "please_select_all_that_the_game_includes_ba1c8db3",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 63,
+      "options": {
+        "Illegal or Recreational Drugs": {
+          "label": "Illegal or Recreational Drugs",
+          "children": [
+            "illegal_or_recreational_drugs_ba0c1239"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 4,
+            "samplingPriority": 5,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Fantasy Drugs": {
+          "label": "Fantasy Drugs",
+          "children": [
+            "fantasy_drugs_0cdae46d",
+            "how_frequently_do_fantasy_drugs_occur_f510ee29"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "Medical Drugs": {
+          "label": "Medical Drugs",
+          "children": [
+            "medical_drugs_32c6cc3e",
+            "how_frequently_do_medical_drugs_occur_04c7e80e"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Alcohol": {
+          "label": "Alcohol",
+          "children": [
+            "alcohol_533c1b5c",
+            "how_frequently_does_this_alcohol_content_occur_861b9e63"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Tobacco": {
+          "label": "Tobacco",
+          "children": [
+            "tobacco_5dc1a9a7",
+            "how_frequently_does_this_tobacco_content_occur_0cdd660c"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "illegal_or_recreational_drugs_ba0c1239": {
+      "key": "illegal_or_recreational_drugs_ba0c1239",
+      "text": "Illegal or Recreational Drugs",
+      "type": "checkbox",
+      "order": 64,
+      "options": {
+        "Reference": {
+          "label": "Reference",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Use": {
+          "label": "Use",
+          "children": [
+            "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975",
+            "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Encourages/Glamorizes": {
+          "label": "Encourages/Glamorizes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Detailed Instruction for Use": {
+          "label": "Detailed Instruction for Use",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975": {
+      "key": "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975",
+      "text": "Is the use of illegal or recreational drugs interactive?",
+      "type": "radio",
+      "order": 65,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654": {
+      "key": "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654",
+      "text": "Is the use of illegal or recreational drugs related to incentives or rewards?",
+      "type": "radio",
+      "order": 66,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "fantasy_drugs_0cdae46d": {
+      "key": "fantasy_drugs_0cdae46d",
+      "text": "Fantasy Drugs",
+      "type": "checkbox",
+      "order": 67,
+      "options": {
+        "Reference": {
+          "label": "Reference",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Use": {
+          "label": "Use",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Encourages/Glamorizes": {
+          "label": "Encourages/Glamorizes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_fantasy_drugs_occur_f510ee29": {
+      "key": "how_frequently_do_fantasy_drugs_occur_f510ee29",
+      "text": "How frequently do fantasy drugs occur?",
+      "type": "radio",
+      "order": 68,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "medical_drugs_32c6cc3e": {
+      "key": "medical_drugs_32c6cc3e",
+      "text": "Medical Drugs",
+      "type": "checkbox",
+      "order": 69,
+      "options": {
+        "Reference": {
+          "label": "Reference",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Use": {
+          "label": "Use",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Encourages/Glamorizes": {
+          "label": "Encourages/Glamorizes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_do_medical_drugs_occur_04c7e80e": {
+      "key": "how_frequently_do_medical_drugs_occur_04c7e80e",
+      "text": "How frequently do medical drugs occur?",
+      "type": "radio",
+      "order": 70,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "alcohol_533c1b5c": {
+      "key": "alcohol_533c1b5c",
+      "text": "Alcohol",
+      "type": "checkbox",
+      "order": 71,
+      "options": {
+        "Reference": {
+          "label": "Reference",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Use": {
+          "label": "Use",
+          "children": [
+            "can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Encourages/Glamorizes": {
+          "label": "Encourages/Glamorizes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_does_this_alcohol_content_occur_861b9e63": {
+      "key": "how_frequently_does_this_alcohol_content_occur_861b9e63",
+      "text": "How frequently does this alcohol content occur?",
+      "type": "radio",
+      "order": 72,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8": {
+      "key": "can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8",
+      "text": "Can the player ever use alcohol in a first-person perspective?",
+      "type": "radio",
+      "order": 73,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "tobacco_5dc1a9a7": {
+      "key": "tobacco_5dc1a9a7",
+      "text": "Tobacco",
+      "type": "checkbox",
+      "order": 74,
+      "options": {
+        "Reference": {
+          "label": "Reference",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Use": {
+          "label": "Use",
+          "children": [
+            "can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Encourages/Glamorizes": {
+          "label": "Encourages/Glamorizes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "how_frequently_does_this_tobacco_content_occur_0cdd660c": {
+      "key": "how_frequently_does_this_tobacco_content_occur_0cdd660c",
+      "text": "How frequently does this tobacco content occur?",
+      "type": "radio",
+      "order": 75,
+      "options": {
+        "Rarely": {
+          "label": "Rarely",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Often": {
+          "label": "Often",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.87,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633": {
+      "key": "can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633",
+      "text": "Can the player ever use tobacco in a first-person perspective?",
+      "type": "radio",
+      "order": 76,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "substances"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1": {
+      "key": "what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1",
+      "text": "What bodily functions are used for humorous purposes in the game? Please check all that apply.",
+      "type": "checkbox",
+      "order": 77,
+      "options": {
+        "Mucus, belching, flatulence sounds": {
+          "label": "Mucus, belching, flatulence sounds",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 1,
+            "samplingPriority": 1,
+            "tags": [
+              "crude_humor"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Flatulence (with depiction of \"flatulence cloud\"), whimsical depictions of feces (\"poo coils\"), vomiting": {
+          "label": "Flatulence (with depiction of \"flatulence cloud\"), whimsical depictions of feces (\"poo coils\"), vomiting",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 1,
+            "samplingPriority": 1,
+            "tags": [
+              "crude_humor"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "Urination, urine, realistically depicted feces": {
+          "label": "Urination, urine, realistically depicted feces",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 4,
+            "samplingPriority": 3,
+            "tags": [
+              "crude_humor"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Act of human defecation visually depicted": {
+          "label": "Act of human defecation visually depicted",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "crude_humor"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        }
+      }
+    },
+    "please_select_all_that_the_game_includes_4e162967": {
+      "key": "please_select_all_that_the_game_includes_4e162967",
+      "text": "Please select all that the game includes:",
+      "type": "checkbox",
+      "order": 78,
+      "options": {
+        "Purchases of digital goods": {
+          "label": "Purchases of digital goods",
+          "children": [
+            "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+            "does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1"
+          ],
+          "risk": {
+            "gateScore": 3,
+            "severityScore": 2,
+            "samplingPriority": 3,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "branch_gate"
+          }
+        },
+        "Cash Convertible Rewards - Cash rewards, real-world items of significant monetary value, convertible cryptocurrency rewards or other play-to-earn mechanics": {
+          "label": "Cash Convertible Rewards - Cash rewards, real-world items of significant monetary value, convertible cryptocurrency rewards or other play-to-earn mechanics",
+          "children": [
+            "does_the_game_include_the_ability_or_requirement_to_wage_c8e71373"
+          ],
+          "risk": {
+            "gateScore": 5,
+            "severityScore": 5,
+            "samplingPriority": 5,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)": {
+          "label": "Issuance (e.g., minting) of transferable digital assets (e.g., NFTs)",
+          "children": [
+            "is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2",
+            "does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9",
+            "does_the_game_include_the_ability_or_requirement_to_make_87aee7ff"
+          ],
+          "risk": {
+            "gateScore": 4,
+            "severityScore": 3,
+            "samplingPriority": 4,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.78,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        }
+      }
+    },
+    "can_these_purchases_include_random_items_where_the_purch_cfc20feb": {
+      "key": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "text": "Can these purchases include random items where the purchaser doesn't know what specific items or features they will receive (e.g., loot boxes), the purchase of items that will be used to create or unlock an unknown item or feature (e.g., a key to unlock a loot box, material used to craft a random item), items that can improve the rate of earning random items (e.g., random drop boosts), or any other chance-based purchases?",
+      "type": "radio",
+      "order": 79,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1": {
+      "key": "does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1",
+      "text": "Does the game have a system for players to trade items with each other using real money or in-game currency purchased with real money? (e.g. auction house, item exchange)",
+      "type": "radio",
+      "order": 80,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_or_requirement_to_wage_c8e71373": {
+      "key": "does_the_game_include_the_ability_or_requirement_to_wage_c8e71373",
+      "text": "Does the game include the ability or requirement to wager, purchase entrance fees, additional chances to win, boosts, or any other purchases potentially related to earning or winning cash rewards or rewards of significant monetary value?",
+      "type": "radio",
+      "order": 81,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "gambling",
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2": {
+      "key": "is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2",
+      "text": "Is the issuance of these digital assets a significant or promoted aspect of the product?",
+      "type": "radio",
+      "order": 82,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9": {
+      "key": "does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9",
+      "text": "Does the game contain an integrated marketplace for these assets or promote/feature a particular marketplace for these assets?",
+      "type": "radio",
+      "order": 83,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_or_requirement_to_make_87aee7ff": {
+      "key": "does_the_game_include_the_ability_or_requirement_to_make_87aee7ff",
+      "text": "Does the game include the ability or requirement to make any purchases related to the issuance or earning of these digital assets?",
+      "type": "radio",
+      "order": 84,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "monetization"
+            ],
+            "confidence": 0.86,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "risk_signal"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.93,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61": {
+      "key": "does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61",
+      "text": "Does the game include the ability to block users or user-generated content?",
+      "type": "radio",
+      "order": 85,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc": {
+      "key": "does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc",
+      "text": "Does the game include the ability to report users or user-generated content?",
+      "type": "radio",
+      "order": 86,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "does_the_game_include_chat_moderation_f5949739": {
+      "key": "does_the_game_include_chat_moderation_f5949739",
+      "text": "Does the game include chat moderation?",
+      "type": "radio",
+      "order": 87,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 3,
+            "samplingPriority": 3,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62": {
+      "key": "can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62",
+      "text": "Can interactions in the game be limited to invited friends only?",
+      "type": "radio",
+      "order": 88,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.88,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 2,
+            "samplingPriority": 2,
+            "tags": [
+              "mitigation_missing",
+              "safety_mitigation",
+              "ugc",
+              "ugc_safety"
+            ],
+            "confidence": 0.82,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "mitigation_missing"
+          }
+        }
+      }
+    },
+    "are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a": {
+      "key": "are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a",
+      "text": "Are these crimes or criminal techniques likely to be imitated by children or youths?",
+      "type": "radio",
+      "order": 89,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "crime"
+            ],
+            "confidence": 0.9,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.9,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    },
+    "are_there_detailed_descriptions_of_techniques_that_could_207c80c9": {
+      "key": "are_there_detailed_descriptions_of_techniques_that_could_207c80c9",
+      "text": "Are there detailed descriptions of techniques that could be used in criminal offenses?",
+      "type": "radio",
+      "order": 90,
+      "options": {
+        "Yes": {
+          "label": "Yes",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 5,
+            "samplingPriority": 4,
+            "tags": [
+              "crime"
+            ],
+            "confidence": 0.9,
+            "reviewNeeded": true,
+            "source": "rule",
+            "effect": "risk_escalator"
+          }
+        },
+        "No": {
+          "label": "No",
+          "children": [],
+          "risk": {
+            "gateScore": 0,
+            "severityScore": 0,
+            "samplingPriority": 0,
+            "tags": [],
+            "confidence": 0.9,
+            "reviewNeeded": false,
+            "source": "rule",
+            "effect": "neutral"
+          }
+        }
+      }
+    }
+  },
+  "conflicts": [],
+  "riskAnnotation": {
+    "version": 1,
+    "annotatedAt": "2026-06-10T06:29:23.799Z",
+    "method": "deterministic semantic pre-annotation",
+    "schema": {
+      "gateScore": "0-5: option opens rating-relevant follow-up questions",
+      "severityScore": "0-5: option's own expected content-rating severity",
+      "samplingPriority": "0-5: combined priority for directed sampling",
+      "tags": "risk dimensions used for coverage and combinations",
+      "confidence": "0-1 heuristic confidence",
+      "reviewNeeded": "true when the option should be prioritized for model or human review"
+    }
+  }
+}
