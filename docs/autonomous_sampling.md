@@ -33,19 +33,19 @@ The command is resumable. Running it again with the same `AUTONOMOUS_OUT_DIR` co
 Generate and inspect candidates without touching Play Console:
 
 ```bash
-AUTONOMOUS_OUT_DIR=rating_autonomous_preview \
+AUTONOMOUS_OUT_DIR=rating_artifacts/autonomous/rating_autonomous_preview \
 CANDIDATE_POOL_SIZE=12000 \
 npm run sample:autonomous:generate
 ```
 
 ## Outputs
 
-- `rating_autonomous/dataset.jsonl`: self-contained training samples with answers, risk metadata, and ratings.
-- `rating_autonomous/results.jsonl`: raw successful runner results.
-- `rating_autonomous/candidates.jsonl`: generated candidate pool.
-- `rating_autonomous/selected.jsonl`: selection history.
-- `rating_autonomous/attempts.json`: retry checkpoint.
-- `rating_autonomous/summary.json`: live distribution and progress.
-- `rating_autonomous/runner/errors.jsonl`: recoverable execution errors.
+- `rating_artifacts/autonomous/rating_autonomous/dataset.jsonl`: self-contained training samples with answers, risk metadata, and ratings.
+- `rating_artifacts/autonomous/rating_autonomous/results.jsonl`: raw successful runner results.
+- `rating_artifacts/autonomous/rating_autonomous/candidates.jsonl`: generated candidate pool.
+- `rating_artifacts/autonomous/rating_autonomous/selected.jsonl`: selection history.
+- `rating_artifacts/autonomous/rating_autonomous/attempts.json`: retry checkpoint.
+- `rating_artifacts/autonomous/rating_autonomous/summary.json`: live distribution and progress.
+- `rating_artifacts/autonomous/rating_autonomous/runner/errors.jsonl`: recoverable execution errors.
 
 Use a new `AUTONOMOUS_OUT_DIR` for a completely independent dataset.

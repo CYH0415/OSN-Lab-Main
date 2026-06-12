@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-06-12T08:51:36.769Z",
+  "sourceDatasetDir": "D:\\Codefield\\osn\\lab2\\OSN-Lab-Main\\dataset_v2",
+  "outputDir": "D:\\Codefield\\osn\\lab2\\OSN-Lab-Main\\task3_data_cleaning\\output",
+  "sourceHashes": {
+    "samplesJsonl": "A8F6B4E5097C8AB8275AF0ABCD21B09C73C497A5631A1A5F9DBE556F4E828FF7",
+    "schemaJson": "EC61062E8364533B8C1B687CF90D35C4F06D7AEE153729522E73B08190B047A0",
+    "coverageReportJson": "5932B37F46D92F6587C5FEAC9C2A2299DBB6826CE961470F80EB17DCD301EF58",
+    "validationQuarantineJsonl": "143E7C66252DE4AE8752E47D616C7F9BA1DD0124EBFCD95B46A38680D967E47E",
+    "ratingConflictsJsonl": "1D5AB800DCE78BA86BDDA1EFA92C03054280471E500FAF348483F19A0CF50D18",
+    "questionGraphs": {
+      "All Other App Types": "7D1999C475C75FB3ECC95534104474F3AB48B5AD153C27277CE45AC8ABE85111",
+      "Game": "B6AF0FCEE7CAB4E7438A87F2D847790656BE985E1AC60E06B26D76A42954B7EA",
+      "Social or Communication": "34400CE98B9F9133BD370FB88B4C6BF5E968C561BBA6C701BB02CCF22EEBE172"
+    }
+  },
+  "cleaningRules": {
+    "requiredSchemaVersion": 2,
+    "validateQuestionSelections": true,
+    "validateExplicitAnswers": true,
+    "validateQuestionGraphReachability": true,
+    "validateCategorySpecificTerritories": true,
+    "duplicateKey": "complete semantic questionnaire state",
+    "conflictingRatings": "exclude all rows in the conflicting state group",
+    "inactiveQuestionValue": "__INACTIVE__",
+    "notApplicableValue": "__NOT_APPLICABLE__",
+    "activeCheckboxWithNoSelection": "__NONE__",
+    "imputation": "none"
+  },
+  "splitRules": {
+    "method": "deterministic stratified holdout",
+    "strata": [
+      "category",
+      "North America rating label"
+    ],
+    "testRatio": 0.2,
+    "seed": "osn-lab2-task3-v1",
+    "smallStratumRule": "a one-row stratum stays in train; other strata retain at least one train row"
+  },
+  "counts": {
+    "sourceRows": 1265,
+    "task3ExcludedRows": 0,
+    "cleanRows": 1265,
+    "trainRows": 1012,
+    "testRows": 253,
+    "uniqueQuestionColumns": 164,
+    "categoryQuestionPairs": 218,
+    "ratingLabelColumns": 10,
+    "ratingDetailRows": 10754,
+    "upstreamValidationQuarantineRows": 30,
+    "upstreamRatingConflictRows": 13,
+    "upstreamFailureEvents": 770
+  },
+  "missingValuePolicy": {
+    "inactiveAnswerCells": 100609,
+    "notApplicableAnswerCells": 78825,
+    "activeCheckboxNoSelectionCells": 0,
+    "notApplicableGameOnlyRatingCells": 1896,
+    "unexpectedBlankOutputCells": 0,
+    "unexpectedMissingCommonRatingLabels": 0
+  },
+  "outputFiles": [
+    "clean_dataset.csv",
+    "train.csv",
+    "test.csv",
+    "sample_metadata.csv",
+    "rating_details.csv",
+    "data_dictionary.csv",
+    "split_distribution.csv",
+    "excluded_samples.csv",
+    "cleaning_report.json",
+    "cleaning_report.md",
+    "column_groups.json"
+  ]
+}

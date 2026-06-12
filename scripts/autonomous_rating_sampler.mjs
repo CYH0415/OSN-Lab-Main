@@ -3,10 +3,11 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { RATING_AUTONOMOUS_DIR } from './rating_artifact_paths.mjs';
 
 const config = {
   categoryRoot: process.env.CATEGORY_OUT_ROOT || 'data_categories',
-  outDir: process.env.AUTONOMOUS_OUT_DIR || 'rating_autonomous',
+  outDir: process.env.AUTONOMOUS_OUT_DIR || RATING_AUTONOMOUS_DIR,
   targetSamples: Number(process.env.TARGET_SAMPLES || 1000),
   candidatePoolSize: Number(process.env.CANDIDATE_POOL_SIZE || 12000),
   batchSize: Number(process.env.BATCH_SIZE || 24),

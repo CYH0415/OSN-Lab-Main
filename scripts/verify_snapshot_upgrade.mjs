@@ -1,11 +1,15 @@
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import { ratingResultDir, ratingWorkDir } from './rating_artifact_paths.mjs';
 
 const ROOT = process.cwd();
 const DATASET_FILE = process.env.DATASET_FILE || 'dataset_v2/samples.jsonl';
-const WORK_DIR = process.env.SNAPSHOT_UPGRADE_WORK_DIR || 'snapshot_upgrade_work';
-const VERIFIED_DIR = process.env.SNAPSHOT_UPGRADE_VERIFIED_DIR || 'rating_results_snapshot_upgrade';
+const WORK_DIR =
+  process.env.SNAPSHOT_UPGRADE_WORK_DIR || ratingWorkDir('snapshot_upgrade');
+const VERIFIED_DIR =
+  process.env.SNAPSHOT_UPGRADE_VERIFIED_DIR ||
+  ratingResultDir('rating_results_snapshot_upgrade');
 
 async function readJsonLines(file) {
   if (!existsSync(file)) return [];
@@ -36,9 +40,45 @@ function ratingSignature(sample) {
   );
 }
 
+function cleanText(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function parseSummaryCategory(value) {
+  const text = cleanText(value);
+  const ratingsStart = text.indexOf('Your ratings');
+  const summary = ratingsStart === -1 ? text : text.slice(0, ratingsStart);
+  const pattern = /(?:^|\s)Category (Social or Communication|All Other App Types|Game)(?=\s|$)/g;
+  let category = '';
+  for (const match of summary.matchAll(pattern)) category = match[1];
+  return category;
+}
+
+function expectedTerritories(category) {
+  const common = [
+    'Brazil',
+    'North America',
+    'Europe',
+    'Germany',
+    'Rest of world',
+    'Russia',
+    'South Korea',
+  ];
+  return category === 'Game'
+    ? ['Australia', 'Brazil', 'North America', 'South Korea', 'Taiwan', 'Saudi Arabia', 'Europe', 'Germany', 'Rest of world', 'Russia']
+    : common;
+}
+
 async function main() {
   const source = await readJsonLines(path.join(ROOT, DATASET_FILE));
   const replayed = await readJsonLines(path.join(ROOT, WORK_DIR, 'results.jsonl'));
+  const workEvidence = await readJsonLines(path.join(ROOT, WORK_DIR, 'evidence.jsonl'));
+  const evidenceById = new Map();
+  for (const row of workEvidence) {
+    const category = row.summaryCategory || parseSummaryCategory(row.bodyText);
+    if (!evidenceById.has(row.sampleId)) evidenceById.set(row.sampleId, new Set());
+    if (category) evidenceById.get(row.sampleId).add(category);
+  }
   const sourceById = new Map(source.map((sample) => [sample.sampleId, sample]));
   const verified = [];
   const rejected = [];
@@ -52,12 +92,20 @@ async function main() {
 
     const stateMatches = stateSignature(original) === stateSignature(candidate);
     const ratingsMatch = ratingSignature(original) === ratingSignature(candidate);
-    if (!stateMatches) {
+    const summaryCategories = [...(evidenceById.get(candidate.sampleId) || [])];
+    const territories = candidate.ratings.map((rating) => rating.territory).sort();
+    const expected = expectedTerritories(candidate.category).sort();
+    const categoryMatches = summaryCategories.length === 1 && summaryCategories[0] === candidate.category;
+    const territoriesMatch = JSON.stringify(territories) === JSON.stringify(expected);
+    if (!stateMatches || !categoryMatches || !territoriesMatch) {
       rejected.push({
         sampleId: candidate.sampleId,
         reason: 'replay_mismatch',
         stateMatches,
         ratingsMatch,
+        categoryMatches,
+        summaryCategories,
+        territoriesMatch,
         originalStateQuestions: original.questionStates.length,
         replayedStateQuestions: candidate.questionStates.length,
         originalRatings: original.ratings.map(({ territory, authority, label }) => ({ territory, authority, label })),
@@ -101,7 +149,6 @@ async function main() {
   };
   await writeFile(path.join(ROOT, VERIFIED_DIR, 'verification_report.json'), JSON.stringify(report, null, 2) + '\n');
 
-  const workEvidence = await readJsonLines(path.join(ROOT, WORK_DIR, 'evidence.jsonl'));
   if (workEvidence.length) {
     await writeFile(
       path.join(ROOT, VERIFIED_DIR, 'evidence.jsonl'),

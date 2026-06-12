@@ -2,12 +2,14 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { ratingSampleDir } from './rating_artifact_paths.mjs';
 
 const ROOT = process.cwd();
 const COVERAGE_FILE = process.env.COVERAGE_FILE || 'dataset_v2/coverage_report.json';
 const DATASET_FILE = process.env.DATASET_FILE || 'dataset_v2/samples.jsonl';
 const CONFLICT_FILE = process.env.CONFLICT_FILE || 'dataset_v2/rating_conflicts.jsonl';
-const OUT_DIR = process.env.GAP_SAMPLE_OUT_DIR || 'rating_samples_gap_fill';
+const OUT_DIR =
+  process.env.GAP_SAMPLE_OUT_DIR || ratingSampleDir('rating_samples_gap_fill');
 const LIMIT = Number(process.env.GAP_SAMPLE_LIMIT || 220);
 const MAX_ANSWERS = Number(process.env.GAP_MAX_ANSWERS || 12);
 const MAX_CURRENT_COUNT = Number(process.env.GAP_MAX_CURRENT_COUNT || 5);

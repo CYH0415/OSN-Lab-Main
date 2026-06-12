@@ -33,7 +33,7 @@
     "rating_results_balanced_game_supplemental",
     "rating_results_balanced_social",
     "rating_results_balanced_social_supplemental",
-    "rating_results_balanced_summary.json",
+    "rating_artifacts/manifests/rating_results_balanced_summary.json",
     "rating_results_balanced_v2",
     "rating_results_creature_humanlike_retry",
     "rating_results_historical_failures_retry",

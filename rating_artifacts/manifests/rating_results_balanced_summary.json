@@ -16,10 +16,10 @@
     "rating_results_creature_humanlike_retry"
   ],
   "sampleFiles": [
-    "rating_samples_midband_game/midband_samples.jsonl",
-    "rating_samples_balanced/game_balanced_samples.jsonl",
-    "rating_samples_balanced/social_or_communication_balanced_samples.jsonl",
-    "rating_samples_balanced/all_other_app_types_balanced_samples.jsonl"
+    "rating_artifacts/samples/rating_samples_midband_game/midband_samples.jsonl",
+    "rating_artifacts/samples/rating_samples_balanced/game_balanced_samples.jsonl",
+    "rating_artifacts/samples/rating_samples_balanced/social_or_communication_balanced_samples.jsonl",
+    "rating_artifacts/samples/rating_samples_balanced/all_other_app_types_balanced_samples.jsonl"
   ],
   "successCount": 120,
   "errorCount": 0,

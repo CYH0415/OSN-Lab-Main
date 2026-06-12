@@ -1,0 +1,44 @@
+﻿exclusion_stage,sample_id,category,reason,source_file
+upstream_rating_conflict,auto_game_1db47fc3af077b04,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,auto_game_85c4a4d52743a430,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_mid_00034,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00002,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00002,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00004,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00004,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00005,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00005,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,game_risk_00069,Game,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,gap_0010_8b7f20b4dcf5e48e,All Other App Types,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,gap_0053_562210459f4f5122,All Other App Types,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_rating_conflict,gap_0127_8b7f20b4dcf5e48e,All Other App Types,same questionnaire state had 2 rating label sets,rating_conflicts.jsonl
+upstream_validation_quarantine,all_other_app_types_balanced_00016,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_balanced_00039,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_balanced_00060,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00021,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00028,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00038,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00048,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00110,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00155,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00160,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,all_other_app_types_risk_00183,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,auto_all_other_app_types_a8ea2a0779609700,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,auto_all_other_app_types_f9d72d2074d31475,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,auto_game_107ead173d555944,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,auto_game_966dfab15cfebdb0,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,auto_game_d55f9d372403ab0d,Game,"summary_category_mismatch:All Other App Types || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,game_balanced_00029,Game,"summary_category_mismatch:All Other App Types || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,game_risk_00006,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,game_risk_00057,Game,"summary_category_mismatch:All Other App Types || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,game_risk_00108,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0032_468d42303c95ef32,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0041_d0411cfa1a506d4b,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0066_189df64d2ab78bb4,All Other App Types,"summary_category_mismatch:Game || territory_set_mismatch:Australia,Brazil,North America,South Korea,Taiwan,Saudi Arabia,Europe,Germany,Rest of world,Russia",validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0096_ff87da0f4cb81b39,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0098_768642a617a8fc89,Game,"summary_category_mismatch:Social or Communication || territory_set_mismatch:Brazil,North America,Europe,Germany,Rest of world,Russia,South Korea",validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0119_99ac51d8ca5256b0,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0137_4e612b6cac122301,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0166_8a8e57f293812fa4,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0174_67351f08a4aec8b4,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl
+upstream_validation_quarantine,gap_0185_cbd46e098e7ccd30,All Other App Types,summary_category_mismatch:Social or Communication,validation_quarantine.jsonl

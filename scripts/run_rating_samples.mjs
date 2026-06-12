@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { appendFile, mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
+import { ratingResultDir, ratingSampleDir } from './rating_artifact_paths.mjs';
 
 const DEFAULT_URL =
   'https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire';
@@ -10,8 +11,10 @@ const DEFAULT_OVERVIEW_URL =
 const config = {
   url: process.env.PLAY_CONSOLE_URL || DEFAULT_URL,
   overviewUrl: process.env.PLAY_CONSOLE_OVERVIEW_URL || DEFAULT_OVERVIEW_URL,
-  sampleFile: process.env.SAMPLE_FILE || 'rating_samples/structural_samples.jsonl',
-  outDir: process.env.RESULT_OUT_DIR || 'rating_results',
+  sampleFile:
+    process.env.SAMPLE_FILE ||
+    `${ratingSampleDir('rating_samples')}/structural_samples.jsonl`,
+  outDir: process.env.RESULT_OUT_DIR || ratingResultDir('rating_results'),
   resultFile: process.env.RESULT_FILE || '',
   cdpUrl: process.env.CDP_URL || 'http://127.0.0.1:9222',
   expectedAccount: process.env.EXPECTED_GOOGLE_ACCOUNT || 'mengshu0715@gmail.com',
@@ -715,6 +718,36 @@ function parseRatings(text) {
   });
 }
 
+function parseSummaryCategory(text) {
+  const ratingsStart = text.indexOf('Your ratings');
+  const summary = ratingsStart === -1 ? text : text.slice(0, ratingsStart);
+  const pattern = /(?:^|\s)Category (Social or Communication|All Other App Types|Game)(?=\s|$)/g;
+  let category = '';
+  for (const match of summary.matchAll(pattern)) category = match[1];
+  return category;
+}
+
+function expectedTerritories(category) {
+  const common = [
+    'Brazil',
+    'North America',
+    'Europe',
+    'Germany',
+    'Rest of world',
+    'Russia',
+    'South Korea',
+  ];
+  return category === 'Game'
+    ? ['Australia', 'Brazil', 'North America', 'South Korea', 'Taiwan', 'Saudi Arabia', 'Europe', 'Germany', 'Rest of world', 'Russia']
+    : common;
+}
+
+function hasExpectedTerritories(category, ratings) {
+  const expected = expectedTerritories(category).sort();
+  const actual = ratings.map((rating) => rating.territory).sort();
+  return JSON.stringify(actual) === JSON.stringify(expected);
+}
+
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -725,6 +758,7 @@ async function readRatingResult(page) {
     url: page.url(),
     title: await page.title().catch(() => ''),
     bodyText: text,
+    summaryCategory: parseSummaryCategory(text),
     ratings: parseRatings(text),
   };
 }
@@ -822,10 +856,48 @@ async function main() {
           throw error;
         }
         const result = await readRatingResult(page);
+        const finishedAt = new Date().toISOString();
+        await appendFile(
+          evidencePath,
+          `${JSON.stringify({
+            sampleId: sample.sampleId,
+            url: result.url,
+            title: result.title,
+            bodyText: result.bodyText,
+            summaryCategory: result.summaryCategory,
+            rawRatings: result.ratings.map(({ territory, raw }) => ({ territory, raw })),
+            saved,
+            next,
+            startedAt,
+            finishedAt,
+          })}\n`,
+        );
         if (!result.ratings.length) {
           const recovered = await returnToQuestionnaire(page);
           const error = new Error('No ratings parsed from Summary page.');
           error.recoveredSameCategory = recovered;
+          error.pageUrl = result.url;
+          error.bodyTextPreview = result.bodyText.slice(0, 1000);
+          throw error;
+        }
+        if (result.summaryCategory !== sample.category) {
+          await returnToQuestionnaire(page);
+          const error = new Error(
+            `Summary category mismatch: expected "${sample.category}", got "${result.summaryCategory || 'unknown'}".`,
+          );
+          error.recoveredSameCategory = false;
+          error.pageUrl = result.url;
+          error.bodyTextPreview = result.bodyText.slice(0, 1000);
+          throw error;
+        }
+        if (!hasExpectedTerritories(sample.category, result.ratings)) {
+          await returnToQuestionnaire(page);
+          const error = new Error(
+            `Summary territory set mismatch for ${sample.category}: ${result.ratings
+              .map((rating) => rating.territory)
+              .join(', ')}.`,
+          );
+          error.recoveredSameCategory = false;
           error.pageUrl = result.url;
           error.bodyTextPreview = result.bodyText.slice(0, 1000);
           throw error;
@@ -846,22 +918,8 @@ async function main() {
             provenance: {
               stateSource: 'browser_snapshot',
               startedAt,
-              finishedAt: new Date().toISOString(),
+              finishedAt,
             },
-          })}\n`,
-        );
-        await appendFile(
-          evidencePath,
-          `${JSON.stringify({
-            sampleId: sample.sampleId,
-            url: result.url,
-            title: result.title,
-            bodyText: result.bodyText,
-            rawRatings: result.ratings.map(({ territory, raw }) => ({ territory, raw })),
-            saved,
-            next,
-            startedAt,
-            finishedAt: new Date().toISOString(),
           })}\n`,
         );
       } catch (error) {

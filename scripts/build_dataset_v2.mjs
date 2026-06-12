@@ -1,9 +1,15 @@
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
+import {
+  RATING_AUTONOMOUS_DIR,
+  RATING_RESULT_ROOT,
+} from './rating_artifact_paths.mjs';
 
 const ROOT = process.cwd();
 const OUT_DIR = process.env.DATASET_V2_OUT_DIR || 'dataset_v2';
+const RESULT_ROOT = process.env.RATING_RESULT_ROOT || RATING_RESULT_ROOT;
+const AUTONOMOUS_DIR = process.env.AUTONOMOUS_OUT_DIR || RATING_AUTONOMOUS_DIR;
 const EXCLUDED_RESULT_DIRS = new Set([
   'rating_results_structural',
   'rating_results_structural_v2',
@@ -67,6 +73,41 @@ function compactRating(rating) {
 
 function ratingsOf(row) {
   return (row.ratings || row.result?.ratings || []).map(compactRating);
+}
+
+function parseSummaryCategory(value) {
+  const text = cleanText(value);
+  const ratingsStart = text.indexOf('Your ratings');
+  const summary = ratingsStart === -1 ? text : text.slice(0, ratingsStart);
+  const pattern = /(?:^|\s)Category (Social or Communication|All Other App Types|Game)(?=\s|$)/g;
+  let category = '';
+  for (const match of summary.matchAll(pattern)) category = match[1];
+  return category;
+}
+
+function evidenceKey(sampleId, sourceResultDir) {
+  return `${sourceResultDir}::${sampleId}`;
+}
+
+function expectedTerritories(category) {
+  const common = [
+    'Brazil',
+    'North America',
+    'Europe',
+    'Germany',
+    'Rest of world',
+    'Russia',
+    'South Korea',
+  ];
+  return category === 'Game'
+    ? ['Australia', 'Brazil', 'North America', 'South Korea', 'Taiwan', 'Saudi Arabia', 'Europe', 'Germany', 'Rest of world', 'Russia']
+    : common;
+}
+
+function hasExpectedTerritories(category, ratings) {
+  const expected = expectedTerritories(category).sort();
+  const actual = ratings.map((rating) => rating.territory).sort();
+  return JSON.stringify(actual) === JSON.stringify(expected);
 }
 
 function reconstructQuestionStates(graph, explicitAnswers) {
@@ -168,16 +209,31 @@ function preferredRow(current, candidate) {
 }
 
 async function main() {
-  const entries = await readdir(ROOT, { withFileTypes: true });
-  const resultDirs = entries
-    .filter(
-      (entry) =>
+  const resultSources = [];
+  const resultRoot = path.resolve(ROOT, RESULT_ROOT);
+  if (existsSync(resultRoot)) {
+    const entries = await readdir(resultRoot, { withFileTypes: true });
+    for (const entry of entries) {
+      if (
         entry.isDirectory() &&
-        (entry.name.startsWith('rating_results') || entry.name === 'rating_autonomous') &&
-        !EXCLUDED_RESULT_DIRS.has(entry.name),
-    )
-    .map((entry) => entry.name)
-    .sort();
+        entry.name.startsWith('rating_results') &&
+        !EXCLUDED_RESULT_DIRS.has(entry.name)
+      ) {
+        resultSources.push({
+          id: entry.name,
+          directory: path.join(resultRoot, entry.name),
+        });
+      }
+    }
+  }
+  const autonomousDir = path.resolve(ROOT, AUTONOMOUS_DIR);
+  if (existsSync(autonomousDir)) {
+    resultSources.push({
+      id: 'rating_autonomous',
+      directory: autonomousDir,
+    });
+  }
+  resultSources.sort((left, right) => left.id.localeCompare(right.id));
 
   const graphs = {};
   for (const [category, slug] of Object.entries(CATEGORY_SLUGS)) {
@@ -190,8 +246,9 @@ async function main() {
   const evidence = [];
   const failures = [];
 
-  for (const dir of resultDirs) {
-    for (const row of await readJsonLines(path.join(ROOT, dir, 'results.jsonl'))) {
+  for (const source of resultSources) {
+    const dir = source.id;
+    for (const row of await readJsonLines(path.join(source.directory, 'results.jsonl'))) {
       const graph = graphs[row.category];
       if (!graph || !ratingsOf(row).length) continue;
       const explicitAnswers = explicitAnswersOf(row);
@@ -231,17 +288,54 @@ async function main() {
       }
     }
 
-    for (const row of await readJsonLines(path.join(ROOT, dir, 'evidence.jsonl'))) {
+    for (const row of await readJsonLines(path.join(source.directory, 'evidence.jsonl'))) {
       evidence.push({ ...row, sourceResultDir: dir });
     }
 
-    for (const failure of await readJsonLines(path.join(ROOT, dir, 'errors.jsonl'))) {
+    for (const failure of await readJsonLines(path.join(source.directory, 'errors.jsonl'))) {
       failures.push({ ...failure, sourceResultDir: dir });
     }
   }
 
+  const evidenceCategories = new Map();
+  for (const row of evidence) {
+    const category = row.summaryCategory || parseSummaryCategory(row.bodyText);
+    if (!category) continue;
+    const key = evidenceKey(row.sampleId, row.sourceResultDir);
+    if (!evidenceCategories.has(key)) evidenceCategories.set(key, new Set());
+    evidenceCategories.get(key).add(category);
+  }
+
+  const validationQuarantine = [];
+  const eligibleRows = normalized.filter((row) => {
+    const key = evidenceKey(row.sampleId, row.provenance.sourceResultDir);
+    const summaryCategories = [...(evidenceCategories.get(key) || [])];
+    const reasons = [];
+    if (summaryCategories.length !== 1) {
+      reasons.push(
+        summaryCategories.length
+          ? `ambiguous_summary_categories:${summaryCategories.join(',')}`
+          : 'missing_summary_category_evidence',
+      );
+    } else if (summaryCategories[0] !== row.category) {
+      reasons.push(`summary_category_mismatch:${summaryCategories[0]}`);
+    }
+    if (!hasExpectedTerritories(row.category, row.ratings)) {
+      reasons.push(`territory_set_mismatch:${row.ratings.map((rating) => rating.territory).join(',')}`);
+    }
+    if (!reasons.length) return true;
+    validationQuarantine.push({
+      ...row,
+      validation: {
+        reasons,
+        summaryCategories,
+      },
+    });
+    return false;
+  });
+
   const groups = new Map();
-  for (const row of normalized) {
+  for (const row of eligibleRows) {
     const signature = stateSignature(row.category, row.questionStates);
     if (!groups.has(signature)) {
       groups.set(signature, {
@@ -329,6 +423,8 @@ async function main() {
   const coverageReport = {
     generatedAt: new Date().toISOString(),
     rawSuccessfulRows: normalized.length,
+    rowsEligibleAfterEvidenceValidation: eligibleRows.length,
+    validationRowsQuarantined: validationQuarantine.length,
     semanticallyUniqueStatesBeforeConflictFilter: groups.size,
     semanticUniqueSamples: samples.length,
     duplicateRowsRemoved: duplicateRows,
@@ -394,6 +490,11 @@ async function main() {
     conflictRows.map((row) => JSON.stringify(row)).join('\n') + (conflictRows.length ? '\n' : ''),
   );
   await writeFile(
+    path.join(ROOT, OUT_DIR, 'validation_quarantine.jsonl'),
+    validationQuarantine.map((row) => JSON.stringify(row)).join('\n') +
+      (validationQuarantine.length ? '\n' : ''),
+  );
+  await writeFile(
     path.join(ROOT, OUT_DIR, 'coverage_report.json'),
     JSON.stringify(coverageReport, null, 2) + '\n',
   );
@@ -404,6 +505,7 @@ async function main() {
       {
         outDir: OUT_DIR,
         samples: samples.length,
+        validationRowsQuarantined: validationQuarantine.length,
         duplicateRowsRemoved: duplicateRows,
         conflicts: conflictingGroups.length,
         conflictRowsQuarantined: conflictRows.length,

@@ -2,11 +2,20 @@ import { createHash } from 'node:crypto';
 import { existsSync } from 'node:fs';
 import { mkdir, readFile, readdir, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import {
+  RATING_AUTONOMOUS_DIR,
+  RATING_RESULT_ROOT,
+  ratingSampleDir,
+} from './rating_artifact_paths.mjs';
 
 const ROOT = process.cwd();
 const COVERAGE_FILE = process.env.COVERAGE_FILE || 'dataset_v2/coverage_report.json';
-const CANDIDATE_FILE = process.env.CANDIDATE_FILE || 'rating_autonomous/candidates.jsonl';
-const OUT_DIR = process.env.COVERAGE_SAMPLE_OUT_DIR || 'rating_samples_coverage';
+const CANDIDATE_FILE =
+  process.env.CANDIDATE_FILE || `${RATING_AUTONOMOUS_DIR}/candidates.jsonl`;
+const OUT_DIR =
+  process.env.COVERAGE_SAMPLE_OUT_DIR || ratingSampleDir('rating_samples_coverage');
+const RESULT_ROOT = process.env.RATING_RESULT_ROOT || RATING_RESULT_ROOT;
+const AUTONOMOUS_DIR = process.env.AUTONOMOUS_OUT_DIR || RATING_AUTONOMOUS_DIR;
 const LIMIT = Number(process.env.COVERAGE_SAMPLE_LIMIT || 80);
 const TARGET_COUNT = Number(process.env.COVERAGE_TARGET_COUNT || 6);
 const MAX_ANSWERS = Number(process.env.COVERAGE_MAX_ANSWERS || 10);
@@ -48,12 +57,18 @@ function stableId(sample, index) {
 }
 
 async function completedSamples() {
-  const entries = await readdir(ROOT, { withFileTypes: true });
   const completed = [];
-  for (const entry of entries) {
-    if (!entry.isDirectory()) continue;
-    if (!(entry.name.startsWith('rating_results') || entry.name === 'rating_autonomous')) continue;
-    completed.push(...(await readJsonLines(path.join(ROOT, entry.name, 'results.jsonl'))));
+  const resultRoot = path.resolve(ROOT, RESULT_ROOT);
+  if (existsSync(resultRoot)) {
+    const entries = await readdir(resultRoot, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isDirectory() || !entry.name.startsWith('rating_results')) continue;
+      completed.push(...(await readJsonLines(path.join(resultRoot, entry.name, 'results.jsonl'))));
+    }
+  }
+  const autonomousDir = path.resolve(ROOT, AUTONOMOUS_DIR);
+  if (existsSync(autonomousDir)) {
+    completed.push(...(await readJsonLines(path.join(autonomousDir, 'results.jsonl'))));
   }
   return completed;
 }

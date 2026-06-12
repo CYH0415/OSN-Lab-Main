@@ -1,0 +1,10 @@
+{
+  "name": "osn-lab2-task3-data-cleaning",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/clean_and_split.mjs",
+    "verify": "node scripts/verify_outputs.mjs"
+  }
+}

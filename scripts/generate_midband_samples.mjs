@@ -1,9 +1,13 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
+import { ratingSampleDir } from './rating_artifact_paths.mjs';
 
 const config = {
   graphPath: process.env.RISK_GRAPH || process.argv[2] || 'data_categories/game/question_graph_risk_annotated.json',
-  outDir: process.env.MIDBAND_SAMPLE_OUT_DIR || process.argv[3] || 'rating_samples_midband_game',
+  outDir:
+    process.env.MIDBAND_SAMPLE_OUT_DIR ||
+    process.argv[3] ||
+    ratingSampleDir('rating_samples_midband_game'),
 };
 
 function slug(value) {

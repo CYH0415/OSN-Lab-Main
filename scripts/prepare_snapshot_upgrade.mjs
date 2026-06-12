@@ -1,9 +1,11 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
+import { ratingWorkDir } from './rating_artifact_paths.mjs';
 
 const ROOT = process.cwd();
 const DATASET_FILE = process.env.DATASET_FILE || 'dataset_v2/samples.jsonl';
-const OUT_DIR = process.env.SNAPSHOT_UPGRADE_WORK_DIR || 'snapshot_upgrade_work';
+const OUT_DIR =
+  process.env.SNAPSHOT_UPGRADE_WORK_DIR || ratingWorkDir('snapshot_upgrade');
 const INCLUDE_SOCIAL = process.env.INCLUDE_SOCIAL === '1';
 
 async function readJsonLines(file) {

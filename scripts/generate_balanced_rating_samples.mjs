@@ -1,10 +1,12 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { ratingSampleDir } from './rating_artifact_paths.mjs';
 
 const config = {
   categoryRoot: process.env.CATEGORY_OUT_ROOT || 'data_categories',
-  outDir: process.env.BALANCED_SAMPLE_OUT_DIR || 'rating_samples_balanced',
+  outDir:
+    process.env.BALANCED_SAMPLE_OUT_DIR || ratingSampleDir('rating_samples_balanced'),
 };
 
 function slug(value) {

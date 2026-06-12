@@ -73,7 +73,7 @@ npm run smoke:rating
 
 当前已用 `All Other App Types` baseline 跑通真实 smoke：
 
-- 输出：`rating_smoke/baseline_all_other_app_types.json`
+- 输出：`rating_artifacts/smoke/rating_smoke/baseline_all_other_app_types.json`
 - Category：`All Other App Types`
 - 填写策略：所有 Yes/No radio 选 `No`，checkbox 全 false。
 - 结果页：已进入 Summary。
@@ -97,7 +97,7 @@ baseline 评级结果：
 EXPECTED_GOOGLE_ACCOUNT="mengshu0715@gmail.com" \
 CDP_URL="http://127.0.0.1:9222" \
 IARC_CATEGORY="All Other App Types" \
-OUT_DIR="rating_smoke" \
+OUT_DIR="rating_artifacts/smoke/rating_smoke" \
 SUBMIT_FOR_RATING=1 \
 npm run smoke:rating
 ```
@@ -195,7 +195,7 @@ npm run inspect:categories
 
 当前样本文件：
 
-- `rating_samples/structural_samples.jsonl`
+- `rating_artifacts/samples/rating_samples/structural_samples.jsonl`
 - 总样本数：1959
 
 生成分布：
@@ -208,8 +208,8 @@ npm run inspect:categories
 
 当前成功采集结果：
 
-- 结果文件：`rating_results_structural_v2/results.jsonl`
-- 错误文件：`rating_results_structural_v2/errors.jsonl`
+- 结果文件：`rating_artifacts/results/rating_results_structural_v2/results.jsonl`
+- 错误文件：`rating_artifacts/results/rating_results_structural_v2/errors.jsonl`
 - 成功结果：1528
 - 错误事件：75
 
@@ -283,7 +283,7 @@ npm run inspect:categories
 
 结果汇总文件：
 
-- `rating_results_balanced_summary.json`
+- `rating_artifacts/manifests/rating_results_balanced_summary.json`
 
 当前主要年龄段均已有样本：
 

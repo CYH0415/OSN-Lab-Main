@@ -1,0 +1,24 @@
+﻿dimension,value,total,train,test,test_ratio
+category,All Other App Types,616,492,124,0.201299
+category,Game,633,507,126,0.199052
+category,Social or Communication,16,13,3,0.187500
+category_x_north_america_rating,All Other App Types | Adults only 18+,96,77,19,0.197917
+category_x_north_america_rating,All Other App Types | Everyone,96,77,19,0.197917
+category_x_north_america_rating,All Other App Types | Everyone 10+,73,58,15,0.205479
+category_x_north_america_rating,All Other App Types | Mature 17+,168,134,34,0.202381
+category_x_north_america_rating,All Other App Types | Teen,183,146,37,0.202186
+category_x_north_america_rating,Game | Adults only 18+,144,115,29,0.201389
+category_x_north_america_rating,Game | Everyone,82,66,16,0.195122
+category_x_north_america_rating,Game | Everyone 10+,65,52,13,0.200000
+category_x_north_america_rating,Game | Mature 17+,186,149,37,0.198925
+category_x_north_america_rating,Game | Teen,156,125,31,0.198718
+category_x_north_america_rating,Social or Communication | Adults only 18+,1,1,0,0.000000
+category_x_north_america_rating,Social or Communication | Everyone,4,3,1,0.250000
+category_x_north_america_rating,Social or Communication | Mature 17+,11,9,2,0.181818
+north_america_rating,Adults only 18+,241,193,48,0.199170
+north_america_rating,Everyone,182,146,36,0.197802
+north_america_rating,Everyone 10+,138,110,28,0.202899
+north_america_rating,Mature 17+,365,292,73,0.200000
+north_america_rating,Teen,339,271,68,0.200590
+state_source,browser_snapshot,1225,979,246,0.200816
+state_source,reconstructed_from_graph_and_baseline,40,33,7,0.175000

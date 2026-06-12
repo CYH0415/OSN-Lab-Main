@@ -1,10 +1,11 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { ratingSampleDir } from './rating_artifact_paths.mjs';
 
 const config = {
   categoryRoot: process.env.CATEGORY_OUT_ROOT || 'data_categories',
-  outDir: process.env.SAMPLE_OUT_DIR || 'rating_samples',
+  outDir: process.env.SAMPLE_OUT_DIR || ratingSampleDir('rating_samples'),
   pairwisePerCategory: Number(process.env.PAIRWISE_PER_CATEGORY || 250),
 };
 

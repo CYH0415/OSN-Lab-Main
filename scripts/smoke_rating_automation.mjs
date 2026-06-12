@@ -1,5 +1,6 @@
 import { chromium } from 'playwright';
 import { mkdir, writeFile } from 'node:fs/promises';
+import { RATING_SMOKE_DIR } from './rating_artifact_paths.mjs';
 
 const DEFAULT_URL =
   'https://play.google.com/console/u/2/developers/6147841152309536951/app/4975581156673272002/app-content/content-rating-iarc-questionnaire';
@@ -7,7 +8,7 @@ const DEFAULT_URL =
 const config = {
   url: process.env.PLAY_CONSOLE_URL || DEFAULT_URL,
   category: process.env.IARC_CATEGORY || 'All Other App Types',
-  outDir: process.env.OUT_DIR || 'rating_smoke',
+  outDir: process.env.OUT_DIR || RATING_SMOKE_DIR,
   cdpUrl: process.env.CDP_URL || 'http://127.0.0.1:9222',
   expectedAccount: process.env.EXPECTED_GOOGLE_ACCOUNT || 'mengshu0715@gmail.com',
   pauseMs: Number(process.env.PAUSE_MS || 250),

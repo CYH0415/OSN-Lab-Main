@@ -1,4 +1,5 @@
 import { readFile } from 'node:fs/promises';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 
 const ROOT = process.cwd();
@@ -30,6 +31,39 @@ function stateSignature(sample) {
   ]);
 }
 
+function cleanText(value) {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function parseSummaryCategory(value) {
+  const text = cleanText(value);
+  const ratingsStart = text.indexOf('Your ratings');
+  const summary = ratingsStart === -1 ? text : text.slice(0, ratingsStart);
+  const pattern = /(?:^|\s)Category (Social or Communication|All Other App Types|Game)(?=\s|$)/g;
+  let category = '';
+  for (const match of summary.matchAll(pattern)) category = match[1];
+  return category;
+}
+
+function evidenceKey(sampleId, sourceResultDir) {
+  return `${sourceResultDir}::${sampleId}`;
+}
+
+function expectedTerritories(category) {
+  const common = [
+    'Brazil',
+    'North America',
+    'Europe',
+    'Germany',
+    'Rest of world',
+    'Russia',
+    'South Korea',
+  ];
+  return category === 'Game'
+    ? ['Australia', 'Brazil', 'North America', 'South Korea', 'Taiwan', 'Saudi Arabia', 'Europe', 'Germany', 'Rest of world', 'Russia']
+    : common;
+}
+
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);
 }
@@ -37,6 +71,16 @@ function assert(condition, message, errors) {
 async function main() {
   const file = path.join(ROOT, DATASET_DIR, 'samples.jsonl');
   const samples = await readJsonLines(file);
+  const evidenceFile = path.join(ROOT, DATASET_DIR, 'debug_evidence.jsonl');
+  const evidence = existsSync(evidenceFile) ? await readJsonLines(evidenceFile) : [];
+  const evidenceCategories = new Map();
+  for (const row of evidence) {
+    const category = row.summaryCategory || parseSummaryCategory(row.bodyText);
+    if (!category) continue;
+    const key = evidenceKey(row.sampleId, row.sourceResultDir);
+    if (!evidenceCategories.has(key)) evidenceCategories.set(key, new Set());
+    evidenceCategories.get(key).add(category);
+  }
   const errors = [];
   const signatures = new Set();
   const ids = new Set();
@@ -74,6 +118,24 @@ async function main() {
       assert(Boolean(rating.label), `${prefix}: rating missing label`, errors);
       assert(!('raw' in rating), `${prefix}: raw rating evidence leaked into primary dataset`, errors);
     }
+    const expected = expectedTerritories(sample.category).sort();
+    const actual = (sample.ratings || []).map((rating) => rating.territory).sort();
+    assert(
+      JSON.stringify(actual) === JSON.stringify(expected),
+      `${prefix}: rating territories do not match ${sample.category}`,
+      errors,
+    );
+
+    const key = evidenceKey(sample.sampleId, sample.provenance?.sourceResultDir);
+    const summaryCategories = [...(evidenceCategories.get(key) || [])];
+    assert(summaryCategories.length === 1, `${prefix}: expected exactly one Summary category`, errors);
+    if (summaryCategories.length === 1) {
+      assert(
+        summaryCategories[0] === sample.category,
+        `${prefix}: Summary category is ${summaryCategories[0]}, expected ${sample.category}`,
+        errors,
+      );
+    }
 
     const signature = stateSignature(sample);
     assert(!signatures.has(signature), `${prefix}: duplicate semantic questionnaire state`, errors);
@@ -93,6 +155,10 @@ async function main() {
     errors: errors.slice(0, 100),
     omittedErrorCount: Math.max(0, errors.length - 100),
   };
+  assert(samples.length >= 1000, `dataset contains only ${samples.length} samples`, errors);
+  report.valid = errors.length === 0;
+  report.errors = errors.slice(0, 100);
+  report.omittedErrorCount = Math.max(0, errors.length - 100);
   console.log(JSON.stringify(report, null, 2));
   if (errors.length) process.exitCode = 1;
 }

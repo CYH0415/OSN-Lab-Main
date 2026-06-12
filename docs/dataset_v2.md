@@ -51,6 +51,7 @@ npm run generate:gap-fill-samples
 - `samples.jsonl`: semantically deduplicated samples with complete active questionnaire state and compact ratings.
 - `debug_evidence.jsonl`: raw rating blocks and page text retained for audits.
 - `failures.jsonl`: runner failure events.
+- `validation_quarantine.jsonl`: rows excluded because Summary category evidence or the category-specific territory set did not match the submitted sample.
 - `rating_conflicts.jsonl`: questionnaire states that produced inconsistent ratings and were excluded from the primary dataset.
 - `coverage_report.json`: category, rating, option-frequency, duplicate, and conflict statistics.
 - `schema.json`: primary record shape.
@@ -65,3 +66,5 @@ Reconstructed rows are useful for coverage analysis and migration, but browser s
 ## Primary ratings
 
 The primary dataset stores structured fields only: territory, authority, rating label, content descriptor text, interactive elements, and an optional warning. Original page text and raw rating blocks belong in `debug_evidence.jsonl`, not in model input by default.
+
+The builder and validator require the Summary page category to match the sample category. Game samples must contain the ten expected rating territories; All Other App Types and Social or Communication samples must contain the seven common territories. Rows that fail these checks are excluded from `samples.jsonl`.
