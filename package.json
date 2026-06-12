@@ -16,7 +16,13 @@
     "generate:midband-samples": "node scripts/generate_midband_samples.mjs",
     "generate:balanced-samples": "node scripts/generate_balanced_rating_samples.mjs",
     "sample:autonomous": "node scripts/autonomous_rating_sampler.mjs",
-    "sample:autonomous:generate": "GENERATE_ONLY=1 node scripts/autonomous_rating_sampler.mjs"
+    "sample:autonomous:generate": "GENERATE_ONLY=1 node scripts/autonomous_rating_sampler.mjs",
+    "generate:coverage-samples": "node scripts/select_coverage_samples.mjs",
+    "generate:gap-fill-samples": "node scripts/generate_gap_fill_samples.mjs",
+    "prepare:snapshot-upgrade": "node scripts/prepare_snapshot_upgrade.mjs",
+    "verify:snapshot-upgrade": "node scripts/verify_snapshot_upgrade.mjs",
+    "build:dataset-v2": "node scripts/build_dataset_v2.mjs",
+    "validate:dataset-v2": "node scripts/validate_dataset_v2.mjs"
   },
   "dependencies": {
     "playwright": "^1.53.0"

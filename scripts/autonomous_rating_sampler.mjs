@@ -381,8 +381,10 @@ function ratingBucket(rating) {
 }
 
 function resultBucket(result) {
-  const rating = result.result?.ratings?.find((item) => item.territory === config.targetTerritory)?.rating || '';
-  return ratingBucket(rating);
+  const ratings = result.ratings || result.result?.ratings || [];
+  const rating = ratings.find((item) => item.territory === config.targetTerritory);
+  const label = rating?.label || rating?.rating || '';
+  return ratingBucket(label);
 }
 
 function featureSet(sample) {
@@ -583,7 +585,7 @@ async function writeSummary(candidates, completed, attempts) {
         answers: sample.answers,
         riskSummary: sample.riskSummary,
         generationMeta: sample.meta,
-        ratings: result.result?.ratings || [],
+        ratings: result.ratings || result.result?.ratings || [],
         sourceUrl: result.result?.url || '',
         collectedAt: result.finishedAt || '',
       };

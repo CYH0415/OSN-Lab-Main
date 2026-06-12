@@ -1,0 +1,10 @@
+{
+  "generatedAt": "2026-06-12T05:00:53.437Z",
+  "sourceDataset": "dataset_v2/samples.jsonl",
+  "includeSocial": false,
+  "samples": 757,
+  "byCategory": {
+    "All Other App Types": 284,
+    "Game": 473
+  }
+}

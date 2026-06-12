@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 2,
+  "sample": {
+    "sampleId": "string",
+    "category": "Game | All Other App Types | Social or Communication",
+    "strategy": "string",
+    "explicitAnswers": "Answer[]",
+    "questionStates": "QuestionState[]; complete active questionnaire state",
+    "ratings": "Rating[]; compact structured labels without webpage text",
+    "provenance": {
+      "stateSource": "browser_snapshot | reconstructed_from_graph_and_baseline",
+      "sourceResultDir": "string",
+      "sourceSchemaVersion": "number"
+    }
+  }
+}

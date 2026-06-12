@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-06-11T12:39:34.361Z",
+  "selectedCount": 220,
+  "byCategory": {
+    "All Other App Types": 160,
+    "Game": 60
+  },
+  "byStrategy": {
+    "gap_singleton": 123,
+    "gap_low_frequency": 97
+  },
+  "targetedOptionCount": 138
+}

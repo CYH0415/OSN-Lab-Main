@@ -360,6 +360,28 @@ async function readQuestions(page) {
   });
 }
 
+async function readQuestionnaireState(page, explicitAnswers = []) {
+  const explicitKeys = new Set(
+    explicitAnswers.map((answer) => `${answer.questionId}::${answer.type}::${answer.optionLabel}::${answer.value}`),
+  );
+  const questions = await readQuestions(page);
+  return questions.map((question) => ({
+    questionId: question.key,
+    questionText: question.text,
+    type: question.type,
+    order: question.order,
+    options: question.options.map((option) => ({
+      label: option.label,
+      selected: option.selected,
+      source: explicitKeys.has(
+        `${question.key}::${question.type}::${option.label}::${question.type === 'radio' ? true : option.selected}`,
+      )
+        ? 'target'
+        : 'baseline',
+    })),
+  }));
+}
+
 async function setAnswer(page, assignment) {
   const changed = await page.evaluate((target) => {
     function normalize(value) {
@@ -469,16 +491,38 @@ function baselineAssignment(question, protectedAnswers = new Set()) {
   }
 
   if (question.type === 'checkbox') {
-    const selected = question.options.find(
-      (option) => option.selected && !protectedAnswers.has(`${question.key}::${question.type}::${option.label}`),
-    );
-    if (!selected) return null;
+    if (hasProtectedQuestionAnswer) {
+      const selected = question.options.find(
+        (option) => option.selected && !protectedAnswers.has(`${question.key}::${question.type}::${option.label}`),
+      );
+      if (!selected) return null;
+      return {
+        questionId: question.key,
+        questionText: question.text,
+        type: 'checkbox',
+        optionLabel: selected.label,
+        value: false,
+      };
+    }
+
+    const option = question.options[0];
+    const extra = question.options.slice(1).find((candidate) => candidate.selected);
+    if (extra) {
+      return {
+        questionId: question.key,
+        questionText: question.text,
+        type: 'checkbox',
+        optionLabel: extra.label,
+        value: false,
+      };
+    }
+    if (!option || option.selected) return null;
     return {
       questionId: question.key,
       questionText: question.text,
       type: 'checkbox',
-      optionLabel: selected.label,
-      value: false,
+      optionLabel: option.label,
+      value: true,
     };
   }
 
@@ -734,6 +778,7 @@ async function main() {
   await mkdir(config.outDir, { recursive: true });
   const resultPath = config.resultFile || `${config.outDir}/results.jsonl`;
   const errorPath = `${config.outDir}/errors.jsonl`;
+  const evidencePath = `${config.outDir}/evidence.jsonl`;
   const samples = await loadSamples();
   const completed = await loadCompleted(resultPath);
   const errored = config.skipErrored ? await loadErrored(errorPath) : new Set();
@@ -765,9 +810,17 @@ async function main() {
         }
 
         const applied = await applySampleAnswers(page, sample);
+        const questionStates = await readQuestionnaireState(page, applied);
         const saved = await clickButtonIfAvailable(page, 'Save');
         if (saved) await waitForSaveSettled(page);
         const next = await advanceToSummary(page);
+        if (!next) {
+          const error = new Error('Could not advance from Questionnaire to Summary.');
+          error.recoveredSameCategory = await returnToQuestionnaire(page);
+          error.pageUrl = page.url();
+          error.bodyTextPreview = (await bodyText(page)).slice(0, 1000);
+          throw error;
+        }
         const result = await readRatingResult(page);
         if (!result.ratings.length) {
           const recovered = await returnToQuestionnaire(page);
@@ -778,18 +831,35 @@ async function main() {
           throw error;
         }
 
+        const compactRatings = result.ratings.map(({ raw, ...rating }) => rating);
         await appendFile(
           resultPath,
           `${JSON.stringify({
+            schemaVersion: 2,
             sampleId: sample.sampleId,
             category: sample.category,
             categorySlug: sample.categorySlug || categorySlug(sample.category),
             strategy: sample.strategy,
-            answers: sample.answers,
-            applied,
+            explicitAnswers: applied,
+            questionStates,
+            ratings: compactRatings,
+            provenance: {
+              stateSource: 'browser_snapshot',
+              startedAt,
+              finishedAt: new Date().toISOString(),
+            },
+          })}\n`,
+        );
+        await appendFile(
+          evidencePath,
+          `${JSON.stringify({
+            sampleId: sample.sampleId,
+            url: result.url,
+            title: result.title,
+            bodyText: result.bodyText,
+            rawRatings: result.ratings.map(({ territory, raw }) => ({ territory, raw })),
             saved,
             next,
-            result,
             startedAt,
             finishedAt: new Date().toISOString(),
           })}\n`,

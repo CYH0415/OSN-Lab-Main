@@ -1,0 +1,12 @@
+{
+  "generatedAt": "2026-06-11T13:06:42.535Z",
+  "selectedCount": 3,
+  "byCategory": {
+    "Game": 3
+  },
+  "byStrategy": {
+    "gap_singleton": 3
+  },
+  "targetedOptionCount": 1,
+  "diagnostics": []
+}

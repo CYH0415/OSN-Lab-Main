@@ -1,0 +1,14 @@
+{
+  "generatedAt": "2026-06-11T14:34:18.458Z",
+  "selectedCount": 1,
+  "targetCount": 6,
+  "coverageMode": "selected",
+  "byCategory": {
+    "All Other App Types": 1
+  },
+  "byStrategy": {
+    "gap_low_frequency": 1
+  },
+  "targetedOptionCount": 1,
+  "diagnostics": []
+}

@@ -1,0 +1,1765 @@
+{
+  "generatedAt": "2026-06-12T06:42:37.989Z",
+  "rawSuccessfulRows": 2293,
+  "semanticallyUniqueStatesBeforeConflictFilter": 1280,
+  "semanticUniqueSamples": 1275,
+  "duplicateRowsRemoved": 1013,
+  "conflictingRatingGroups": 5,
+  "conflictingRowsQuarantined": 13,
+  "failureEventsArchived": 770,
+  "byCategory": {
+    "All Other App Types": 624,
+    "Game": 635,
+    "Social or Communication": 16
+  },
+  "byStateSource": {
+    "browser_snapshot": 1255,
+    "reconstructed_from_graph_and_baseline": 20
+  },
+  "esrbDistribution": {
+    "Mature 17+": 366,
+    "Adults only 18+": 244,
+    "Everyone": 192,
+    "Everyone 10+": 136,
+    "Teen": 337
+  },
+  "selectedOptionVariants": 512,
+  "selectedOptionSingletons": 7,
+  "selectedOptionsAtMostFive": 11,
+  "lowFrequencySelectedOptions": [
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_chat_moderation_cc9ff2ca",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "optionLabel": "No",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_this_the_primary_focus_of_the_app_abad8299",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "which_of_the_following_would_best_describe_the_app_6d1d2d7d",
+      "optionLabel": "Communication - used to communicate with people already known to the user in one-on-one or small group conversations. Skype, SMS, and Gmail are examples of these types of products.",
+      "count": 4
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_permit_the_public_sharing_of_nudity_54ca8431",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d",
+      "optionLabel": "Yes",
+      "count": 5
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4",
+      "optionLabel": "Yes",
+      "count": 5
+    }
+  ],
+  "targetSelectedOptionVariants": 427,
+  "targetSelectedOptionSingletons": 9,
+  "targetSelectedOptionsAtMostFive": 86,
+  "lowFrequencyTargetSelectedOptions": [
+    {
+      "category": "All Other App Types",
+      "questionId": "can_illegal_or_recreational_drugs_be_referred_to_through_e887484f",
+      "optionLabel": "No",
+      "count": 1
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_user_ever_use_tobacco_in_a_first_person_perspect_b682c1a1",
+      "optionLabel": "No",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_chat_moderation_cc9ff2ca",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "optionLabel": "No",
+      "count": 1
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_this_the_primary_focus_of_the_app_abad8299",
+      "optionLabel": "Yes",
+      "count": 1
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_discriminatory_language_7368f4f4",
+      "optionLabel": "No",
+      "count": 3
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_sexual_expletives_b9c51086",
+      "optionLabel": "No",
+      "count": 3
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_have_a_pixelated_or_childlike_style_88e77522",
+      "optionLabel": "No",
+      "count": 3
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54",
+      "optionLabel": "Rarely",
+      "count": 3
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_have_a_pixelated_or_childlike_style_7003dd1d",
+      "optionLabel": "No",
+      "count": 3
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+      "optionLabel": "None",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_sexual_material_be_visually_depicted_047f6e7c",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_sexual_images_be_pornographic_dbe74343",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_this_content_the_focus_of_the_app_01edd6fa",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_moderate_swearing_or_other_language__cdc1565c",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_product_focus_on_promoting_alcohol_or_tobacco_fda3ff82",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_wager_a234c2e8",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+      "optionLabel": "Rarely",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_is_the_duration_of_these_scenes_ebc5ddb7",
+      "optionLabel": "Brief",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_shared_user_generated_content_the_primary_source_of_c_ccfc5be7",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_violent_material_be_visually_depicted_9f0796c7",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_have_a_pixelated_or_childlike_style_2122fb74",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_is_this_violence_presented_in_the_app_98219979",
+      "optionLabel": "Referred to",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_wager_fdd45537",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_moderate_swearing_occur_7d1d932d",
+      "optionLabel": "Rarely",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+      "optionLabel": "None",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "what_is_the_duration_of_these_scenes_ebc5ddb7",
+      "optionLabel": "Brief",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+      "optionLabel": "Rarely",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "Game",
+      "questionId": "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+      "optionLabel": "No",
+      "count": 4
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_best_describes_this_type_of_blood_in_the_app_270691dd",
+      "optionLabel": "Small and infrequent",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_is_this_violence_presented_in_the_app_12995eb2",
+      "optionLabel": "Referred to",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "fantasy_drugs_0cdae46d",
+      "optionLabel": "Reference",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+      "optionLabel": "Obscured/Innuendo - Sex act is either entirely off-camera or completely blocked from view",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_discriminatory_language_occur_5fd2d7f7",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_sexual_expletives_occur_d0c59225",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequent_are_the_scary_elements_71813163",
+      "optionLabel": "Rare",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "tobacco_5dc1a9a7",
+      "optionLabel": "Reference",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+      "optionLabel": "Fantastical",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_take_place_in_a_realistic_or_historical_war_78e4413f",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_accessing_this_material_the_primary_purpose_of_the_ap_1bd1703c",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_often_do_sexual_acts_occur_7a0c9886",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "alcohol_533c1b5c",
+      "optionLabel": "Reference",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_this_alcohol_content_occur_861b9e63",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_human_buttocks_appear_6198e796",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "medical_drugs_32c6cc3e",
+      "optionLabel": "Reference",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_depictions_strictly_limited_to_slapstick_viole_d3c73bb1",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1",
+      "optionLabel": "Mucus, belching, flatulence sounds",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+      "optionLabel": "Obscured/Innuendo - Sex act is either entirely off-camera or completely blocked from view",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_the_genitalia_appear_6e9bbba6",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "what_best_describes_this_type_of_blood_in_the_game_7ee8e188",
+      "optionLabel": "Small and infrequent",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+      "optionLabel": "Fantastical",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_is_this_violence_presented_in_the_game_d6f09ae3",
+      "optionLabel": "Referred to",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_have_a_pixelated_or_childlike_style_df8228d5",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_often_do_sexual_acts_occur_7a0c9886",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_human_buttocks_appear_6198e796",
+      "optionLabel": "Rarely",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "how_is_this_violence_presented_in_the_game_0a118a0a",
+      "optionLabel": "Referred to",
+      "count": 5
+    },
+    {
+      "category": "Game",
+      "questionId": "are_these_dating_games_prominently_featured_or_a_strong__aaafc141",
+      "optionLabel": "No",
+      "count": 5
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d",
+      "optionLabel": "Yes",
+      "count": 5
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4",
+      "optionLabel": "Yes",
+      "count": 5
+    }
+  ],
+  "questionExposure": [
+    {
+      "category": "Social or Communication",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "count": 7
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_this_the_primary_focus_of_the_app_abad8299",
+      "count": 8
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_best_describes_this_type_of_blood_in_the_app_270691dd",
+      "count": 12
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "is_a_significant_portion_of_the_app_used_to_connect_peop_b57e2e9d",
+      "count": 12
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_permit_the_public_sharing_of_nudity_54ca8431",
+      "count": 12
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_wager_42ff0adb",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_is_the_sexual_violence_in_the_app_presented_a33620b5",
+      "count": 12
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6",
+      "count": 12
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_human_buttocks_appear_6198e796",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_sexual_expletives_occur_d0c59225",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_female_human_breasts_with_nipples__163e9d54",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequent_are_the_scary_elements_71813163",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_moderate_swearing_occur_7d1d932d",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_wager_fdd45537",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_user_ever_use_alcohol_in_a_first_person_perspect_ffd9c98e",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_user_ever_use_tobacco_in_a_first_person_perspect_b682c1a1",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be",
+      "count": 12
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f",
+      "count": 12
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_human_buttocks_appear_6198e796",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_depictions_strictly_limited_to_slapstick_viole_d3c73bb1",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_fantasy_creatures_breasts_appear_e879ee9f",
+      "count": 12
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_the_nipple_less_breasts_appear_9f7d8dc0",
+      "count": 12
+    },
+    {
+      "category": "Game",
+      "questionId": "are_these_dating_games_prominently_featured_or_a_strong__aaafc141",
+      "count": 13
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_minor_profanities_occur_9d2bf28d",
+      "count": 14
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_app_contain_visual_depictions_of_illegal_or_rec_3788a7dc",
+      "count": 15
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_illegal_or_recreational_drugs_be_referred_to_through_e887484f",
+      "count": 15
+    },
+    {
+      "category": "Game",
+      "questionId": "can_the_player_ever_use_tobacco_in_a_first_person_perspe_929a7633",
+      "count": 15
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_discriminatory_language_occur_5fd2d7f7",
+      "count": 15
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "which_of_the_following_would_best_describe_the_app_6d1d2d7d",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_allow_users_to_purchase_digital_goods_43ad2835",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "does_the_app_include_chat_moderation_cc9ff2ca",
+      "count": 16
+    },
+    {
+      "category": "Social or Communication",
+      "questionId": "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d",
+      "count": 16
+    },
+    {
+      "category": "Game",
+      "questionId": "can_the_player_ever_use_alcohol_in_a_first_person_perspe_4e53d7c8",
+      "count": 16
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_this_the_primary_focus_of_the_app_abad8299",
+      "count": 17
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_sexual_images_depict_nudity_62b6c6d4",
+      "count": 17
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_sexual_images_be_pornographic_dbe74343",
+      "count": 17
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975",
+      "count": 17
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654",
+      "count": 17
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_wager_a234c2e8",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_an_integrated_marketplace_for_these_6e119982",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_or_requirement_to_make__638d2bc0",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequent_are_the_horrifying_elements_793da69a",
+      "count": 18
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2",
+      "count": 18
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_or_requirement_to_wage_2d25b462",
+      "count": 19
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158",
+      "count": 19
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_violent_images_be_gross_or_gory_a3d431d0",
+      "count": 19
+    },
+    {
+      "category": "Game",
+      "questionId": "what_best_describes_this_type_of_blood_in_the_game_7ee8e188",
+      "count": 20
+    },
+    {
+      "category": "Game",
+      "questionId": "how_is_the_sexual_violence_in_the_game_presented_1aa9d746",
+      "count": 21
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "count": 22
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "fantasy_drugs_0cdae46d",
+      "count": 23
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_fantasy_drugs_occur_f510ee29",
+      "count": 23
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+      "count": 23
+    },
+    {
+      "category": "Game",
+      "questionId": "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0",
+      "count": 23
+    },
+    {
+      "category": "Game",
+      "questionId": "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5",
+      "count": 23
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_discriminatory_language_occur_5fd2d7f7",
+      "count": 24
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_are_revealing_outfits_depicted_dbabdf26",
+      "count": 25
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_these_revealing_outfits_ever_depicted_in_an_erotic_o_a25a70b0",
+      "count": 25
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_these_outfits_ever_appear_to_be_out_of_place_such_as__6f8c32b5",
+      "count": 25
+    },
+    {
+      "category": "Game",
+      "questionId": "is_there_an_intense_and_unrelenting_sense_of_imminent_th_91f93ed6",
+      "count": 25
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "medical_drugs_32c6cc3e",
+      "count": 25
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_do_medical_drugs_occur_04c7e80e",
+      "count": 25
+    },
+    {
+      "category": "Game",
+      "questionId": "can_these_purchases_include_random_items_where_the_purch_cfc20feb",
+      "count": 26
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_have_a_system_for_players_to_trade_items_w_540e69c1",
+      "count": 26
+    },
+    {
+      "category": "Game",
+      "questionId": "fantasy_drugs_0cdae46d",
+      "count": 26
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_fantasy_drugs_occur_f510ee29",
+      "count": 26
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "tobacco_5dc1a9a7",
+      "count": 26
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_this_tobacco_content_occur_0cdd660c",
+      "count": 26
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_sexual_material_be_visually_depicted_047f6e7c",
+      "count": 27
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_sexual_material_be_referred_to_through_text_or__cef4ac8f",
+      "count": 27
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_or_requirement_to_wage_3f5a30fa",
+      "count": 27
+    },
+    {
+      "category": "Game",
+      "questionId": "can_playing_these_casino_games_lotteries_or_racetrack_be_1b84b6e2",
+      "count": 27
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_bodily_functions_are_used_for_humorous_purposes_in__93ae31fe",
+      "count": 28
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_would_you_describe_the_suggestive_sexual_themes_cont_e3783b5e",
+      "count": 28
+    },
+    {
+      "category": "Game",
+      "questionId": "how_would_you_describe_the_suggestive_sexual_themes_cont_945c7ef1",
+      "count": 29
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_4cf49f6e",
+      "count": 30
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "alcohol_533c1b5c",
+      "count": 30
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_this_alcohol_content_occur_861b9e63",
+      "count": 30
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_violent_material_be_visually_depicted_9f0796c7",
+      "count": 30
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_this_violent_material_be_referred_to_through_text_or_337488ea",
+      "count": 30
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_or_requirement_to_wage_c8e71373",
+      "count": 31
+    },
+    {
+      "category": "Game",
+      "questionId": "how_explicitly_depicted_are_these_disturbing_or_gory_ima_31c85158",
+      "count": 31
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_moderate_swearing_occur_7d1d932d",
+      "count": 31
+    },
+    {
+      "category": "Game",
+      "questionId": "are_these_gambling_themes_prominently_featured_or_a_stro_d54762be",
+      "count": 33
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "illegal_or_recreational_drugs_ba0c1239",
+      "count": 34
+    },
+    {
+      "category": "Game",
+      "questionId": "medical_drugs_32c6cc3e",
+      "count": 35
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_medical_drugs_occur_04c7e80e",
+      "count": 35
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_4715352d",
+      "count": 36
+    },
+    {
+      "category": "Game",
+      "questionId": "is_the_issuance_of_these_digital_assets_a_significant_or_60d212c2",
+      "count": 36
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_an_integrated_marketplace_for_thes_feb79fb9",
+      "count": 36
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_or_requirement_to_make_87aee7ff",
+      "count": 36
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_minor_profanities_e_g_go_to_hell_4b2bd815",
+      "count": 37
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_moderate_swearing_or_other_language__cdc1565c",
+      "count": 37
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_discriminatory_language_7368f4f4",
+      "count": 37
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_sexual_expletives_b9c51086",
+      "count": 37
+    },
+    {
+      "category": "Game",
+      "questionId": "alcohol_533c1b5c",
+      "count": 38
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_this_alcohol_content_occur_861b9e63",
+      "count": 38
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_often_do_sexual_acts_occur_7a0c9886",
+      "count": 38
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_is_the_duration_of_these_scenes_ebc5ddb7",
+      "count": 38
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+      "count": 38
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50",
+      "count": 38
+    },
+    {
+      "category": "Game",
+      "questionId": "are_these_crimes_or_criminal_techniques_likely_to_be_imi_3820601a",
+      "count": 39
+    },
+    {
+      "category": "Game",
+      "questionId": "are_there_detailed_descriptions_of_techniques_that_could_207c80c9",
+      "count": 39
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_sexual_expletives_occur_d0c59225",
+      "count": 40
+    },
+    {
+      "category": "Game",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_interactive_0bbcd975",
+      "count": 40
+    },
+    {
+      "category": "Game",
+      "questionId": "is_the_use_of_illegal_or_recreational_drugs_related_to_i_368c1654",
+      "count": 40
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequent_are_the_horrifying_elements_793da69a",
+      "count": 40
+    },
+    {
+      "category": "Game",
+      "questionId": "can_playing_these_bingo_games_reward_cash_payouts_or_rew_07fc306a",
+      "count": 42
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_do_minor_profanities_occur_9d2bf28d",
+      "count": 43
+    },
+    {
+      "category": "Game",
+      "questionId": "what_bodily_functions_are_used_for_humorous_purposes_in__dac843c1",
+      "count": 44
+    },
+    {
+      "category": "Game",
+      "questionId": "tobacco_5dc1a9a7",
+      "count": 45
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_this_tobacco_content_occur_0cdd660c",
+      "count": 45
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_product_focus_on_promoting_alcohol_or_tobacco_fda3ff82",
+      "count": 47
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_product_focus_on_any_other_age_restricted_activ_f21b28b2",
+      "count": 47
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_b82bc521",
+      "count": 47
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_have_a_pixelated_or_childlike_style_88e77522",
+      "count": 51
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_is_this_violence_presented_in_the_app_98219979",
+      "count": 51
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+      "count": 51
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+      "count": 51
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_this_content_the_focus_of_the_app_01edd6fa",
+      "count": 51
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_18adc531",
+      "count": 53
+    },
+    {
+      "category": "Game",
+      "questionId": "how_often_do_sexual_acts_occur_7a0c9886",
+      "count": 56
+    },
+    {
+      "category": "Game",
+      "questionId": "what_is_the_duration_of_these_scenes_ebc5ddb7",
+      "count": 56
+    },
+    {
+      "category": "Game",
+      "questionId": "how_would_you_describe_the_depiction_of_these_scenes_ple_091615b8",
+      "count": 56
+    },
+    {
+      "category": "Game",
+      "questionId": "do_any_of_these_sex_acts_feature_characters_that_appear__36d02e50",
+      "count": 56
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_accessing_this_material_the_primary_purpose_of_the_ap_1bd1703c",
+      "count": 57
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_have_a_pixelated_or_childlike_style_7003dd1d",
+      "count": 58
+    },
+    {
+      "category": "Game",
+      "questionId": "how_is_this_violence_presented_in_the_game_0a118a0a",
+      "count": 58
+    },
+    {
+      "category": "Game",
+      "questionId": "do_any_of_these_creatures_behave_or_respond_like_humans_bd1de18a",
+      "count": 58
+    },
+    {
+      "category": "Game",
+      "questionId": "is_any_of_this_violence_against_real_world_animals_6fc80a86",
+      "count": 58
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_frequently_does_the_genitalia_appear_6e9bbba6",
+      "count": 59
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_to_block_users_or_user_ae7dcc61",
+      "count": 61
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_ability_to_report_users_or_use_5e66cfbc",
+      "count": 61
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_chat_moderation_f5949739",
+      "count": 61
+    },
+    {
+      "category": "Game",
+      "questionId": "can_interactions_in_the_game_be_limited_to_invited_frien_88ea2f62",
+      "count": 61
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequently_does_the_genitalia_appear_6e9bbba6",
+      "count": 63
+    },
+    {
+      "category": "Game",
+      "questionId": "how_frequent_are_the_scary_elements_71813163",
+      "count": 68
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_have_a_pixelated_or_childlike_style_2122fb74",
+      "count": 77
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_is_this_violence_presented_in_the_app_12995eb2",
+      "count": 77
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_take_place_in_a_realistic_or_historical_war_78e4413f",
+      "count": 77
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+      "count": 77
+    },
+    {
+      "category": "Game",
+      "questionId": "illegal_or_recreational_drugs_ba0c1239",
+      "count": 85
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_4e162967",
+      "count": 90
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_a17b785f",
+      "count": 100
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_8aa332fd",
+      "count": 102
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959",
+      "count": 102
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_a522854d",
+      "count": 103
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_44d3634e",
+      "count": 106
+    },
+    {
+      "category": "Game",
+      "questionId": "is_any_of_this_content_in_an_erotic_provocative_setting__11eb2959",
+      "count": 106
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_have_a_pixelated_or_childlike_style_df8228d5",
+      "count": 112
+    },
+    {
+      "category": "Game",
+      "questionId": "how_is_this_violence_presented_in_the_game_d6f09ae3",
+      "count": 112
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_take_place_in_a_realistic_or_historical_wa_067f5d44",
+      "count": 112
+    },
+    {
+      "category": "Game",
+      "questionId": "can_innocent_or_defenseless_characters_be_seriously_inju_2f1f1e8b",
+      "count": 112
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_6686a0fa",
+      "count": 120
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_500aa428",
+      "count": 126
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_24d1114b",
+      "count": 126
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_c2929670",
+      "count": 127
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+      "count": 128
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "how_would_you_describe_the_reactions_to_violence_f4f3f14a",
+      "count": 128
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+      "count": 128
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f",
+      "count": 128
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_8940577b",
+      "count": 157
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_shared_user_generated_content_the_primary_source_of_c_ccfc5be7",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_permit_the_public_sharing_of_nudity_54ca8431",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_permit_the_public_sharing_of_real_world_gra_809166c4",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_to_block_users_or_user__e8935808",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_the_ability_to_report_users_or_user_04c5c153",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_chat_moderation_cc9ff2ca",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_interactions_in_the_app_be_limited_to_invited_friend_eceecc3d",
+      "count": 159
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_violent_material_content_that_seller_42d20972",
+      "count": 167
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_sexual_material_or_nudity_except_in__ccdb3618",
+      "count": 167
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_any_potentially_offensive_language_p_f3fe3d35",
+      "count": 167
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "can_the_app_contain_references_to_or_depictions_of_illeg_387441a4",
+      "count": 167
+    },
+    {
+      "category": "Game",
+      "questionId": "in_what_kind_of_setting_context_storyline_does_the_viole_a606b09d",
+      "count": 170
+    },
+    {
+      "category": "Game",
+      "questionId": "how_would_you_describe_the_reactions_to_violence_f4f3f14a",
+      "count": 170
+    },
+    {
+      "category": "Game",
+      "questionId": "what_is_the_level_of_blood_and_or_gore_associated_with_t_11d6d7cc",
+      "count": 170
+    },
+    {
+      "category": "Game",
+      "questionId": "are_there_any_fierce_sounds_sinister_or_intimidating_cha_c6faf05f",
+      "count": 170
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "please_select_all_that_the_app_includes_be745a55",
+      "count": 182
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_ba1c8db3",
+      "count": 185
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_768feb67",
+      "count": 216
+    },
+    {
+      "category": "Game",
+      "questionId": "please_select_all_that_the_game_includes_a0533f3c",
+      "count": 218
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_inferences_of_references_to_or_depi_23169d75",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_pictures_or_sounds_likely_to_be_sca_dbbee0fa",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_inferences_of_references_to_or_depi_00223f58",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_gambling_simulations_of_casino_gamb_e4e21264",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_any_potentially_offensive_language_b4cfa138",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_any_reference_to_or_use_of_drugs_al_2098b4f8",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_any_bodily_functions_such_as_belchi_967792bd",
+      "count": 507
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_contain_any_ratings_relevant_content_e_g_se_1bdb46b7",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_natively_allow_users_to_interact_or_exchang_0814bcf5",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_feature_or_promote_content_that_isn_t_part__94fe8720",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_focus_on_promoting_or_selling_items_or_acti_fb2a4b57",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_share_the_user_s_current_and_precise_physic_259a3f8a",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_allow_users_to_purchase_digital_goods_43ad2835",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "does_the_app_include_cash_rewards_gift_cards_play_to_ear_39e41173",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_app_a_web_browser_or_search_engine_15f398d7",
+      "count": 624
+    },
+    {
+      "category": "All Other App Types",
+      "questionId": "is_the_app_primarily_a_news_or_educational_product_44733801",
+      "count": 624
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_inferences_of_references_to_or_dep_a60327ce",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_pictures_or_sounds_likely_to_be_sc_954ee2f8",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_inferences_of_references_to_or_dep_a40be1cf",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_gambling_simulations_of_casino_gam_251e14df",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_any_potentially_offensive_language_3a42be1b",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_any_reference_to_or_use_of_drugs_a_10f81ced",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_any_bodily_functions_such_as_belch_7d053cfc",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_include_the_purchase_or_sale_of_digital_go_9a08ca09",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_natively_allow_users_to_interact_or_exchan_a4531922",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_share_the_user_s_current_and_precise_physi_9a758681",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_any_swastikas_other_nazi_symbols_o_b8cf710d",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_any_content_that_can_substantially_0e8549e7",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_advocate_committing_acts_of_terrorism_e10f0658",
+      "count": 635
+    },
+    {
+      "category": "Game",
+      "questionId": "does_the_game_contain_realistic_descriptions_of_crimes_e_7a9af535",
+      "count": 635
+    }
+  ],
+  "conflicts": [
+    {
+      "retainedSampleId": "game_risk_00069",
+      "ratingSignatures": [
+        "Australia=Parental Guidance|Brazil=Rated 12+|Europe=PEGI 12|Germany=USK: Ages 6+|North America=Teen|Rest of world=Rated for 12+|Russia=Rated for 12+|Saudi Arabia=16|South Korea=15+|Taiwan=Parental Guidance 12",
+        "Australia=Parental Guidance|Brazil=Rated 10+|Europe=PEGI 12|Germany=USK: All ages|North America=Teen|Rest of world=Rated for 12+|Russia=Rated for 12+|Saudi Arabia=16|South Korea=12+|Taiwan=Parental Guidance 12"
+      ],
+      "duplicateSampleIds": [
+        "auto_game_1db47fc3af077b04",
+        "game_mid_00034"
+      ]
+    },
+    {
+      "retainedSampleId": "gap_0127_8b7f20b4dcf5e48e",
+      "ratingSignatures": [
+        "Brazil=Rated 18+|Europe=PEGI 18|Germany=USK: Ages 18+|North America=Adults only 18+|Rest of world=Rated for 18+|Russia=Rated for 18+|South Korea=Rated for 19+",
+        "Brazil=Rated 12+|Europe=PEGI 3|Germany=USK: Ages 12+|North America=Everyone 10+|Rest of world=Rated for 3+|Russia=Rated for 3+|South Korea=Rated for 3+"
+      ],
+      "duplicateSampleIds": [
+        "gap_0010_8b7f20b4dcf5e48e",
+        "gap_0053_562210459f4f5122"
+      ]
+    },
+    {
+      "retainedSampleId": "auto_game_85c4a4d52743a430",
+      "ratingSignatures": [
+        "Australia=Restricted to 18+|Brazil=Rated 18+|Europe=PEGI 12|Germany=USK: Ages 18+|North America=Adults only 18+|Rest of world=Rated for 12+|Russia=Rated for 12+|Saudi Arabia=Refused Classification|South Korea=Refused Classification|Taiwan=Refused Classification",
+        "Australia=General|Brazil=All ages|Europe=PEGI 3|Germany=USK: All ages|North America=Everyone|Rest of world=Rated for 3+|Russia=Rated for 3+|Saudi Arabia=3|South Korea=All ages|Taiwan=General Public"
+      ],
+      "duplicateSampleIds": [
+        "game_risk_00004",
+        "game_risk_00004"
+      ]
+    },
+    {
+      "retainedSampleId": "game_risk_00002",
+      "ratingSignatures": [
+        "Australia=General|Brazil=All ages|Europe=PEGI 3|Germany=USK: All ages|North America=Everyone|Rest of world=Rated for 3+|Russia=Rated for 3+|Saudi Arabia=3|South Korea=All ages|Taiwan=General Public",
+        "Australia=Restricted to 15+|Brazil=Rated 18+|Europe=PEGI 16|Germany=USK: Ages 18+|North America=Teen|Rest of world=Rated for 16+|Russia=Rated for 16+|Saudi Arabia=16|South Korea=Refused Classification|Taiwan=Restricted"
+      ],
+      "duplicateSampleIds": [
+        "game_risk_00002"
+      ]
+    },
+    {
+      "retainedSampleId": "game_risk_00005",
+      "ratingSignatures": [
+        "Australia=General|Brazil=All ages|Europe=PEGI 3|Germany=USK: All ages|North America=Everyone|Rest of world=Rated for 3+|Russia=Rated for 3+|Saudi Arabia=3|South Korea=All ages|Taiwan=General Public",
+        "Australia=Restricted to 18+|Brazil=Rated 18+|Europe=PEGI 18|Germany=USK: Ages 18+|North America=Adults only 18+|Rest of world=Rated for 18+|Russia=Rated for 18+|Saudi Arabia=Refused Classification|South Korea=Refused Classification|Taiwan=Refused Classification"
+      ],
+      "duplicateSampleIds": [
+        "game_risk_00005"
+      ]
+    }
+  ]
+}
