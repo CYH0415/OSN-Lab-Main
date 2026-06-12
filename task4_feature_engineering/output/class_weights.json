@@ -1,0 +1,11 @@
+{
+  "method": "sklearn balanced class_weight computed on task4 train split",
+  "target_column": "rating__north_america",
+  "class_weights": {
+    "Everyone": 1.3846153846153846,
+    "Everyone 10+": 1.8409090909090908,
+    "Teen": 0.7465437788018433,
+    "Mature 17+": 0.6952789699570815,
+    "Adults only 18+": 1.0451612903225806
+  }
+}

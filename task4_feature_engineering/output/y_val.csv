@@ -1,0 +1,203 @@
+sample_id,label,label_id
+all_other_app_types_balanced_00004,Teen,2
+all_other_app_types_balanced_00024,Mature 17+,3
+all_other_app_types_balanced_00032,Teen,2
+all_other_app_types_balanced_00035,Teen,2
+all_other_app_types_balanced_00050,Everyone,0
+all_other_app_types_balanced_00058,Everyone,0
+all_other_app_types_risk_00009,Teen,2
+all_other_app_types_risk_00014,Teen,2
+all_other_app_types_risk_00017,Mature 17+,3
+all_other_app_types_risk_00030,Teen,2
+all_other_app_types_risk_00036,Mature 17+,3
+all_other_app_types_risk_00075,Everyone,0
+all_other_app_types_risk_00077,Everyone 10+,1
+all_other_app_types_risk_00089,Everyone,0
+all_other_app_types_risk_00096,Everyone,0
+all_other_app_types_risk_00138,Adults only 18+,4
+all_other_app_types_risk_00140,Adults only 18+,4
+all_other_app_types_risk_00145,Adults only 18+,4
+all_other_app_types_risk_00149,Adults only 18+,4
+all_other_app_types_risk_00166,Adults only 18+,4
+all_other_app_types_risk_00175,Adults only 18+,4
+all_other_app_types_risk_00176,Adults only 18+,4
+all_other_app_types_risk_00182,Adults only 18+,4
+auto_all_other_app_types_23ffb810c71b3839,Mature 17+,3
+auto_all_other_app_types_24b37692feeed8a1,Adults only 18+,4
+auto_all_other_app_types_2802087d8b0338fd,Everyone 10+,1
+auto_all_other_app_types_325b291c58a17ad9,Mature 17+,3
+auto_all_other_app_types_5fe59c0f48b5afea,Mature 17+,3
+auto_all_other_app_types_6a9a9734448d62a3,Teen,2
+auto_all_other_app_types_6e915957d892518b,Mature 17+,3
+auto_all_other_app_types_735629f3dcedd62b,Teen,2
+auto_all_other_app_types_7c56566ef90cd6ed,Mature 17+,3
+auto_all_other_app_types_8f07d81091437fa4,Teen,2
+auto_all_other_app_types_907633d16dbf991e,Everyone,0
+auto_all_other_app_types_96352e8f19699394,Everyone,0
+auto_all_other_app_types_ad0f86c092cd7419,Adults only 18+,4
+auto_all_other_app_types_c8e6949a63c7b268,Teen,2
+auto_all_other_app_types_d83c9be4cc92d628,Teen,2
+auto_all_other_app_types_f1f68d98502eceee,Mature 17+,3
+auto_all_other_app_types_fdf280bb77cf1b64,Mature 17+,3
+auto_game_009f446e2bbede37,Mature 17+,3
+auto_game_01a820d9d4b55a90,Mature 17+,3
+auto_game_03e20e7044cd069a,Mature 17+,3
+auto_game_06a7c40d25e5566c,Teen,2
+auto_game_0acb19cfa5ab5013,Mature 17+,3
+auto_game_0dddcd8658e23885,Adults only 18+,4
+auto_game_18a168bbfe23a25f,Mature 17+,3
+auto_game_21c0c27480489b8d,Everyone,0
+auto_game_394205404704ca71,Adults only 18+,4
+auto_game_396700f3c60332f9,Adults only 18+,4
+auto_game_3a5805530c59c944,Mature 17+,3
+auto_game_3aedb1d22f792775,Teen,2
+auto_game_3c08b44c54a83225,Mature 17+,3
+auto_game_433b57654e73c839,Mature 17+,3
+auto_game_44622a905315a978,Everyone,0
+auto_game_4584fe56fd55fe05,Adults only 18+,4
+auto_game_49c44367dab32da7,Mature 17+,3
+auto_game_4a1cc52df1e5f0f2,Everyone,0
+auto_game_4ce2c3e07f6d1420,Mature 17+,3
+auto_game_4da6b8195bcfd2c4,Mature 17+,3
+auto_game_4f382b786018412c,Everyone,0
+auto_game_5050860415e93e0f,Everyone 10+,1
+auto_game_6bd05ff5956aad87,Mature 17+,3
+auto_game_705af3acf665297d,Mature 17+,3
+auto_game_71ae098ae1a2f7eb,Mature 17+,3
+auto_game_760866b34db8c3bc,Mature 17+,3
+auto_game_780ed238ab976954,Teen,2
+auto_game_7a257fffb6783da9,Teen,2
+auto_game_7be91de34ef3fcc3,Adults only 18+,4
+auto_game_7f1b8f13eef4e70e,Adults only 18+,4
+auto_game_808f76220d2e7c16,Teen,2
+auto_game_8110c1e597ecc7be,Adults only 18+,4
+auto_game_81b2bfa2c8d8c63c,Teen,2
+auto_game_84f7262253400f75,Adults only 18+,4
+auto_game_8f60e34313eb00e2,Everyone,0
+auto_game_930acb500e4799f7,Mature 17+,3
+auto_game_95e3eca7bb54e6b7,Mature 17+,3
+auto_game_b39a59015fea0ed4,Everyone,0
+auto_game_b682612bb9ceadd4,Mature 17+,3
+auto_game_b6adc13d659c6d72,Teen,2
+auto_game_b832547468d875b1,Adults only 18+,4
+auto_game_c18a218c2f5c1efb,Mature 17+,3
+auto_game_c650fe6b2077ed84,Teen,2
+auto_game_ca8c86598f1a0770,Mature 17+,3
+auto_game_cdad5f592d0aaeb2,Everyone,0
+auto_game_d38529d183865fff,Mature 17+,3
+auto_game_d55f9d372403ab0d,Mature 17+,3
+auto_game_d5c20f0ec4e15523,Mature 17+,3
+auto_game_d8465f556324d4c0,Teen,2
+auto_game_db2bd9ba76145165,Teen,2
+auto_game_e586905344fa2421,Adults only 18+,4
+auto_game_e6efd01ec13f5ca5,Everyone 10+,1
+auto_game_e92232b6ad7b2ce1,Mature 17+,3
+auto_game_ec33b684d030f38a,Mature 17+,3
+auto_game_ee63d238d167f48e,Adults only 18+,4
+auto_game_ef31e1bea1eef842,Teen,2
+auto_game_fb5d0bbbc01855f1,Everyone,0
+auto_game_fcb62a34da95bc35,Teen,2
+auto_game_feefbe7f38b3a0fb,Adults only 18+,4
+auto_game_ff96d9c2754e516a,Mature 17+,3
+auto_social_or_communication_069eaefb18679c5c,Everyone,0
+auto_social_or_communication_3293df00c08de8a9,Mature 17+,3
+coverage_0004_aa3e0913d5ee778f,Teen,2
+coverage_0010_4889c37caf7d76ee,Mature 17+,3
+coverage_0014_d195fd452e3b3c23,Mature 17+,3
+coverage_0015_0fa5491ea52e1262,Everyone 10+,1
+coverage_0024_cec2338d5f4eecd1,Teen,2
+coverage_0029_06c579fa9bd510af,Teen,2
+coverage_0037_ff3461a6f33df33e,Adults only 18+,4
+coverage_0045_0d96cfb59400ad25,Adults only 18+,4
+coverage_0047_9ca0b235e17bf179,Adults only 18+,4
+coverage_0048_5ccc6c1dba73ea5e,Teen,2
+coverage_0053_673cb6d43c1e6b8c,Mature 17+,3
+coverage_0057_38d2b1c61b701ca1,Teen,2
+game_balanced_00003,Teen,2
+game_balanced_00010,Everyone 10+,1
+game_balanced_00038,Adults only 18+,4
+game_risk_00007,Teen,2
+game_risk_00013,Teen,2
+game_risk_00026,Everyone 10+,1
+game_risk_00031,Adults only 18+,4
+game_risk_00055,Everyone 10+,1
+game_risk_00074,Everyone,0
+game_risk_00084,Teen,2
+game_risk_00106,Adults only 18+,4
+game_risk_00112,Adults only 18+,4
+game_risk_00127,Adults only 18+,4
+game_risk_00131,Adults only 18+,4
+game_risk_00142,Adults only 18+,4
+game_risk_00160,Adults only 18+,4
+game_risk_00161,Adults only 18+,4
+gap_0002_76c892b4d7caf8f5,Teen,2
+gap_0003_8a1ab50c8c3fdd06,Mature 17+,3
+gap_0010_876104886e16d2d3,Teen,2
+gap_0010_e33525a5a7cb4ee7,Everyone,0
+gap_0018_9fb732fdefbc1ae4,Everyone,0
+gap_0019_4c3495236c1cbc34,Teen,2
+gap_0021_99092fac158b25f9,Mature 17+,3
+gap_0025_35e9559c7d1a3040,Everyone 10+,1
+gap_0026_b333e3d56e18c99c,Everyone 10+,1
+gap_0027_8c451a46d1177749,Mature 17+,3
+gap_0030_3a2e06ae3e8400c0,Adults only 18+,4
+gap_0038_d5dac5e852055d69,Mature 17+,3
+gap_0055_f922881cf7ac9813,Teen,2
+gap_0056_a8a195f521bd6674,Mature 17+,3
+gap_0063_6bd61d4e3d274512,Mature 17+,3
+gap_0065_560fd82bf64664b2,Mature 17+,3
+gap_0075_69738db467727269,Mature 17+,3
+gap_0077_9873c2e0e7414faf,Mature 17+,3
+gap_0078_922ca171fdd8cd79,Mature 17+,3
+gap_0079_a563cbdb95703a8c,Adults only 18+,4
+gap_0082_e56f140ccde93986,Adults only 18+,4
+gap_0083_55c0006efd464abb,Teen,2
+gap_0084_5cc59e046e0371e2,Adults only 18+,4
+gap_0084_b83040a778f1d61a,Teen,2
+gap_0086_4901751a65482d94,Everyone,0
+gap_0089_5e2849657fe411dd,Everyone,0
+gap_0091_b606db78b60d71a8,Mature 17+,3
+gap_0092_e270ba0915bc0a8b,Mature 17+,3
+gap_0095_72929de0e87ae740,Everyone 10+,1
+gap_0101_fde3b30a6e1f4ad7,Teen,2
+gap_0103_53d899e20c4bcddd,Mature 17+,3
+gap_0108_a7d1c8389ffdcfe8,Teen,2
+gap_0115_890f32cf3d8a575c,Everyone,0
+gap_0116_63f526407e066ae8,Everyone,0
+gap_0120_5ff4771ce99440ed,Everyone,0
+gap_0124_2e915038a99be628,Teen,2
+gap_0127_38e4b0dcf4e5aa2a,Teen,2
+gap_0131_2b6f786e662fefd7,Everyone 10+,1
+gap_0132_a0cb378f8da56299,Teen,2
+gap_0133_2ae4d94038da8a1e,Everyone,0
+gap_0134_20d1af8c6a43732a,Mature 17+,3
+gap_0136_ad0d6f5fb1a4c963,Mature 17+,3
+gap_0137_32028ef0b7a466a8,Everyone,0
+gap_0138_6933639e2294bbde,Everyone 10+,1
+gap_0141_29e11887426429b9,Everyone 10+,1
+gap_0146_76f23efcf313cdc6,Teen,2
+gap_0148_6918aabdb3e441af,Mature 17+,3
+gap_0149_2b65b89a4177082b,Everyone,0
+gap_0149_85a86e9d4be1a5b1,Mature 17+,3
+gap_0150_f29a5884810fd20c,Everyone 10+,1
+gap_0156_ec70d2ab9214342e,Everyone 10+,1
+gap_0161_7733008983195753,Teen,2
+gap_0165_cb946f1ed8a8e48f,Mature 17+,3
+gap_0166_b52004383ccf2e84,Everyone,0
+gap_0167_1fd2ff834c45e36c,Teen,2
+gap_0167_f90dc6d65b31bdcf,Teen,2
+gap_0168_6887a940f05e1048,Everyone 10+,1
+gap_0172_78ccc02188bd252d,Everyone,0
+gap_0173_259af793d9406714,Everyone 10+,1
+gap_0175_115cae6983694a5f,Teen,2
+gap_0179_a3a9dfb8a90a0285,Teen,2
+gap_0179_ef248909ce533e90,Teen,2
+gap_0180_3f2c3ef0fcc4f5e6,Everyone 10+,1
+gap_0183_186672987f0d880d,Everyone 10+,1
+gap_0188_dde42d0d2763d2cc,Teen,2
+gap_0193_3125b2e22cb628a8,Teen,2
+gap_0195_04e7ae31ef64564d,Teen,2
+gap_0195_38c666bf478a3863,Teen,2
+gap_0213_097d1d7cd7a10d2d,Everyone 10+,1
+gap_0215_99b7cbe4b3da111a,Everyone 10+,1
+social_or_communication_risk_00004,Mature 17+,3
