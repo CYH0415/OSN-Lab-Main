@@ -1,0 +1,11 @@
+{
+  "target_column": "rating__north_america",
+  "labels": {
+    "Everyone": 0,
+    "Everyone 10+": 1,
+    "Teen": 2,
+    "Mature 17+": 3,
+    "Adults only 18+": 4
+  },
+  "label_order_note": "Labels use ESRB age order when the known North America classes are present."
+}

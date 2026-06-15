@@ -1,0 +1,62 @@
+split,dimension,value,count
+train,category,All Other App Types,394
+train,category,Game,406
+train,category,Social or Communication,10
+train,rating__north_america,Adults only 18+,155
+train,rating__north_america,Everyone,117
+train,rating__north_america,Everyone 10+,88
+train,rating__north_america,Mature 17+,233
+train,rating__north_america,Teen,217
+train,category_x_target,All Other App Types | Adults only 18+,62
+train,category_x_target,All Other App Types | Everyone,62
+train,category_x_target,All Other App Types | Everyone 10+,46
+train,category_x_target,All Other App Types | Mature 17+,107
+train,category_x_target,All Other App Types | Teen,117
+train,category_x_target,Game | Adults only 18+,92
+train,category_x_target,Game | Everyone,53
+train,category_x_target,Game | Everyone 10+,42
+train,category_x_target,Game | Mature 17+,119
+train,category_x_target,Game | Teen,100
+train,category_x_target,Social or Communication | Adults only 18+,1
+train,category_x_target,Social or Communication | Everyone,2
+train,category_x_target,Social or Communication | Mature 17+,7
+val,category,All Other App Types,98
+val,category,Game,101
+val,category,Social or Communication,3
+val,rating__north_america,Adults only 18+,38
+val,rating__north_america,Everyone,29
+val,rating__north_america,Everyone 10+,22
+val,rating__north_america,Mature 17+,59
+val,rating__north_america,Teen,54
+val,category_x_target,All Other App Types | Adults only 18+,15
+val,category_x_target,All Other App Types | Everyone,15
+val,category_x_target,All Other App Types | Everyone 10+,12
+val,category_x_target,All Other App Types | Mature 17+,27
+val,category_x_target,All Other App Types | Teen,29
+val,category_x_target,Game | Adults only 18+,23
+val,category_x_target,Game | Everyone,13
+val,category_x_target,Game | Everyone 10+,10
+val,category_x_target,Game | Mature 17+,30
+val,category_x_target,Game | Teen,25
+val,category_x_target,Social or Communication | Everyone,1
+val,category_x_target,Social or Communication | Mature 17+,2
+test,category,All Other App Types,124
+test,category,Game,126
+test,category,Social or Communication,3
+test,rating__north_america,Adults only 18+,48
+test,rating__north_america,Everyone,36
+test,rating__north_america,Everyone 10+,28
+test,rating__north_america,Mature 17+,73
+test,rating__north_america,Teen,68
+test,category_x_target,All Other App Types | Adults only 18+,19
+test,category_x_target,All Other App Types | Everyone,19
+test,category_x_target,All Other App Types | Everyone 10+,15
+test,category_x_target,All Other App Types | Mature 17+,34
+test,category_x_target,All Other App Types | Teen,37
+test,category_x_target,Game | Adults only 18+,29
+test,category_x_target,Game | Everyone,16
+test,category_x_target,Game | Everyone 10+,13
+test,category_x_target,Game | Mature 17+,37
+test,category_x_target,Game | Teen,31
+test,category_x_target,Social or Communication | Everyone,1
+test,category_x_target,Social or Communication | Mature 17+,2
