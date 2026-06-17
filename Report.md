@@ -186,7 +186,23 @@ Top-15 重要特征中。
 | max_features | 0.3 | 每棵树采样 30% 特征 |
 | min_samples_split | 2 | 2 样本即可分裂 |
 
-**LightGBM 和 XGBoost** 使用固定参数配合 early stopping（patience=30），未进行网格搜索。
+**XGBoost 最优防过拟合参数**（共探索 16 种组合）：
+
+| **参数**         | **最优值** | **含义（防过拟合机制）**                        |
+| ---------------- | ---------- | ----------------------------------------------- |
+| max_depth        | 6          | 严控树深，防止过度拟合噪声                      |
+| subsample        | 1.0        | 训练样本全量采样                                |
+| colsample_bytree | 0.8        | 每次建树仅随机选取 80% 特征，避免依赖单一强特征 |
+| learning_rate    | 0.1        | 稳健的学习步长                                  |
+
+**LightGBM 最优防过拟合参数**（共探索 16 种组合）：
+
+| **参数**          | **最优值** | **含义（防过拟合机制）**                           |
+| ----------------- | ---------- | -------------------------------------------------- |
+| max_depth         | 6          | 限制树的整体结构                                   |
+| num_leaves        | 15         | 严格控制叶子节点规模                               |
+| min_child_samples | 15         | 极高阈值：要求每个叶子至少涵盖 15 个样本才允许分裂 |
+| learning_rate     | 0.1        | 稳健的学习步长                                     |
 
 ### 4.3 调优效果（以随机森林为例）
 
@@ -204,12 +220,12 @@ Top-15 重要特征中。
 
 ### 5.1 综合排名
 
-| 排名 | 模型 | Test Accuracy | Test Macro F1 | Test Macro AUC |
+| **排名** | **模型**                     | **Test Accuracy** | **Test Macro F1** | **Test Macro AUC** |
 |:----:|------|:------------:|:------------:|:-------------:|
-| 🥇 | **Logistic Regression (L1)** | **0.921** | **0.918** | **0.977** |
-| 🥈 | XGBoost | 0.850 | 0.850 | 0.964 |
-| 🥉 | Random Forest | 0.783 | 0.797 | 0.945 |
-| 4 | LightGBM | 0.629 | 0.630 | 0.903 |
+|    🥇     | **Logistic Regression (L1)** |     **0.921**     |     **0.918**     |     **0.977**      |
+|    🥈     | XGBoost                      |       0.814       |       0.810       |       0.962        |
+|    🥉     | Random Forest                |       0.783       |       0.797       |       0.945        |
+|    4     | LightGBM                     |       0.680       |       0.680       |       0.924        |
 
 ### 5.2 最佳模型各类别性能（Logistic Regression, Test Set）
 
@@ -361,6 +377,14 @@ Google 问卷的树形分支结构**隐式编码了内容风险评估的决策�
 ![image](task5_2_logistic_regression&random_forest/output/confusion_matrix_random_forest_test.png)
 
 *图 2：随机森林在测试集上的混淆矩阵（Test Accuracy = 0.783）*
+
+![image](task5_1_lightgbm&xgboost\img\lightgbm.png)
+
+*图 3：LightGBM在测试集上的混淆矩阵（Test Accuracy = 0.6798）*
+
+![image](task5_1_lightgbm&xgboost\img\xgboost.png)
+
+*图 4：XGBoost在测试集上的混淆矩阵（Test Accuracy = 0.8142）*
 
 ### 8.2 更多分析图表
 
