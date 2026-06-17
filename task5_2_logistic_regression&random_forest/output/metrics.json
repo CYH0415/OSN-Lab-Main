@@ -1,0 +1,83 @@
+{
+  "logistic_regression": {
+    "params": {
+      "C": 10.0,
+      "class_weight": {
+        "0": 1.3846153846153846,
+        "1": 1.8409090909090908,
+        "2": 0.7465437788018433,
+        "3": 0.6952789699570815,
+        "4": 1.0451612903225806
+      },
+      "dual": false,
+      "fit_intercept": true,
+      "intercept_scaling": 1,
+      "l1_ratio": 1.0,
+      "max_iter": 5000,
+      "n_jobs": null,
+      "penalty": "deprecated",
+      "random_state": 42,
+      "solver": "saga",
+      "tol": 0.0001,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "splits": {
+      "val": {
+        "accuracy": 0.9356435643564357,
+        "macro_f1": 0.927814697763314,
+        "weighted_f1": 0.9365516259380664,
+        "macro_ovr_auc": 0.9730209229954667
+      },
+      "test": {
+        "accuracy": 0.9209486166007905,
+        "macro_f1": 0.9183694533694533,
+        "weighted_f1": 0.9212841936162096,
+        "macro_ovr_auc": 0.9765247259307932
+      }
+    }
+  },
+  "random_forest": {
+    "params": {
+      "bootstrap": true,
+      "ccp_alpha": 0.0,
+      "class_weight": {
+        "0": 1.3846153846153846,
+        "1": 1.8409090909090908,
+        "2": 0.7465437788018433,
+        "3": 0.6952789699570815,
+        "4": 1.0451612903225806
+      },
+      "criterion": "gini",
+      "max_depth": null,
+      "max_features": 0.3,
+      "max_leaf_nodes": null,
+      "max_samples": null,
+      "min_impurity_decrease": 0.0,
+      "min_samples_leaf": 1,
+      "min_samples_split": 2,
+      "min_weight_fraction_leaf": 0.0,
+      "monotonic_cst": null,
+      "n_estimators": 500,
+      "n_jobs": -1,
+      "oob_score": false,
+      "random_state": 42,
+      "verbose": 0,
+      "warm_start": false
+    },
+    "splits": {
+      "val": {
+        "accuracy": 0.8118811881188119,
+        "macro_f1": 0.8112156842783943,
+        "weighted_f1": 0.8102637559388637,
+        "macro_ovr_auc": 0.9551748723543293
+      },
+      "test": {
+        "accuracy": 0.782608695652174,
+        "macro_f1": 0.7970808087900006,
+        "weighted_f1": 0.784503645988693,
+        "macro_ovr_auc": 0.9447475955604785
+      }
+    }
+  }
+}
