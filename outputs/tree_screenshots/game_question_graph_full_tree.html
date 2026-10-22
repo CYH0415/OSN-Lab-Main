@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Questionnaire Full Tree</title>
+<style>
+  :root {
+    --accent: #2F66E8;
+    --ink: #1f2933;
+    --muted: #657482;
+    --line: #d8dee6;
+    --panel: #ffffff;
+    --bg: #f6f7f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    width: 2000px;
+    height: 1400px;
+    margin: 0;
+    overflow: hidden;
+    color: var(--ink);
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+  .page {
+    width: 100%;
+    height: 100%;
+    padding: 34px 40px 38px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.98)),
+      radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 35%);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 118px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+  .subtitle {
+    margin-top: 12px;
+    font-size: 21px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 128px);
+    gap: 10px;
+  }
+  .stat {
+    height: 86px;
+    padding: 13px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.88);
+  }
+  .stat strong {
+    display: block;
+    color: var(--accent);
+    font-size: 32px;
+    line-height: 1;
+  }
+  .stat span {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .tree-panel {
+    height: 930px;
+    padding: 20px 22px 16px;
+    border: 2px solid color-mix(in srgb, var(--accent) 50%, #d8dee6);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 18px 42px rgba(31, 41, 51, 0.08);
+  }
+  .label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .legend {
+    display: flex;
+    gap: 16px;
+  }
+  .legend span::before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .legend span:nth-child(2)::before { background: #18A04D; }
+  .legend span:nth-child(3)::before { background: #9AA8B6; }
+  .branch-panel {
+    height: 245px;
+    margin-top: 22px;
+    padding: 18px 22px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+  }
+  .branch-title {
+    margin-bottom: 10px;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 850;
+  }
+  svg text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Game Questionnaire</h1>
+        <div class="subtitle">Complete questionnaire tree, compressed to fit one rectangular image</div>
+      </div>
+      <section class="stats"><div class="stat"><strong>14</strong><span>Roots</span></div><div class="stat"><strong>91</strong><span>Questions</span></div><div class="stat"><strong>81</strong><span>Edges</span></div><div class="stat"><strong>4</strong><span>Max depth</span></div></section>
+    </header>
+    <section class="tree-panel">
+      <div class="label-row">
+        <div>Full tree: every recovered question node and option-trigger edge</div>
+        <div class="legend"><span>Root</span><span>Question</span><span>Shared / leaf</span></div>
+      </div>
+      <svg width="100%" height="850" viewBox="0 0 1874 850" role="img" aria-label="Game Questionnaire complete tree">
+    <rect x="0" y="0" width="1874" height="850" rx="8" fill="#FBFCFE"/>
+    <text x="28" y="18" font-size="13" font-weight="800" fill="#657482">D0 · 14</text><text x="440.5" y="18" font-size="13" font-weight="800" fill="#657482">D1 · 14</text><text x="853" y="18" font-size="13" font-weight="800" fill="#657482">D2 · 46</text><text x="1265.5" y="18" font-size="13" font-weight="800" fill="#657482">D3 · 12</text><text x="1678" y="18" font-size="13" font-weight="800" fill="#657482">D4 · 5</text>
+    <g transform="translate(0 10)"><path d="M196.0,58.6 C298.7,58.6 337.8,58.6 440.5,58.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,115.7 C298.7,115.7 337.8,115.7 440.5,115.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,172.9 C298.7,172.9 337.8,172.9 440.5,172.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,230.0 C298.7,230.0 337.8,230.0 440.5,230.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,287.1 C298.7,287.1 337.8,287.1 440.5,287.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,344.3 C298.7,344.3 337.8,344.3 440.5,344.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,401.4 C298.7,401.4 337.8,401.4 440.5,401.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,458.6 C298.7,458.6 337.8,458.6 440.5,458.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,515.7 C298.7,515.7 337.8,515.7 440.5,515.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,515.7 C298.7,515.7 337.8,572.9 440.5,572.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,515.7 C298.7,515.7 337.8,630.0 440.5,630.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,515.7 C298.7,515.7 337.8,687.1 440.5,687.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,801.4 C298.7,801.4 337.8,744.3 440.5,744.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,801.4 C298.7,801.4 337.8,801.4 440.5,801.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,38.7 853.0,38.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,56.1 853.0,56.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,73.5 853.0,73.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,90.9 853.0,90.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,108.3 853.0,108.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,125.7 853.0,125.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,143.0 853.0,143.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,160.4 853.0,160.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,38.7 853.0,38.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,177.8 853.0,177.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,73.5 853.0,73.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,195.2 853.0,195.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,108.3 853.0,108.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,212.6 853.0,212.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,230.0 853.0,230.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,160.4 853.0,160.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,247.4 853.0,247.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,58.6 C699.6,58.6 741.9,264.8 853.0,264.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,115.7 C699.6,115.7 741.9,282.2 853.0,282.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,115.7 C699.6,115.7 741.9,299.6 853.0,299.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,299.6 C1112.1,299.6 1154.4,63.3 1265.5,63.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,317.0 853.0,317.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,334.3 853.0,334.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,351.7 853.0,351.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,369.1 853.0,369.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,386.5 853.0,386.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,403.9 853.0,403.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,421.3 853.0,421.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,172.9 C699.6,172.9 741.9,438.7 853.0,438.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1001.0,421.3 C1112.1,421.3 1154.4,130.0 1265.5,130.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1001.0,421.3 C1112.1,421.3 1154.4,196.7 1265.5,196.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,421.3 C1112.1,421.3 1154.4,263.3 1265.5,263.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,421.3 C1112.1,421.3 1154.4,330.0 1265.5,330.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,421.3 C1112.1,421.3 1154.4,396.7 1265.5,396.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1413.5,330.0 C1524.6,330.0 1566.9,110.0 1678.0,110.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1413.5,330.0 C1524.6,330.0 1566.9,270.0 1678.0,270.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1413.5,330.0 C1524.6,330.0 1566.9,430.0 1678.0,430.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1413.5,330.0 C1524.6,330.0 1566.9,590.0 1678.0,590.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1413.5,330.0 C1524.6,330.0 1566.9,750.0 1678.0,750.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,230.0 C699.6,230.0 741.9,456.1 853.0,456.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,230.0 C699.6,230.0 741.9,473.5 853.0,473.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,230.0 C699.6,230.0 741.9,490.9 853.0,490.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1001.0,473.5 C1112.1,473.5 1154.4,463.3 1265.5,463.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,490.9 C1112.1,490.9 1154.4,530.0 1265.5,530.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,287.1 C699.6,287.1 741.9,508.3 853.0,508.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,287.1 C699.6,287.1 741.9,525.7 853.0,525.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,287.1 C699.6,287.1 741.9,543.0 853.0,543.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,287.1 C699.6,287.1 741.9,560.4 853.0,560.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,577.8 853.0,577.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,344.3 C699.6,344.3 741.9,595.2 853.0,595.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,344.3 C699.6,344.3 741.9,612.6 853.0,612.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,630.0 853.0,630.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,647.4 853.0,647.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,664.8 853.0,664.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,682.2 853.0,682.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,699.6 853.0,699.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,344.3 C699.6,344.3 741.9,717.0 853.0,717.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1001.0,577.8 C1112.1,577.8 1154.4,596.7 1265.5,596.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,577.8 C1112.1,577.8 1154.4,663.3 1265.5,663.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,664.8 C1112.1,664.8 1154.4,730.0 1265.5,730.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1001.0,699.6 C1112.1,699.6 1154.4,796.7 1265.5,796.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M588.5,458.6 C699.6,458.6 741.9,734.3 853.0,734.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,458.6 C699.6,458.6 741.9,751.7 853.0,751.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,458.6 C699.6,458.6 741.9,769.1 853.0,769.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,458.6 C699.6,458.6 741.9,786.5 853.0,786.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,458.6 C699.6,458.6 741.9,803.9 853.0,803.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M588.5,458.6 C699.6,458.6 741.9,821.3 853.0,821.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><g>
+      <rect x="28" y="44.57142857142857" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="62.57142857142857" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="101.71428571428572" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="119.71428571428572" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="158.85714285714286" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="176.85714285714286" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="216" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="234" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="273.14285714285717" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="291.14285714285717" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="330.2857142857143" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="348.2857142857143" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="387.42857142857144" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="405.42857142857144" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="444.5714285714286" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="462.5714285714286" font-size="11" font-weight="850" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="28" y="501.7142857142858" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="519.7142857142858" font-size="11" font-weight="850" fill="#1F2933">Does the game natively</text>
+    </g><g>
+      <rect x="28" y="558.8571428571429" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="576.8571428571429" font-size="11" font-weight="850" fill="#1F2933">Does the game share</text>
+    </g><g>
+      <rect x="28" y="616" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="634" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="673.1428571428572" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="691.1428571428572" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="28" y="730.2857142857143" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="748.2857142857143" font-size="11" font-weight="850" fill="#1F2933">Does the game advocate</text>
+    </g><g>
+      <rect x="28" y="787.4285714285714" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="805.4285714285714" font-size="11" font-weight="850" fill="#1F2933">Does the game contain</text>
+    </g><g>
+      <rect x="440.5" y="44.57142857142857" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="62.57142857142857" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="32.78260869565218" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#2F66E8" stroke-width="1"/>
+      <text x="859" y="41.770434782608696" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">In what</text>
+    </g><g>
+      <rect x="853" y="50.17391304347826" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="59.161739130434775" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="67.56521739130434" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#2F66E8" stroke-width="1"/>
+      <text x="859" y="76.55304347826088" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="853" y="84.95652173913042" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="93.94434782608695" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="853" y="102.34782608695652" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#2F66E8" stroke-width="1"/>
+      <text x="859" y="111.33565217391305" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">What is</text>
+    </g><g>
+      <rect x="853" y="119.7391304347826" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="128.7269565217391" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="137.1304347826087" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="146.1182608695652" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Can innocent</text>
+    </g><g>
+      <rect x="853" y="154.52173913043478" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#2F66E8" stroke-width="1"/>
+      <text x="859" y="163.5095652173913" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Are there</text>
+    </g><g>
+      <rect x="853" y="171.91304347826085" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="180.90086956521736" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="189.30434782608694" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="198.29217391304346" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="853" y="206.69565217391303" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="215.68347826086955" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Do any</text>
+    </g><g>
+      <rect x="853" y="224.08695652173913" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="233.07478260869564" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Is any</text>
+    </g><g>
+      <rect x="853" y="241.4782608695652" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="250.4660869565217" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How explicitly</text>
+    </g><g>
+      <rect x="853" y="258.86956521739125" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="267.8573913043478" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">What best</text>
+    </g><g>
+      <rect x="440.5" y="101.71428571428572" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="119.71428571428572" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="276.2608695652174" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="285.2486956521739" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequent</text>
+    </g><g>
+      <rect x="853" y="293.65217391304344" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="302.64" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequent</text>
+    </g><g>
+      <rect x="1265.5" y="49.333333333333336" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="67.33333333333334" font-size="11" font-weight="700" fill="#1F2933">Is there an intense</text>
+    </g><g>
+      <rect x="440.5" y="158.85714285714286" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="176.85714285714286" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="311.04347826086956" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="320.0313043478261" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How often</text>
+    </g><g>
+      <rect x="853" y="328.4347826086956" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="337.4226086956522" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">What is</text>
+    </g><g>
+      <rect x="853" y="345.8260869565217" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="354.81391304347824" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="853" y="363.2173913043478" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="372.20521739130436" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Do any</text>
+    </g><g>
+      <rect x="853" y="380.6086956521739" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="389.5965217391304" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="853" y="398" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="406.98782608695655" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Are these</text>
+    </g><g>
+      <rect x="853" y="415.39130434782606" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="424.3791304347826" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Please select</text>
+    </g><g>
+      <rect x="1265.5" y="116" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="134" font-size="11" font-weight="700" fill="#1F2933">How frequently are revealing</text>
+    </g><g>
+      <rect x="1265.5" y="182.66666666666669" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="200.66666666666669" font-size="11" font-weight="700" fill="#1F2933">Are these revealing outfits</text>
+    </g><g>
+      <rect x="1265.5" y="249.33333333333337" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="267.33333333333337" font-size="11" font-weight="700" fill="#1F2933">Do these outfits ever</text>
+    </g><g>
+      <rect x="1265.5" y="316" width="148" height="28" rx="5" fill="rgb(196, 211, 248)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="334" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1265.5" y="382.6666666666667" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="400.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Is any of this</text>
+    </g><g>
+      <rect x="1678" y="96" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="114" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="256" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="274" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="416" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="434" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="576" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="594" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="736" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="754" font-size="11" font-weight="700" fill="#1F2933">How frequently does the</text>
+    </g><g>
+      <rect x="853" y="432.78260869565213" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="441.7704347826087" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="440.5" y="216" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="234" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="450.17391304347825" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="459.1617391304348" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Are these</text>
+    </g><g>
+      <rect x="853" y="467.5652173913043" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="476.55304347826086" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Can playing</text>
+    </g><g>
+      <rect x="1265.5" y="449.33333333333337" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="467.33333333333337" font-size="11" font-weight="700" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="853" y="484.9565217391304" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="493.9443478260869" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Can playing</text>
+    </g><g>
+      <rect x="1265.5" y="516" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="534" font-size="11" font-weight="700" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="440.5" y="273.14285714285717" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="291.14285714285717" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="502.3478260869565" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="511.33565217391305" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="853" y="519.7391304347826" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="528.7269565217391" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="853" y="537.1304347826086" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="546.1182608695651" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="853" y="554.5217391304348" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="563.5095652173912" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="440.5" y="330.2857142857143" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="348.2857142857143" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="571.9130434782609" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="580.9008695652174" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Illegal or</text>
+    </g><g>
+      <rect x="1265.5" y="582.6666666666667" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="600.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Is the use of</text>
+    </g><g>
+      <rect x="1265.5" y="649.3333333333334" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="667.3333333333334" font-size="11" font-weight="700" fill="#1F2933">Is the use of</text>
+    </g><g>
+      <rect x="853" y="589.3043478260869" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="598.2921739130434" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Fantasy Drugs</text>
+    </g><g>
+      <rect x="853" y="606.695652173913" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="615.6834782608695" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="853" y="624.0869565217391" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="633.0747826086956" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Medical Drugs</text>
+    </g><g>
+      <rect x="853" y="641.4782608695651" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="650.4660869565216" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="853" y="658.8695652173913" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="667.8573913043477" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Alcohol</text>
+    </g><g>
+      <rect x="853" y="676.2608695652174" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="685.2486956521739" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1265.5" y="716" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="734" font-size="11" font-weight="700" fill="#1F2933">Can the player ever</text>
+    </g><g>
+      <rect x="853" y="693.6521739130434" width="148" height="11.82608695652174" rx="5" fill="rgb(207, 220, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="702.6399999999999" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Tobacco</text>
+    </g><g>
+      <rect x="853" y="711.0434782608695" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="720.031304347826" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1265.5" y="782.6666666666667" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1271.5" y="800.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Can the player ever</text>
+    </g><g>
+      <rect x="440.5" y="387.42857142857144" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="405.42857142857144" font-size="11" font-weight="700" fill="#1F2933">What bodily functions are</text>
+    </g><g>
+      <rect x="440.5" y="444.5714285714286" width="148" height="28" rx="5" fill="rgb(219, 228, 251)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="462.5714285714286" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="853" y="728.4347826086956" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="737.4226086956521" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Can these</text>
+    </g><g>
+      <rect x="853" y="745.8260869565217" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="754.8139130434782" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="763.2173913043478" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="772.2052173913042" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="780.6086956521739" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="789.5965217391304" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Is the</text>
+    </g><g>
+      <rect x="853" y="798" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="806.9878260869565" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="853" y="815.391304347826" width="148" height="11.82608695652174" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="859" y="824.3791304347825" font-size="6.8591304347826085" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="440.5" y="501.7142857142858" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="519.7142857142858" font-size="11" font-weight="700" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="440.5" y="558.8571428571429" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="576.8571428571429" font-size="11" font-weight="700" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="440.5" y="616" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="634" font-size="11" font-weight="700" fill="#1F2933">Does the game include</text>
+    </g><g>
+      <rect x="440.5" y="673.1428571428572" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="691.1428571428572" font-size="11" font-weight="700" fill="#1F2933">Can interactions in the</text>
+    </g><g>
+      <rect x="440.5" y="730.2857142857143" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="748.2857142857143" font-size="11" font-weight="700" fill="#1F2933">Are these crimes or</text>
+    </g><g>
+      <rect x="440.5" y="787.4285714285714" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="446.5" y="805.4285714285714" font-size="11" font-weight="700" fill="#1F2933">Are there detailed descriptions</text>
+    </g></g>
+  </svg>
+    </section>
+    <section class="branch-panel">
+      <div class="branch-title">Representative expanded branch</div>
+      <svg width="100%" height="168" viewBox="0 0 1874 168">
+    <defs>
+      <marker id="branchArrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#94A3B8"></path>
+      </marker>
+    </defs>
+    <g>
+      <rect x="0" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#2F66E8" stroke-width="2"/>
+      <text x="16" y="46" font-size="13" font-weight="850" fill="#2F66E8">Depth 0</text>
+      <text x="16" y="78" font-size="18" font-weight="850" fill="#1F2933">Does the game contain inferences</text>
+      <text x="16" y="106" font-size="13" font-weight="750" fill="#657482">radio</text>
+      <path d="M354,84 H380" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="367" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#2F66E8">Yes</text>
+    </g><g>
+      <rect x="380" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#2F66E8" stroke-width="2"/>
+      <text x="396" y="46" font-size="13" font-weight="850" fill="#2F66E8">Depth 1</text>
+      <text x="396" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="396" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      <path d="M734,84 H760" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="747" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#2F66E8">Nudity or</text>
+    </g><g>
+      <rect x="760" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#2F66E8" stroke-width="2"/>
+      <text x="776" y="46" font-size="13" font-weight="850" fill="#2F66E8">Depth 2</text>
+      <text x="776" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="776" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      <path d="M1114,84 H1140" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="1127" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#2F66E8">Nudity</text>
+    </g><g>
+      <rect x="1140" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#2F66E8" stroke-width="2"/>
+      <text x="1156" y="46" font-size="13" font-weight="850" fill="#2F66E8">Depth 3</text>
+      <text x="1156" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="1156" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      <path d="M1494,84 H1520" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="1507" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#2F66E8">Human Buttocks</text>
+    </g><g>
+      <rect x="1520" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#2F66E8" stroke-width="2"/>
+      <text x="1536" y="46" font-size="13" font-weight="850" fill="#2F66E8">Depth 4</text>
+      <text x="1536" y="78" font-size="18" font-weight="850" fill="#1F2933">How frequently do the human</text>
+      <text x="1536" y="106" font-size="13" font-weight="750" fill="#657482">radio</text>
+      
+    </g>
+  </svg>
+    </section>
+  </main>
+</body>
+</html>

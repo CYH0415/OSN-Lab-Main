@@ -7,3 +7,14 @@ data_smoke/
 .matplotlib/
 
 ~$Project Description.pptx
+# Generated report intermediates
+final_report(1)/*.aux
+final_report(1)/*.out
+final_report(1)/*.toc
+outputs/questionnaire_data_collection_sampling.pptx.inspect.ndjson
+ppt/pre.zip
+
+# Extracted submission staging (keep README and submit.zip)
+submission/code/
+submission/data/
+submission/report/

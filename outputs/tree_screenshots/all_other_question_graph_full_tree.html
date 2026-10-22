@@ -1,0 +1,540 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>All Other App Types Full Tree</title>
+<style>
+  :root {
+    --accent: #7B3FE4;
+    --ink: #1f2933;
+    --muted: #657482;
+    --line: #d8dee6;
+    --panel: #ffffff;
+    --bg: #f6f7f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    width: 2000px;
+    height: 1400px;
+    margin: 0;
+    overflow: hidden;
+    color: var(--ink);
+    background: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+  .page {
+    width: 100%;
+    height: 100%;
+    padding: 34px 40px 38px;
+    background:
+      linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.98)),
+      radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 35%);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 118px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 48px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+  .subtitle {
+    margin-top: 12px;
+    font-size: 21px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 128px);
+    gap: 10px;
+  }
+  .stat {
+    height: 86px;
+    padding: 13px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255,255,255,0.88);
+  }
+  .stat strong {
+    display: block;
+    color: var(--accent);
+    font-size: 32px;
+    line-height: 1;
+  }
+  .stat span {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 800;
+  }
+  .tree-panel {
+    height: 930px;
+    padding: 20px 22px 16px;
+    border: 2px solid color-mix(in srgb, var(--accent) 50%, #d8dee6);
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 18px 42px rgba(31, 41, 51, 0.08);
+  }
+  .label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 16px;
+    font-weight: 800;
+  }
+  .legend {
+    display: flex;
+    gap: 16px;
+  }
+  .legend span::before {
+    content: "";
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    margin-right: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .legend span:nth-child(2)::before { background: #18A04D; }
+  .legend span:nth-child(3)::before { background: #9AA8B6; }
+  .branch-panel {
+    height: 245px;
+    margin-top: 22px;
+    padding: 18px 22px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: rgba(255,255,255,0.9);
+  }
+  .branch-title {
+    margin-bottom: 10px;
+    color: var(--ink);
+    font-size: 18px;
+    font-weight: 850;
+  }
+  svg text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>All Other App Types</h1>
+        <div class="subtitle">Complete questionnaire tree, compressed to fit one rectangular image</div>
+      </div>
+      <section class="stats"><div class="stat"><strong>9</strong><span>Roots</span></div><div class="stat"><strong>115</strong><span>Questions</span></div><div class="stat"><strong>112</strong><span>Edges</span></div><div class="stat"><strong>5</strong><span>Max depth</span></div></section>
+    </header>
+    <section class="tree-panel">
+      <div class="label-row">
+        <div>Full tree: every recovered question node and option-trigger edge</div>
+        <div class="legend"><span>Root</span><span>Question</span><span>Shared / leaf</span></div>
+      </div>
+      <svg width="100%" height="850" viewBox="0 0 1874 850" role="img" aria-label="All Other App Types complete tree">
+    <rect x="0" y="0" width="1874" height="850" rx="8" fill="#FBFCFE"/>
+    <text x="28" y="18" font-size="13" font-weight="800" fill="#657482">D0 · 9</text><text x="358" y="18" font-size="13" font-weight="800" fill="#657482">D1 · 22</text><text x="688" y="18" font-size="13" font-weight="800" fill="#657482">D2 · 24</text><text x="1018" y="18" font-size="13" font-weight="800" fill="#657482">D3 · 42</text><text x="1348" y="18" font-size="13" font-weight="800" fill="#657482">D4 · 13</text><text x="1678" y="18" font-size="13" font-weight="800" fill="#657482">D5 · 5</text>
+    <g transform="translate(0 10)"><path d="M196.0,74.4 C264.0,74.4 290.0,48.2 358.0,48.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,84.5 358.0,84.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,120.9 358.0,120.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,157.3 358.0,157.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,193.6 358.0,193.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,230.0 358.0,230.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,74.4 C264.0,74.4 290.0,266.4 358.0,266.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,163.3 C264.0,163.3 290.0,302.7 358.0,302.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,163.3 C264.0,163.3 290.0,339.1 358.0,339.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,163.3 C264.0,163.3 290.0,375.5 358.0,375.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,163.3 C264.0,163.3 290.0,411.8 358.0,411.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,163.3 C264.0,163.3 290.0,448.2 358.0,448.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,163.3 C264.0,163.3 290.0,484.5 358.0,484.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,163.3 C264.0,163.3 290.0,520.9 358.0,520.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,252.2 C264.0,252.2 290.0,557.3 358.0,557.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,252.2 C264.0,252.2 290.0,593.6 358.0,593.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,252.2 C264.0,252.2 290.0,630.0 358.0,630.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,252.2 C264.0,252.2 290.0,666.4 358.0,666.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,341.1 C264.0,341.1 290.0,702.7 358.0,702.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,341.1 C264.0,341.1 290.0,739.1 358.0,739.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M196.0,518.9 C264.0,518.9 290.0,775.5 358.0,775.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M196.0,607.8 C264.0,607.8 290.0,811.8 358.0,811.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,48.2 C582.4,48.2 611.6,46.7 688.0,46.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,84.5 C582.4,84.5 611.6,80.0 688.0,80.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,120.9 C582.4,120.9 611.6,113.3 688.0,113.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,157.3 C582.4,157.3 611.6,146.7 688.0,146.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,193.6 C582.4,193.6 611.6,180.0 688.0,180.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,230.0 C582.4,230.0 611.6,213.3 688.0,213.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,266.4 C582.4,266.4 611.6,246.7 688.0,246.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,39.5 1018.0,39.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,58.6 1018.0,58.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,77.6 1018.0,77.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,96.7 1018.0,96.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,115.7 1018.0,115.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,134.8 1018.0,134.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,153.8 1018.0,153.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,172.9 1018.0,172.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,39.5 1018.0,39.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,191.9 1018.0,191.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,77.6 1018.0,77.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,211.0 1018.0,211.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,115.7 1018.0,115.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,230.0 1018.0,230.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,249.0 1018.0,249.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,172.9 1018.0,172.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,268.1 1018.0,268.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,46.7 C912.4,46.7 941.6,287.1 1018.0,287.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,80.0 C912.4,80.0 941.6,306.2 1018.0,306.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,80.0 C912.4,80.0 941.6,325.2 1018.0,325.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,325.2 C1242.4,325.2 1271.6,60.8 1348.0,60.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,113.3 C912.4,113.3 941.6,344.3 1018.0,344.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,113.3 C912.4,113.3 941.6,363.3 1018.0,363.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,113.3 C912.4,113.3 941.6,382.4 1018.0,382.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,113.3 C912.4,113.3 941.6,401.4 1018.0,401.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,113.3 C912.4,113.3 941.6,420.5 1018.0,420.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,113.3 C912.4,113.3 941.6,439.5 1018.0,439.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,113.3 C912.4,113.3 941.6,458.6 1018.0,458.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1166.0,439.5 C1242.4,439.5 1271.6,122.3 1348.0,122.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1166.0,439.5 C1242.4,439.5 1271.6,183.8 1348.0,183.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,439.5 C1242.4,439.5 1271.6,245.4 1348.0,245.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,439.5 C1242.4,439.5 1271.6,306.9 1348.0,306.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,439.5 C1242.4,439.5 1271.6,368.5 1348.0,368.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1496.0,306.9 C1572.4,306.9 1601.6,110.0 1678.0,110.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1496.0,306.9 C1572.4,306.9 1601.6,270.0 1678.0,270.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1496.0,306.9 C1572.4,306.9 1601.6,430.0 1678.0,430.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1496.0,306.9 C1572.4,306.9 1601.6,590.0 1678.0,590.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1496.0,306.9 C1572.4,306.9 1601.6,750.0 1678.0,750.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,146.7 C912.4,146.7 941.6,477.6 1018.0,477.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,146.7 C912.4,146.7 941.6,496.7 1018.0,496.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,146.7 C912.4,146.7 941.6,515.7 1018.0,515.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1166.0,496.7 C1242.4,496.7 1271.6,430.0 1348.0,430.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,515.7 C1242.4,515.7 1271.6,491.5 1348.0,491.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,180.0 C912.4,180.0 941.6,534.8 1018.0,534.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,180.0 C912.4,180.0 941.6,553.8 1018.0,553.8" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,180.0 C912.4,180.0 941.6,572.9 1018.0,572.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,180.0 C912.4,180.0 941.6,591.9 1018.0,591.9" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,611.0 1018.0,611.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,630.0 1018.0,630.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,649.0 1018.0,649.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,668.1 1018.0,668.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,687.1 1018.0,687.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,706.2 1018.0,706.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,725.2 1018.0,725.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,744.3 1018.0,744.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,213.3 C912.4,213.3 941.6,763.3 1018.0,763.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1166.0,611.0 C1242.4,611.0 1271.6,553.1 1348.0,553.1" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,611.0 C1242.4,611.0 1271.6,614.6 1348.0,614.6" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,706.2 C1242.4,706.2 1271.6,676.2 1348.0,676.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M1166.0,744.3 C1242.4,744.3 1271.6,737.7 1348.0,737.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,339.1 C582.4,339.1 611.6,280.0 688.0,280.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,557.3 C582.4,557.3 611.6,313.3 688.0,313.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,557.3 C582.4,557.3 611.6,346.7 688.0,346.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,557.3 C582.4,557.3 611.6,380.0 688.0,380.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,593.6 C582.4,593.6 611.6,313.3 688.0,313.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M506.0,593.6 C582.4,593.6 611.6,413.3 688.0,413.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,593.6 C582.4,593.6 611.6,446.7 688.0,446.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,630.0 C582.4,630.0 611.6,480.0 688.0,480.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,630.0 C582.4,630.0 611.6,513.3 688.0,513.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,630.0 C582.4,630.0 611.6,546.7 688.0,546.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,630.0 C582.4,630.0 611.6,580.0 688.0,580.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,630.0 C582.4,630.0 611.6,613.3 688.0,613.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,666.4 C582.4,666.4 611.6,480.0 688.0,480.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,666.4 C582.4,666.4 611.6,646.7 688.0,646.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,666.4 C582.4,666.4 611.6,680.0 688.0,680.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,346.7 C912.4,346.7 941.6,782.4 1018.0,782.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M1166.0,782.4 C1242.4,782.4 1271.6,799.2 1348.0,799.2" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M836.0,413.3 C912.4,413.3 941.6,801.4 1018.0,801.4" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M836.0,413.3 C912.4,413.3 941.6,820.5 1018.0,820.5" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.18"/><path d="M506.0,811.8 C582.4,811.8 611.6,713.3 688.0,713.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,811.8 C582.4,811.8 611.6,746.7 688.0,746.7" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,811.8 C582.4,811.8 611.6,780.0 688.0,780.0" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><path d="M506.0,811.8 C582.4,811.8 611.6,813.3 688.0,813.3" fill="none" stroke="#7f91a3" stroke-width="1.1" opacity="0.32"/><g>
+      <rect x="28" y="60.44444444444444" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="78.44444444444444" font-size="11" font-weight="850" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="28" y="149.33333333333331" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="167.33333333333331" font-size="11" font-weight="850" fill="#1F2933">Does the app natively</text>
+    </g><g>
+      <rect x="28" y="238.22222222222223" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="256.22222222222223" font-size="11" font-weight="850" fill="#1F2933">Does the app feature</text>
+    </g><g>
+      <rect x="28" y="327.1111111111111" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="345.1111111111111" font-size="11" font-weight="850" fill="#1F2933">Does the app focus</text>
+    </g><g>
+      <rect x="28" y="416" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="434" font-size="11" font-weight="850" fill="#1F2933">Does the app share</text>
+    </g><g>
+      <rect x="28" y="504.8888888888889" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="522.8888888888889" font-size="11" font-weight="850" fill="#1F2933">Does the app allow</text>
+    </g><g>
+      <rect x="28" y="593.7777777777777" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="611.7777777777777" font-size="11" font-weight="850" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="28" y="682.6666666666666" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="700.6666666666666" font-size="11" font-weight="850" fill="#1F2933">Is the app a</text>
+    </g><g>
+      <rect x="28" y="771.5555555555555" width="168" height="28" rx="5" fill="#DFF3ED" stroke="#8CCBBB" stroke-width="1.5"/>
+      <text x="34" y="789.5555555555555" font-size="11" font-weight="850" fill="#1F2933">Is the app primarily</text>
+    </g><g>
+      <rect x="358" y="35.81818181818182" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="52.18181818181819" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="72.18181818181819" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="88.54545454545455" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="108.54545454545456" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="124.90909090909092" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="144.9090909090909" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="161.27272727272728" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="181.27272727272728" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="197.63636363636365" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="217.63636363636365" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="234.00000000000003" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="358" y="254" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="270.3636363636364" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="688" y="35.333333333333336" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="50.66666666666667" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="33.04761904761905" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="1024" y="42.89142857142858" font-size="7.512380952380952" font-weight="700" fill="#1F2933">In what</text>
+    </g><g>
+      <rect x="1018" y="52.095238095238095" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="61.939047619047614" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="1018" y="71.14285714285714" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="1024" y="80.98666666666666" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="1018" y="90.19047619047619" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="100.03428571428572" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="1018" y="109.23809523809523" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="1024" y="119.08190476190475" font-size="7.512380952380952" font-weight="700" fill="#1F2933">What is</text>
+    </g><g>
+      <rect x="1018" y="128.28571428571428" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="138.12952380952382" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="1018" y="147.33333333333331" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="157.17714285714285" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can innocent</text>
+    </g><g>
+      <rect x="1018" y="166.38095238095238" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="1024" y="176.22476190476192" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Are there</text>
+    </g><g>
+      <rect x="1018" y="185.42857142857142" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="195.27238095238096" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Does the</text>
+    </g><g>
+      <rect x="1018" y="204.47619047619048" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="214.32000000000002" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="1018" y="223.52380952380952" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="233.36761904761906" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Do any</text>
+    </g><g>
+      <rect x="1018" y="242.57142857142856" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="252.4152380952381" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Is any</text>
+    </g><g>
+      <rect x="1018" y="261.6190476190476" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="271.4628571428571" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How explicitly</text>
+    </g><g>
+      <rect x="1018" y="280.6666666666667" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="290.5104761904762" font-size="7.512380952380952" font-weight="700" fill="#1F2933">What best</text>
+    </g><g>
+      <rect x="688" y="68.66666666666666" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="84" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="299.7142857142857" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="309.55809523809523" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequent</text>
+    </g><g>
+      <rect x="1018" y="318.76190476190476" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="328.60571428571427" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequent</text>
+    </g><g>
+      <rect x="1348" y="46.769230769230774" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="64.76923076923077" font-size="11" font-weight="700" fill="#1F2933">Is there an intense</text>
+    </g><g>
+      <rect x="688" y="102" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="117.33333333333334" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="337.8095238095238" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="347.6533333333333" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How often</text>
+    </g><g>
+      <rect x="1018" y="356.85714285714283" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="366.70095238095234" font-size="7.512380952380952" font-weight="700" fill="#1F2933">What is</text>
+    </g><g>
+      <rect x="1018" y="375.90476190476187" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="385.7485714285714" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="1018" y="394.95238095238096" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="404.7961904761905" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Do any</text>
+    </g><g>
+      <rect x="1018" y="414" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="423.8438095238095" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How would</text>
+    </g><g>
+      <rect x="1018" y="433.04761904761904" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="442.89142857142855" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Please select</text>
+    </g><g>
+      <rect x="1348" y="108.3076923076923" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="126.3076923076923" font-size="11" font-weight="700" fill="#1F2933">How frequently are revealing</text>
+    </g><g>
+      <rect x="1348" y="169.84615384615384" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="187.84615384615384" font-size="11" font-weight="700" fill="#1F2933">Are these revealing outfits</text>
+    </g><g>
+      <rect x="1348" y="231.3846153846154" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="249.3846153846154" font-size="11" font-weight="700" fill="#1F2933">Do these outfits ever</text>
+    </g><g>
+      <rect x="1348" y="292.9230769230769" width="148" height="28" rx="5" fill="rgb(210, 190, 246)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="310.9230769230769" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1348" y="354.46153846153845" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="372.46153846153845" font-size="11" font-weight="700" fill="#1F2933">Is any of this</text>
+    </g><g>
+      <rect x="1678" y="96" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="114" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="256" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="274" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="416" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="434" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="576" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="594" font-size="11" font-weight="700" fill="#1F2933">How frequently do the</text>
+    </g><g>
+      <rect x="1678" y="736" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1684" y="754" font-size="11" font-weight="700" fill="#1F2933">How frequently does the</text>
+    </g><g>
+      <rect x="1018" y="452.0952380952381" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="461.9390476190476" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How is</text>
+    </g><g>
+      <rect x="688" y="135.33333333333334" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="150.66666666666669" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="471.1428571428571" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="480.9866666666666" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Are these</text>
+    </g><g>
+      <rect x="1018" y="490.1904761904762" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="500.0342857142857" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can playing</text>
+    </g><g>
+      <rect x="1348" y="416" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="434" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="1018" y="509.2380952380953" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="519.0819047619049" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can playing</text>
+    </g><g>
+      <rect x="1348" y="477.53846153846155" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="495.53846153846155" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="688" y="168.66666666666666" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="184" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="528.2857142857143" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="538.1295238095239" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1018" y="547.3333333333334" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="557.1771428571429" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1018" y="566.3809523809524" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="576.224761904762" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1018" y="585.4285714285714" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="595.272380952381" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="688" y="202" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="217.33333333333334" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="1018" y="604.4761904761905" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="614.32" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Illegal or</text>
+    </g><g>
+      <rect x="1348" y="539.0769230769231" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="557.0769230769231" font-size="11" font-weight="700" fill="#1F2933">Is the use of</text>
+    </g><g>
+      <rect x="1348" y="600.6153846153846" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="618.6153846153846" font-size="11" font-weight="700" fill="#1F2933">Is the use of</text>
+    </g><g>
+      <rect x="1018" y="623.5238095238095" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="633.3676190476191" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Fantasy Drugs</text>
+    </g><g>
+      <rect x="1018" y="642.5714285714286" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="652.4152380952381" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1018" y="661.6190476190476" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="671.4628571428572" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Medical Drugs</text>
+    </g><g>
+      <rect x="1018" y="680.6666666666666" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="690.5104761904762" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1018" y="699.7142857142857" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="709.5580952380952" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Alcohol</text>
+    </g><g>
+      <rect x="1018" y="718.7619047619047" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="728.6057142857143" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1348" y="662.1538461538462" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="680.1538461538462" font-size="11" font-weight="700" fill="#1F2933">Can the user ever</text>
+    </g><g>
+      <rect x="1018" y="737.8095238095239" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="747.6533333333334" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Tobacco</text>
+    </g><g>
+      <rect x="1018" y="756.8571428571429" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="766.7009523809525" font-size="7.512380952380952" font-weight="700" fill="#1F2933">How frequently</text>
+    </g><g>
+      <rect x="1348" y="723.6923076923077" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="741.6923076923077" font-size="11" font-weight="700" fill="#1F2933">Can the user ever</text>
+    </g><g>
+      <rect x="688" y="235.33333333333334" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="250.66666666666669" font-size="11" font-weight="700" fill="#1F2933">What bodily functions are</text>
+    </g><g>
+      <rect x="358" y="290.3636363636364" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="306.72727272727275" font-size="11" font-weight="700" fill="#1F2933">Is shared user generated</text>
+    </g><g>
+      <rect x="358" y="326.72727272727275" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="343.0909090909091" font-size="11" font-weight="700" fill="#1F2933">Does the app permit</text>
+    </g><g>
+      <rect x="358" y="363.0909090909091" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="379.4545454545455" font-size="11" font-weight="700" fill="#1F2933">Does the app permit</text>
+    </g><g>
+      <rect x="358" y="399.4545454545455" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="415.81818181818187" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="358" y="435.81818181818187" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="452.18181818181824" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="358" y="472.1818181818182" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="488.54545454545456" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="358" y="508.5454545454546" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="524.909090909091" font-size="11" font-weight="700" fill="#1F2933">Can interactions in the</text>
+    </g><g>
+      <rect x="688" y="268.6666666666667" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="284" font-size="11" font-weight="700" fill="#1F2933">Is this the primary</text>
+    </g><g>
+      <rect x="358" y="544.909090909091" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="561.2727272727274" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="358" y="581.2727272727274" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="597.6363636363637" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="358" y="617.6363636363636" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="634" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="358" y="654" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="670.3636363636364" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="688" y="302.00000000000006" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="694" y="317.33333333333337" font-size="11" font-weight="700" fill="#1F2933">Is accessing this material</text>
+    </g><g>
+      <rect x="688" y="335.33333333333337" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="350.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Can this violent material</text>
+    </g><g>
+      <rect x="688" y="368.6666666666667" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="384" font-size="11" font-weight="700" fill="#1F2933">Can this violent material</text>
+    </g><g>
+      <rect x="1018" y="775.9047619047619" width="148" height="12.952380952380953" rx="5" fill="rgb(217, 200, 247)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="785.7485714285715" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can these</text>
+    </g><g>
+      <rect x="1348" y="785.2307692307693" width="148" height="28" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1354" y="803.2307692307693" font-size="11" font-weight="700" fill="#1F2933">Are these depictions strictly</text>
+    </g><g>
+      <rect x="688" y="402.00000000000006" width="148" height="22.66666666666667" rx="5" fill="rgb(225, 211, 249)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="417.33333333333337" font-size="11" font-weight="700" fill="#1F2933">Can this sexual material</text>
+    </g><g>
+      <rect x="688" y="435.33333333333337" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="450.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Can this sexual material</text>
+    </g><g>
+      <rect x="1018" y="794.952380952381" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="804.7961904761905" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can these</text>
+    </g><g>
+      <rect x="1018" y="814" width="148" height="12.952380952380953" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="1024" y="823.8438095238096" font-size="7.512380952380952" font-weight="700" fill="#1F2933">Can these</text>
+    </g><g>
+      <rect x="688" y="468.66666666666674" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#7B3FE4" stroke-width="1"/>
+      <text x="694" y="484.00000000000006" font-size="11" font-weight="700" fill="#1F2933">Is this content the</text>
+    </g><g>
+      <rect x="688" y="502.00000000000006" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="517.3333333333334" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="688" y="535.3333333333334" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="550.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="688" y="568.6666666666666" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="584" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="688" y="602" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="617.3333333333334" font-size="11" font-weight="700" fill="#1F2933">Can the app contain</text>
+    </g><g>
+      <rect x="688" y="635.3333333333334" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="650.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Can this app contain</text>
+    </g><g>
+      <rect x="688" y="668.6666666666666" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="684" font-size="11" font-weight="700" fill="#1F2933">Can illegal or recreational</text>
+    </g><g>
+      <rect x="358" y="690.3636363636364" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="706.7272727272727" font-size="11" font-weight="700" fill="#1F2933">Does the product focus</text>
+    </g><g>
+      <rect x="358" y="726.7272727272727" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="743.0909090909091" font-size="11" font-weight="700" fill="#1F2933">Does the product focus</text>
+    </g><g>
+      <rect x="358" y="763.0909090909091" width="148" height="24.72727272727273" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="779.4545454545455" font-size="11" font-weight="700" fill="#1F2933">Can these purchases include</text>
+    </g><g>
+      <rect x="358" y="799.4545454545455" width="148" height="24.72727272727273" rx="5" fill="rgb(232, 221, 250)" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="364" y="815.8181818181819" font-size="11" font-weight="700" fill="#1F2933">Please select all that</text>
+    </g><g>
+      <rect x="688" y="702" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="717.3333333333334" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g><g>
+      <rect x="688" y="735.3333333333334" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="750.6666666666667" font-size="11" font-weight="700" fill="#1F2933">Is the issuance of</text>
+    </g><g>
+      <rect x="688" y="768.6666666666666" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="784" font-size="11" font-weight="700" fill="#1F2933">Does the app contain</text>
+    </g><g>
+      <rect x="688" y="802" width="148" height="22.66666666666667" rx="5" fill="#EEF2F6" stroke="#C9D3DE" stroke-width="1"/>
+      <text x="694" y="817.3333333333334" font-size="11" font-weight="700" fill="#1F2933">Does the app include</text>
+    </g></g>
+  </svg>
+    </section>
+    <section class="branch-panel">
+      <div class="branch-title">Representative expanded branch</div>
+      <svg width="100%" height="168" viewBox="0 0 1874 168">
+    <defs>
+      <marker id="branchArrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+        <path d="M0,0 L0,6 L7,3 z" fill="#94A3B8"></path>
+      </marker>
+    </defs>
+    <g>
+      <rect x="0" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#7B3FE4" stroke-width="2"/>
+      <text x="16" y="46" font-size="13" font-weight="850" fill="#7B3FE4">Depth 0</text>
+      <text x="16" y="78" font-size="18" font-weight="850" fill="#1F2933">Does the app contain any</text>
+      <text x="16" y="106" font-size="13" font-weight="750" fill="#657482">radio</text>
+      <path d="M354,84 H380" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="367" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#7B3FE4">Yes</text>
+    </g><g>
+      <rect x="380" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#7B3FE4" stroke-width="2"/>
+      <text x="396" y="46" font-size="13" font-weight="850" fill="#7B3FE4">Depth 1</text>
+      <text x="396" y="78" font-size="18" font-weight="850" fill="#1F2933">Does the app contain inferences</text>
+      <text x="396" y="106" font-size="13" font-weight="750" fill="#657482">radio</text>
+      <path d="M734,84 H760" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="747" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#7B3FE4">Yes</text>
+    </g><g>
+      <rect x="760" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#7B3FE4" stroke-width="2"/>
+      <text x="776" y="46" font-size="13" font-weight="850" fill="#7B3FE4">Depth 2</text>
+      <text x="776" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="776" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      <path d="M1114,84 H1140" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="1127" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#7B3FE4">Nudity or</text>
+    </g><g>
+      <rect x="1140" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#7B3FE4" stroke-width="2"/>
+      <text x="1156" y="46" font-size="13" font-weight="850" fill="#7B3FE4">Depth 3</text>
+      <text x="1156" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="1156" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      <path d="M1494,84 H1520" stroke="#94A3B8" stroke-width="2.2" marker-end="url(#branchArrow)"/>
+         <text x="1507" y="76" text-anchor="middle" font-size="11" font-weight="800" fill="#7B3FE4">Nudity</text>
+    </g><g>
+      <rect x="1520" y="18" width="354" height="118" rx="8" fill="#FFFFFF" stroke="#7B3FE4" stroke-width="2"/>
+      <text x="1536" y="46" font-size="13" font-weight="850" fill="#7B3FE4">Depth 4</text>
+      <text x="1536" y="78" font-size="18" font-weight="850" fill="#1F2933">Please select all that the</text>
+      <text x="1536" y="106" font-size="13" font-weight="750" fill="#657482">checkbox</text>
+      
+    </g>
+  </svg>
+    </section>
+  </main>
+</body>
+</html>

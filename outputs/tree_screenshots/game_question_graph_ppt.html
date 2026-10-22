@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Game Questionnaire PPT Tree</title>
+<style>
+  :root {
+    --accent: #2f66e8;
+    --accent-soft: color-mix(in srgb, var(--accent) 12%, white);
+    --ink: #1f2933;
+    --muted: #657482;
+    --line: #d8dee6;
+    --root: #156f5b;
+    --root-soft: #dff3ed;
+    --bg: #f6f7f9;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    width: 1600px;
+    height: 900px;
+    overflow: hidden;
+    background: white;
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  }
+  .page {
+    width: 100%;
+    height: 100%;
+    padding: 34px 42px;
+    background: linear-gradient(#ffffff, #f9fbfd);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    height: 112px;
+  }
+  h1 {
+    margin: 0;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: 0;
+  }
+  .subtitle {
+    margin-top: 12px;
+    font-size: 20px;
+    color: var(--muted);
+    font-weight: 650;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 124px);
+    gap: 10px;
+  }
+  .stat {
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fff;
+  }
+  .stat strong {
+    display: block;
+    font-size: 30px;
+    line-height: 1;
+    color: var(--accent);
+  }
+  .stat span {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: var(--muted);
+    font-weight: 650;
+  }
+  .section-title {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 30px;
+    margin: 0 0 10px;
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .section-title::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .overview {
+    height: 260px;
+    margin-top: 8px;
+  }
+  .root-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+  .root-card {
+    height: 102px;
+    display: grid;
+    grid-template-columns: 26px 1fr;
+    gap: 8px;
+    padding: 9px;
+    border: 1px solid #b8d8cf;
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 3px 9px rgba(31, 41, 51, 0.05);
+    overflow: hidden;
+  }
+  .root-index {
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--root-soft);
+    color: var(--root);
+    font-weight: 850;
+    font-size: 13px;
+  }
+  .root-text {
+    height: 50px;
+    font-size: 11px;
+    line-height: 1.25;
+    font-weight: 800;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .root-children {
+    display: flex;
+    gap: 5px;
+    flex-wrap: nowrap;
+    margin-top: 7px;
+    overflow: hidden;
+  }
+  .root-children span {
+    max-width: 100%;
+    padding: 3px 6px;
+    border-radius: 999px;
+    background: #eef2f6;
+    color: var(--muted);
+    font-size: 9px;
+    line-height: 1.15;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .branch-wrap {
+    height: 430px;
+    margin-top: 14px;
+  }
+  .branch {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    height: 345px;
+  }
+  .branch::before {
+    content: "";
+    position: absolute;
+    left: 11%;
+    right: 11%;
+    top: 106px;
+    border-top: 3px solid #b9c6d3;
+  }
+  .branch-col {
+    position: relative;
+    padding: 0 4px;
+  }
+  .depth {
+    width: max-content;
+    margin: 0 auto 8px;
+    padding: 4px 11px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 850;
+  }
+  .focus-node {
+    position: relative;
+    min-height: 116px;
+    padding: 14px 14px 12px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background: #fff;
+    box-shadow: 0 10px 24px rgba(31, 41, 51, 0.09);
+    z-index: 1;
+  }
+  .node-type {
+    display: inline-block;
+    margin-bottom: 8px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 850;
+  }
+  .focus-text {
+    font-size: 18px;
+    line-height: 1.2;
+    font-weight: 850;
+  }
+  .fanout {
+    display: grid;
+    gap: 7px;
+    margin-top: 12px;
+  }
+  .child {
+    padding: 8px 10px;
+    border: 1px solid var(--line);
+    border-left: 5px solid #b9c6d3;
+    border-radius: 8px;
+    background: #fff;
+  }
+  .child.primary {
+    border-left-color: var(--accent);
+    background: #fbfdff;
+  }
+  .edge-label {
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 850;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .child-text {
+    margin-top: 3px;
+    font-size: 12px;
+    line-height: 1.18;
+    font-weight: 750;
+  }
+  .child-meta {
+    margin-top: 4px;
+    font-size: 10px;
+    color: var(--muted);
+    font-weight: 750;
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div>
+        <h1>Game Questionnaire</h1>
+        <div class="subtitle">Real question graph screenshot: root forest plus representative expanded branch</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><strong>14</strong><span>Root questions</span></div>
+        <div class="stat"><strong>91</strong><span>Questions</span></div>
+        <div class="stat"><strong>81</strong><span>Edges</span></div>
+        <div class="stat"><strong>0</strong><span>Conflicts</span></div>
+      </div>
+    </header>
+    <section class="overview">
+      <h2 class="section-title">Root-level forest overview</h2>
+      <div class="root-grid"><article class="root-card">
+      <div class="root-index">1</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain inferences of, references to, or depictions of violence, blood, or gory images? Th...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">2</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain pictures or sounds likely to be scary, horrifying, or disturbing? Please note that...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">3</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain inferences of, references to, or depictions of sexuality, sexual violence, suggest...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">4</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain gambling, simulations of casino gambling/bingo, or gambling themes? Please note th...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">5</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain any potentially offensive language? Please note that this question does not refer ...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">6</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain any reference to or use of drugs, alcohol, or tobacco? Please note that this quest...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">7</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain any bodily functions such as belching, flatulence, or vomiting when used for humor...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">8</div>
+      <div class="root-main">
+        <div class="root-text">Does the game include the purchase or sale of digital goods, cash rewards, gift cards, play-to-earn feat...</div>
+        <div class="root-children"><span>1 child node</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">9</div>
+      <div class="root-main">
+        <div class="root-text">Does the game natively allow users to interact or exchange content with other users through voice commun...</div>
+        <div class="root-children"><span>4 child nodes</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">10</div>
+      <div class="root-main">
+        <div class="root-text">Does the game share the user's current and precise physical location with other users?</div>
+        <div class="root-children"><span>No child question</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">11</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain any swastikas, other Nazi symbols or propaganda deemed unconstitutional in Germany?</div>
+        <div class="root-children"><span>No child question</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">12</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain any content that can substantially erode the national identity of the Republic of ...</div>
+        <div class="root-children"><span>No child question</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">13</div>
+      <div class="root-main">
+        <div class="root-text">Does the game advocate committing acts of terrorism?</div>
+        <div class="root-children"><span>No child question</span></div>
+      </div>
+    </article><article class="root-card">
+      <div class="root-index">14</div>
+      <div class="root-main">
+        <div class="root-text">Does the game contain realistic descriptions of crimes (e.g., robbery, kidnapping) or techniques that ca...</div>
+        <div class="root-children"><span>2 child nodes</span></div>
+      </div>
+    </article></div>
+    </section>
+    <section class="branch-wrap">
+      <h2 class="section-title">Representative deep branch with real option-triggered child questions</h2>
+      <div class="branch"><section class="branch-col">
+      <div class="depth">Depth 0</div>
+      <div class="focus-node">
+        <div class="node-type">radio</div>
+        <div class="focus-text">Does the game contain inferences of, references to, or depictions of sexuality, sexual violence, suggestiveness, dating games, revealing attire, or n...</div>
+      </div>
+      <div class="fanout"><div class="child primary">
+      <div class="edge-label">Yes</div>
+      <div class="child-text">Please select all that the game includes:</div>
+      <div class="child-meta">18 descendants</div>
+    </div></div>
+    </section><section class="branch-col">
+      <div class="depth">Depth 1</div>
+      <div class="focus-node">
+        <div class="node-type">checkbox</div>
+        <div class="focus-text">Please select all that the game includes:</div>
+      </div>
+      <div class="fanout"><div class="child primary">
+      <div class="edge-label">Nudity or Revealing Outfits</div>
+      <div class="child-text">Please select all that the game includes:</div>
+      <div class="child-meta">10 descendants</div>
+    </div><div class="child ">
+      <div class="edge-label">Sexual Activity - Includes both moving and st...</div>
+      <div class="child-text">How often do sexual acts occur?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Sexual Activity - Includes both moving and st...</div>
+      <div class="child-text">What is the duration of these scenes?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Sexual Activity - Includes both moving and st...</div>
+      <div class="child-text">How would you describe the depiction of these scenes? Please check all that apply.</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Sexual Activity - Includes both moving and st...</div>
+      <div class="child-text">Do any of these sex acts feature characters that appear to be younger than 18?</div>
+      <div class="child-meta">leaf</div>
+    </div></div>
+    </section><section class="branch-col">
+      <div class="depth">Depth 2</div>
+      <div class="focus-node">
+        <div class="node-type">checkbox</div>
+        <div class="focus-text">Please select all that the game includes:</div>
+      </div>
+      <div class="fanout"><div class="child primary">
+      <div class="edge-label">Nudity</div>
+      <div class="child-text">Please select all that the game includes:</div>
+      <div class="child-meta">5 descendants</div>
+    </div><div class="child ">
+      <div class="edge-label">Revealing Outfits</div>
+      <div class="child-text">How frequently are revealing outfits depicted?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Revealing Outfits</div>
+      <div class="child-text">Are these revealing outfits ever depicted in an erotic or provocative setting or context?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Revealing Outfits</div>
+      <div class="child-text">Do these outfits ever appear to be out-of-place, such as a bikini worn on the battlefield o...</div>
+      <div class="child-meta">leaf</div>
+    </div></div>
+    </section><section class="branch-col">
+      <div class="depth">Depth 3</div>
+      <div class="focus-node">
+        <div class="node-type">checkbox</div>
+        <div class="focus-text">Please select all that the game includes:</div>
+      </div>
+      <div class="fanout"><div class="child primary">
+      <div class="edge-label">Human Buttocks</div>
+      <div class="child-text">How frequently do the human buttocks appear?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Nipple-less Breasts or Breasts with Minimal C...</div>
+      <div class="child-text">How frequently do the nipple-less breasts appear?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Female Fantasy Creatures' Breasts, e.g., harp...</div>
+      <div class="child-text">How frequently do the fantasy creatures' breasts appear?</div>
+      <div class="child-meta">leaf</div>
+    </div><div class="child ">
+      <div class="edge-label">Female Human Breasts with Nipples</div>
+      <div class="child-text">How frequently do the female human breasts with nipples appear?</div>
+      <div class="child-meta">leaf</div>
+    </div></div>
+    </section></div>
+    </section>
+  </main>
+</body>
+</html>

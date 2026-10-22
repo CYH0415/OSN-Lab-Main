@@ -1,0 +1,22 @@
+Questionnaire Data Collection - Speaker Notes
+
+Slide 1 - Title
+Good [morning/afternoon]. Today I will present how we recovered the structure of the IARC rating questionnaire and how we collected samples for later modeling. The key point is that this questionnaire is not just a static list of questions. Many follow-up questions only appear after specific options are selected, so we first need to recover the hidden graph structure before we can design meaningful samples.
+
+Slide 2 - Recovering the Questionnaire Graph with DFS
+The first step is graph recovery. We start from multiple root questions and use a DFS-style traversal. For each visible question, we click each option and record whether new child questions appear. If a child question appears, we recursively apply the same process to that child. After finishing one branch, we backtrack and continue exploring other options. This gives us a question-option-child graph, rather than a flat question list.
+
+Slide 3 - Complete Game Tree
+This slide shows the recovered tree for the Game questionnaire. Each node represents a real question, and each edge represents an option that triggers a follow-up question. Since the full text would be too dense for one slide, the node labels are shortened to the first few words. The important takeaway is the shape of the structure: the Game questionnaire has many root questions, several medium-depth branches, and dense expansion around content-risk topics such as violence, sexuality, gambling, and in-game purchases.
+
+Slide 4 - Complete All Other Tree
+This is the recovered tree for All Other App Types. Compared with the Game tree, this questionnaire has a slightly different structure and more questions overall. We can see a broader set of branches related to app content, user-generated content, digital goods, and content sharing. Again, the purpose of this visualization is to show that the questionnaire is a conditional decision graph. The order and activation of questions depends on previous answers.
+
+Slide 5 - Depth-4 Question Expansion Example
+Here is a more focused local example from the All Other App Types tree. Instead of showing only one selected path, this slide shows the complete recovered gambling subtree through depth 4. The branch starts from the ratings-relevant content root, then enters the gambling question, then expands into the checkbox question. From there, all recovered option-triggered children are shown: gambling themes, playable bingo games, and playable casino or racetrack betting games. The two playable-game paths continue to depth 4 with monetary-reward and wagering follow-up questions. This illustrates why the graph view matters: one branch can contain both shallow leaves and deeper conditional paths.
+
+Slide 6 - Sample Collection Strategy
+After recovering the structure, we designed the sampling strategy. We excluded the Social tree from the main sampling target because it only has 12 questions and 24 options, and the rating signal is relatively limited. For the main dataset, we used four strategies. First, a baseline path selects low-risk answers to establish the minimum-rating behavior. Second, structural coverage prioritizes options that reveal child questions. Third, risk paths combine different risk types and severities to cover rating outcomes. Finally, gap filling adds targeted samples for low-frequency options.
+
+Slide 7 - Final Data Distribution
+The final dataset combines Game and All Other App Types. The label distribution covers the major ESRB ratings from Everyone to Adults Only 18+. This gives us a dataset that is not meant to simulate a natural user-answer distribution, but instead is designed to cover the questionnaire logic and support downstream multi-class modeling. The Social tree is excluded from the main training set because it contributes less structural and rating information.
